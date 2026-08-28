@@ -1,0 +1,4 @@
+interface:
+  display_name: "Prompt & Skill Instruction Authoring"
+  short_description: "Design precise prompts and skill instructions"
+  default_prompt: "Use $prompt-skill-authoring to design these instructions; if the deliverable is a Codex skill, pair it with $skill-creator."

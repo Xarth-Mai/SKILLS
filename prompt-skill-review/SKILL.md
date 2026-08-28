@@ -19,7 +19,7 @@ Evaluate whether existing instructions express the intended behavior with the mi
 ## Workflow
 
 1. Identify the intended outcome, instruction layer, target model or environment, and real boundaries.
-2. Inspect trigger/scope, decision value, target-state specification, specificity, workflow freedom, conflicts, repetition, examples, completion conditions, progressive disclosure, and dependency assumptions.
+2. Inspect trigger/scope, decision value, target-state specification, specificity, workflow freedom, conflicts, repetition, examples, completion conditions, progressive disclosure, and dependency assumptions. For every generation or style rule, verify that it leads with an executable target state and can guide the intended decision on its own. Retain an accompanying prohibition only when it independently protects a concrete boundary.
 3. Read [references/antipatterns.md](references/antipatterns.md) when a detailed diagnostic pass is useful.
 4. Report only findings with meaningful behavioral or maintenance impact.
 5. For each finding, state the location, behavioral impact, and smallest useful correction.

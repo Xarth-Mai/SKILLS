@@ -34,4 +34,6 @@ When editing existing instructions, preserve still-valid behavior and change onl
 
 ## Completion check
 
-Before delivery, verify that the scope is clear, instructions affect real decisions, open-ended work has useful decision criteria, fragile operations retain necessary invariants, completion or stopping conditions exist where needed, stable and dynamic content are separated, and every retained rule contributes distinct decision value rather than emphasis or decorative completeness.
+Before delivery, make every proposed generation or style instruction lead with the executable target behavior. Remove prohibitions, failure patterns, and negative examples when that target fully defines the decision. Retain a negative boundary only when it independently protects safety, permission, data truth, destructive effects, or another concrete invariant.
+
+Then verify that the scope is clear, instructions affect real decisions, open-ended work has useful decision criteria, fragile operations retain necessary invariants, completion or stopping conditions exist where needed, stable and dynamic content are separated, and every retained rule contributes distinct decision value rather than emphasis or decorative completeness.

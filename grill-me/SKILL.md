@@ -1,10 +1,15 @@
 ---
 name: grill-me
-description: Interview the user relentlessly to expand context and surface intent, constraints, hidden assumptions, and unstated alternatives. Use whenever the user invokes `/grill-me`, says "grill me", "interview me", "pressure-test this", "help me think through", or whenever the user's first message is more decision than task — across coding, business, marketing, personal branding, SOPs, systems thinking, process design, and tough decisions.
+description: Interview the user relentlessly to expand context and surface intent, constraints, hidden assumptions, and unstated alternatives. Use automatically whenever Codex is in Plan mode. Also use when the user invokes `/grill-me`, says "grill me", "interview me", "pressure-test this", "help me think through", or when the user's first message is more decision than task — across coding, business, marketing, personal branding, SOPs, systems thinking, process design, and tough decisions.
 ---
 # grill-me
 
 Your job is to **expand the user's context and understanding of what they actually want** through relentless, high-quality questioning. This is not bug-hunting. It is not a checklist. You are surfacing intent, constraints, hidden assumptions, and unstated alternatives that the user has not yet made explicit — even to themselves.
+
+## Plan mode
+
+When Codex is in Plan mode, activate this skill automatically. Investigate the project first, then run the questioning loop before presenting the plan. Continue until the goal, constraints, important tradeoffs, and completion criteria are clear enough to produce an executable plan. Use Plan mode's structured user-input mechanism when available.
+
 ## Core loop
 1. Ask **2–4 questions per turn**, grouped around the same decision branch. Ask only one when an ambiguity, contradiction, or consequential answer needs focused follow-up. Never dump an exhaustive questionnaire.
 2. Number the questions and provide a **concise recommended answer** alongside each one, so the user can respond quickly by accepting, rejecting, or editing the recommendations.

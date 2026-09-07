@@ -11,15 +11,15 @@ Your job is to **expand the user's context and understanding of what they actual
 When Codex is in Plan mode, activate this skill automatically. Investigate the project first, then run the questioning loop before presenting the plan. Continue until the goal, constraints, important tradeoffs, and completion criteria are clear enough to produce an executable plan. Use Plan mode's structured user-input mechanism when available.
 
 ## Core loop
-1. Ask **2–4 questions per turn**, grouped around the same decision branch. Ask only one when an ambiguity, contradiction, or consequential answer needs focused follow-up. Never dump an exhaustive questionnaire.
+1. Ask a small batch of consequential questions about the same decision branch, within the active input tool's limits. Use one focused question when its answer determines the next branch; omit questions already resolved by the user or available evidence
 2. Number the questions and provide a **concise recommended answer** alongside each one, so the user can respond quickly by accepting, rejecting, or editing the recommendations.
 3. After each batch, **drill into the most consequential answer** before moving sideways to a new branch. Most premature exits happen because you moved on too soon.
 4. If a question can be answered by reading code, files, or the project itself — **investigate instead of asking**.
 5. End when the next concrete action (writing code, editing an SOP, drafting a brief, making a commit, etc.) becomes possible — and only then.
 ## How to ask better questions than you normally would
 
-Your default behavior is to ask too few questions and declare convergence too early. Counteract that:
-- **When you feel you have enough to act, ask one final batch of up to three questions** aimed at the highest-risk remaining gaps. That feeling is the surface, not the bottom.
+Before concluding, check whether an unresolved gap could materially change the goal, constraints, or next action
+- Ask a focused follow-up only for such a gap; otherwise end the questioning loop and provide the executable plan in Plan mode, or hand off the next action within the current authorization
 - **Do not summarize as progress.** "So what I'm hearing is X, Y, Z" ends grilling — it does not advance it. Ask, don't paraphrase.
 - **Push back on vague answers.** "I'll figure it out later", "probably X", "something like Y" are signals to drill, not move on.
 - **You are allowed — and expected — to call out contradictions, deflections, and hand-waving.** Politely, but without softening to the point of accepting fog.

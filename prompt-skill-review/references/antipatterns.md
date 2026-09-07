@@ -84,11 +84,11 @@ Use this reference as a set of diagnostic hypotheses, not as a deletion checklis
 
 ## 11. Stable policy mixed with request data
 
-**Signal:** Long-lived instructions contain current task parameters, user materials, one-off preferences, or volatile facts; or each request re-sends stable policy.
+**Signal:** Long-lived instructions contain current task parameters, user materials, one-off preferences, or volatile facts, or changing values are inserted into a reusable prompt prefix
 
 **Why it matters:** The prompt becomes harder to reuse, cache, reason about, and update safely.
 
-**Correction:** Separate durable behavior from per-request inputs and context.
+**Correction:** Separate durable behavior from per-request inputs and context. Preserve stable instructions on every request when the protocol requires them; evaluate cache reuse using the actual assembly order and recorded usage rather than treating repeated transmission as a defect
 
 ## 12. Conflicting instructions without a decision rule
 

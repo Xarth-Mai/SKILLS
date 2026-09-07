@@ -30,6 +30,12 @@ When creating a new Codex skill, use `$skill-creator` to establish the canonical
 
 When updating an existing skill, preserve its supported structure, metadata, policy, dependencies, and unaffected behavior according to `$skill-creator`; use this skill only for the instruction-design changes actually requested.
 
+## Discovery and shared knowledge
+
+Keep routing text about intent categories and real exclusions; assess its precision separately from behavioral guidance. Put execution mechanics in the body or the selected reference. When several modes share a stable concept, keep that concept in one maintained reference and place only their actual differences in mode-specific files; add no language or mode directories until the task needs them
+
+For changing external facts, retain an authoritative source and the question it should answer rather than duplicating a cached manual. Keep verified version or environment constraints where reproducibility requires them
+
 ## Keep governance canonical
 
 Keep `$skill-creator`'s structural rules in that canonical skill and reference it when the workflow genuinely depends on those mechanics.

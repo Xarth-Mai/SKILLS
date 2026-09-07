@@ -1,6 +1,6 @@
 # Instruction Design Antipatterns
 
-Use this reference for diagnosis, not as content to paste into a generation prompt. The purpose is to identify concrete causes of poor decisions and make minimal corrections.
+Use this reference as a set of diagnostic hypotheses, not as a deletion checklist or content to paste into a generation prompt. A signal needs a concrete contract mismatch, demonstrated impact, or target-model evidence before it supports a fix. Explicit user preferences, real boundaries, useful context, and working recaps remain valid even when they match a pattern
 
 ## 1. Failure-world dominance ("pink elephant")
 
@@ -80,7 +80,7 @@ Use this reference for diagnosis, not as content to paste into a generation prom
 
 **Why it matters:** Duplicates increase context cost and drift when the source of truth changes.
 
-**Correction:** Keep the rule at the authoritative layer unless the local task has an additional non-obvious requirement that changes behavior.
+**Correction:** Resolve contradictions at the authoritative owner and remove copies that cause drift. Preserve a local contract detail or deliberate recap that serves the task; harmless overlap alone is not a finding
 
 ## 11. Stable policy mixed with request data
 
@@ -161,6 +161,30 @@ Use this reference for diagnosis, not as content to paste into a generation prom
 **Why it matters:** Instruction improvement has silently changed the user's intent or authorization model.
 
 **Correction:** Preserve original scope and permissions. Treat any expansion as a separate user decision.
+
+## 21. Tool description differs from the implementation
+
+**Signal:** Parameters, side effects, failure modes, or claimed outputs differ from the callable tool, or the description omits a distinction needed to choose it safely
+
+**Why it matters:** The model can follow the description correctly and still perform the wrong action or overclaim what the result proves
+
+**Correction:** Align the contract with observed implementation behavior. Add the missing semantics; move substantial tutorials and unrelated conversational steering to their instruction owner
+
+## 22. Model-specific advice without current evidence
+
+**Signal:** A cleanup treats a model habit, API feature, or migration recommendation as universal across providers and runtimes
+
+**Why it matters:** Removing a working guard or fallback can regress the target environment even when the advice applies elsewhere
+
+**Correction:** Verify the actual target and supporting documentation or behavior. Preserve required version pins, business limits, and exact interfaces; flag uncertain behavioral claims for a before-and-after probe
+
+## 23. Deterministic work delegated to model judgment
+
+**Signal:** The model computes fixed arithmetic, validates a schema, or executes a fully determined transformation that existing code can perform
+
+**Why it matters:** Repeated inference adds variability and cost without providing a necessary decision
+
+**Correction:** Reuse deterministic code for that operation while preserving the model's actual interpretation task. Verify runtime support before replacing a prompt or fallback with an API feature
 
 ## Review priority
 

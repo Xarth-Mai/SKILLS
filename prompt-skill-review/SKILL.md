@@ -13,6 +13,7 @@ Evaluate whether existing instructions express the intended behavior with the mi
 - Rank findings by behavioral impact: misrouting, scope expansion, permission mistakes, conflicting decisions, context contamination, fragile operations, and maintainability matter more than cosmetic phrasing.
 - Give open-ended tasks enough decision criteria and autonomy; give genuinely fragile or high-risk operations the invariants, authorization points, and stopping conditions they require.
 - Keep diagnosis separate from generation instructions. A review may name failure patterns without copying a catalog of those patterns into the rewritten prompt.
+- Check for historical negations that name retired steps, agents, tools, or artifacts. Confirm retirement against current callers and contracts, then delete the obsolete enumeration and retain the current positive action; preserve negative boundaries that still prevent concrete routing, safety, permission, data-truth, or artifact-integrity errors
 - Prefer the smallest change that explains and fixes an observed problem.
 - For Codex skills, preserve progressive disclosure and defer canonical skill mechanics to the installed `$skill-creator` when it is relevant and available.
 

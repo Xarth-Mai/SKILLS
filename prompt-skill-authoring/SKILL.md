@@ -14,6 +14,7 @@ Design instructions that are concise, decision-relevant, executable, and maintai
 - Match specificity to risk. Give open-ended work room to adapt; preserve fixed steps or exact parameters only when deviation creates a concrete correctness, safety, permission, or reliability problem.
 - Prefer intent-level reasoning guidance over prescribing a chain of thought. Tell the model what deserves careful reasoning and what constitutes a good decision, rather than dictating the reasoning steps it must follow.
 - Prefer specifications of desired behavior. Keep unavoidable hard boundaries brief and operational, including the appropriate fallback or stopping behavior when useful.
+- Describe the current workflow directly. Remove names and repeated prohibitions of retired steps, agents, tools, and artifacts once they no longer belong to the workflow; retain a concise negative boundary only when it still prevents a concrete routing, safety, permission, data-truth, or artifact-integrity error
 - Separate stable instructions from per-request data and parameters.
 - Treat every rule as a cost: keep it only if removing it could change a meaningful decision or observable result.
 - Refine instructions from real failures with the smallest rule that explains the demonstrated cause; keep revisions proportional to evidence from actual use.

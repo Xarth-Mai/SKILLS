@@ -1,4 +1,4 @@
 interface:
   display_name: "Prompt & Skill Review"
-  short_description: "Audit prompts and skills for instruction flaws"
-  default_prompt: "Use $prompt-skill-review to audit these instructions and propose the smallest high-impact fixes."
+  short_description: "Audit requirement coverage and instruction reliability"
+  default_prompt: "Use $prompt-skill-review to audit these instructions against their intended requirements, propose evidence-backed fixes, and separate static findings from measured behavioral results."

@@ -1,43 +1,33 @@
-# Companion Use with `$skill-creator`
+# Companion use with skill-creator
 
-Read this reference only when the deliverable is a Codex skill or an update to one.
+Use this reference when the artifact is a Skill. Keep instruction design separate from host-specific packaging.
 
 ## Responsibility split
 
-`$skill-creator` is authoritative for Codex skill mechanics, including:
+Use an available `skill-creator` for the host's supported anatomy, discovery metadata, UI metadata, initialization, packaging, and structural validation. This authoring Skill owns task contracts, requirement expression, semantic preservation, trust boundaries, and behavioral evaluation design. Host rules and actual tool schemas remain authoritative.
 
-- skill anatomy and supported files;
-- naming and discovery behavior;
-- `description` and invocation policy requirements;
-- `agents/openai.yaml` conventions;
-- initialization and resource layout;
-- progressive disclosure mechanics;
-- validation and forward-testing guidance;
-- packaging expectations.
+If `skill-creator` is unavailable, preserve the existing valid structure and consult the target host's current documentation when needed. Complete the instruction work and distinguish checks actually performed from unavailable host validation. Do not assume an invocation, validator, or dependency exists.
 
-`$prompt-skill-authoring` adds instruction-design judgment inside that framework. Use it to decide:
+## Entrypoint and references
 
-- which information actually changes the agent's decisions;
-- what belongs in the always-loaded instruction surface versus conditional context;
-- how much procedural control the task risk requires;
-- how to express outcomes, decision criteria, boundaries, and stopping conditions;
-- whether an example materially resolves ambiguity;
-- whether a new rule fixes a demonstrated failure or merely adds speculative complexity.
+Keep the entrypoint focused on when the Skill applies, its objective, essential boundaries, working method, and deliverable. Place substantial examples, detailed procedures, and research in local references with explicit read conditions. Every mandatory invariant needed on all executions belongs in the entrypoint or another layer guaranteed to be loaded.
 
-## Normal handoff
+Keep references reachable from `SKILL.md` and usable when the Skill directory is installed alone. An optional sibling Skill may help; an undeclared sibling file must not become a required dependency. Load only the selected reference rather than the entire library.
 
-When creating a new Codex skill, use `$skill-creator` to establish the canonical structure and required metadata. Apply this skill while writing or refactoring the instruction content. Return to `$skill-creator` for its validation and packaging workflow.
+Make `description` distinguish the actual intent from neighboring tasks. Keep execution details in the body. Align `agents/openai.yaml` with the description, real dependencies, and invocation policy; preserve existing permissions.
 
-When updating an existing skill, preserve its supported structure, metadata, policy, dependencies, and unaffected behavior according to `$skill-creator`; use this skill only for the instruction-design changes actually requested.
+## Validate two different things
 
-## Discovery and shared knowledge
+1. **Discovery and packaging:** valid frontmatter and names, existing paths, compatible metadata, supported tools, and positive/negative trigger examples.
+2. **Instruction behavior:** whether invoking the Skill produces a correct prompt or audit, and whether the resulting prompt performs well on its own target task.
 
-Keep routing text about intent categories and real exclusions; assess its precision separately from behavioral guidance. Put execution mechanics in the body or the selected reference. When several modes share a stable concept, keep that concept in one maintained reference and place only their actual differences in mode-specific files; add no language or mode directories until the task needs them
+A valid package does not demonstrate correct routing. A well-written generated prompt does not demonstrate downstream adherence. Test these layers separately when the runtime is available.
 
-For changing external facts, retain an authoritative source and the question it should answer rather than duplicating a cached manual. Keep verified version or environment constraints where reproducibility requires them
+## Canonical references
 
-## Keep governance canonical
+Checked 2026-09-26; verify current host details before a format migration.
 
-Keep `$skill-creator`'s structural rules in that canonical skill and reference it when the workflow genuinely depends on those mechanics.
+- [Agent Skills specification](https://agentskills.io/specification): portable structure, metadata, local resources, and progressive disclosure.
+- [OpenAI Skills documentation](https://developers.openai.com/codex/skills): host activation, creator workflow, and optional UI metadata.
 
-If a project-specific skill needs a non-obvious invariant that happens to resemble a general skill-creation rule, state the project invariant in terms of the concrete behavior it protects rather than reproducing generic creator guidance.
+These are packaging references, not evidence that one phrasing achieves a higher adherence rate.

@@ -1,199 +1,78 @@
-# Instruction Design Antipatterns
+# Diagnostic patterns, not deletion rules
 
-Use this reference as a set of diagnostic hypotheses, not as a deletion checklist or content to paste into a generation prompt. A signal needs a concrete contract mismatch, demonstrated impact, or target-model evidence before it supports a fix. Explicit user preferences, real boundaries, useful context, and working recaps remain valid even when they match a pattern
+A pattern suggests a question. Support a finding with the intended contract, an actual conflict, a representative failure, or scoped target-model evidence. Preserve useful context and user choices. “This resembles an antipattern” is not a behavioral diagnosis.
 
-## 1. Failure-world dominance ("pink elephant")
+## High-impact checks
 
-**Signal:** The instruction surface spends substantial context describing outputs, phrases, structures, or behaviors the model is supposed to avoid.
+| Pattern | Establish before flagging | Smallest useful repair |
+| --- | --- | --- |
+| Lost requirement or scope drift | An obligation, condition, alternative, exception, or permission changed | Restore the original logic and trace it to its owner |
+| Goal lost behind exclusions | Output can obey all bans while failing to perform the task | Define useful completion and required positive content |
+| Ambiguous consequential boundary | Plausible interpretations produce materially different outputs | Define the intended scope from evidence; label unresolved assumptions |
+| Unsatisfiable or conflicting requirements | The same applicable output/action must and must not have a property | Resolve at the real owner or expose the conflict; do not invent a priority |
+| Misleading example | An example violates a rule or teaches an unintended mandatory pattern | Replace or label it; retain exact syntax where the contract depends on it |
+| Wrong authority or source leakage | User data, retrieved text, or a tool result is treated as an instruction with permissions it lacks | Separate roles/data, align runtime enforcement, and test the boundary |
+| Tool or schema mismatch | Claimed arguments, side effects, success evidence, or output differ from the actual interface | Correct the contract or caller; retain necessary implementation limits |
+| Failure response breaks output protocol | Missing input triggers prose in JSON-only output, invented fields, or fabricated facts | Use an agreed schema state or host error path |
+| Fragile workflow lacks an invariant | Side effects, retries, approvals, or dependencies have a concrete failure path | Add the invariant, authorization gate, idempotency rule, or bounded stop |
+| Flexible work has a needless fixed procedure | The sequence blocks valid approaches or relies on false assumptions | Specify outcome and decision criteria; retain genuinely required order |
+| Context assembly hides requirements | Required rules or evidence are omitted, truncated, overwritten, or never loaded | Fix assembly/routing before tuning prose |
+| Deterministic validation replaced by confidence | Existing exact checks are bypassed by a model's self-approval | Run the actual check; reserve semantic judgment for meaning |
+| Semantic checking replaced by a proxy | Digit/keyword scan is treated as proof of meaning-based compliance | Keep the scan as a signal and add grounded semantic review |
+| Unbounded or destructive repair | Revision repeats side effects, removes valid information, or lacks a budget | Target failed requirements, preserve valid regions, and recheck dependents |
+| Unsupported performance verdict | A static review, small cherry-picked sample, self-score, or altered rubric is called an adherence improvement | Separate evidence levels and run a controlled comparison |
+| Skill discovery/dependency defect | Description misroutes a real neighboring request or a required resource is unavailable | Narrow routing or make the dependency explicit and supported |
 
-**Why it matters:** Those patterns become salient context and can crowd out the representation of the desired result. The prompt also becomes harder to maintain as the blacklist grows.
+## Checks that require nuance
 
-**Correction:** Specify the target behavior and observable success criteria. Keep a hard prohibition only when the boundary itself is important; make it narrow and operational.
+### Negation and “pink elephant” claims
 
-## 2. Negative-pattern catalog
+A prohibition may be the clearest expression of a real constraint. The existence of an unwanted word in the prompt does not prove that the model will output it. Inspect ambiguity, contradiction, example consistency, and actual failures instead of asserting that “mentioning it primes it.”
 
-**Signal:** A long list enumerates undesirable wording, styles, mistakes, or examples.
+Add the desired action when missing. Keep a necessary exclusion. Detailed negative examples can be useful for discriminating a boundary; keep them clearly labeled and verify their effect. Move a large diagnostic catalog out of a generation prompt when it is irrelevant or demonstrably harmful, not simply because it is negative.
 
-**Why it matters:** The list teaches a detailed distribution of unwanted patterns while giving relatively little information about the preferred distribution.
+### Repetition and prompt length
 
-**Correction:** Replace the catalog with a compact specification of the desired style, structure, evidence standard, or decision rule. Keep only independently necessary hard boundaries.
+Conflicting duplicates and obsolete definitions are defects. Harmless overlap, required local contracts, and deliberate reminders are not automatically defects. A controlled repetition study reports benefits in some non-reasoning settings; neither deleting every repeat nor duplicating every prompt is justified. Measure results and input cost before claiming an optimization.
 
-## 3. Boundary without useful next action
+Likewise, shorter is not synonymous with clearer or more reliable. Remove text whose decision value is absent or superseded; preserve grounding, examples, and invariants that are doing work. Check runtime truncation and attention-sensitive placement on the target tasks.
 
-**Signal:** The prompt states a limit but does not define what the agent should do when the limit is reached.
+### Order, emphasis, and authority
 
-**Why it matters:** The model must invent its own fallback, often inconsistently.
+A hard-to-easy ordering result concerns estimated constraint difficulty in tested settings. It does not establish a global ranking of business importance or instruction authority. Test ordering of independent requirements; preserve dependencies. Typography is not a conflict-resolution policy.
 
-**Correction:** Add the appropriate behavior at the boundary: narrow the claim, request authorization, use a safe fallback, surface uncertainty, or stop.
+### Roles, reasoning, and examples
 
-## 4. Repeated emphasis instead of better instruction design
+Decorative credentials are not evidence of expertise. Functional roles, tone, and user-requested characterization can still serve the task. Do not delete them based on factual-QA results from unrelated models.
 
-**Signal:** The same requirement appears multiple times with stronger typography or imperative language.
+Reasoning-model guidance does not invalidate required operational steps or a requested user-facing explanation. Review what must be observable, not an imagined private reasoning transcript.
 
-**Why it matters:** Repetition consumes context without clarifying the decision and can create accidental priority conflicts.
+Few-shot examples can reduce ambiguity, but may also introduce incorrect facts, copied wording, or conflicting output shapes. Review each against all applicable requirements. Do not demand a fixed number of examples or claim that examples always win.
 
-**Correction:** State the rule once, make its trigger and expected behavior explicit, and define priority only when a real conflict exists.
+### Retired workflow rules
 
-## 5. Abstract quality labels without decision criteria
+Confirm retirement against current callers, contracts, and available history. Replace obsolete catalogs with the current intended behavior. Preserve a concise exclusion when it still prevents a real routing, permission, data-truth, or artifact-integrity failure. An unfamiliar rule is not necessarily obsolete.
 
-**Signal:** Requirements rely on terms such as high quality, professional, deep, natural, robust, or elegant without defining what those terms mean for the task.
+## Severity and evidence
 
-**Why it matters:** The model cannot reliably infer which observable tradeoffs should change.
+Use severity for consequences: a scope/permission violation or an impossible required contract can block deployment; a localized quality loss may need a focused fix; cosmetic differences need no finding. Do not turn this into a numeric score without a defined scoring model.
 
-**Correction:** Translate important quality goals into inspectable properties or selection criteria relevant to the domain.
+Label evidence independently:
 
-## 6. Over-specified open workflow
+- **Confirmed static defect:** directly supported by conflicting instructions, missing required data/resources, or a contract mismatch.
+- **Observed failure:** reproduced or recorded in the target execution, with input/settings and output/trace available.
+- **Hypothesis:** plausible model-dependent risk awaiting a comparative test.
 
-**Signal:** A flexible task is forced through a long, fixed sequence even though several approaches could succeed.
+Only include a hypothesis when it is useful and specific enough to test. A failure occurrence is not, by itself, proof that a particular phrase caused it.
 
-**Why it matters:** The procedure can block useful adaptation and encodes assumptions that are not true for every request.
+## Primary-source anchors
 
-**Correction:** Specify the result, key invariants, and decision criteria. Preserve fixed sequencing only where order has concrete semantics.
+Checked 2026-09-26. These sources motivate checks, not automatic findings:
 
-## 7. Under-specified fragile workflow
-
-**Signal:** A workflow with irreversible changes, permissions, retries, external side effects, or ordering constraints is described only by a broad objective.
-
-**Why it matters:** Excess autonomy can cause duplicate mutations, unsafe retries, authorization mistakes, or inconsistent state.
-
-**Correction:** Preserve the non-obvious invariant, authorization point, idempotency behavior, or stopping condition that protects correctness.
-
-## 8. Single failure generalized into a universal rule
-
-**Signal:** One incident or narrow example becomes a global requirement for all future tasks.
-
-**Why it matters:** The patch can degrade unrelated use cases and gradually turn the prompt into a historical accident log.
-
-**Correction:** Identify the general decision error behind the failure and add the smallest rule that addresses that class only when evidence supports it.
-
-## 9. Speculative edge-case accumulation
-
-**Signal:** The prompt anticipates many hypothetical cases that have not occurred and are not required by the task's risk profile.
-
-**Why it matters:** The core objective becomes harder to discover and new rules can interact unpredictably.
-
-**Correction:** Keep real invariants. Add new edge handling when realistic usage or concrete risk demonstrates a need.
-
-## 10. Duplicate guarantees from a higher layer
-
-**Signal:** A local prompt repeats policies, tool contracts, generic platform behavior, or stable rules already enforced reliably elsewhere.
-
-**Why it matters:** Duplicates increase context cost and drift when the source of truth changes.
-
-**Correction:** Resolve contradictions at the authoritative owner and remove copies that cause drift. Preserve a local contract detail or deliberate recap that serves the task; harmless overlap alone is not a finding
-
-## 11. Stable policy mixed with request data
-
-**Signal:** Long-lived instructions contain current task parameters, user materials, one-off preferences, or volatile facts, or changing values are inserted into a reusable prompt prefix
-
-**Why it matters:** The prompt becomes harder to reuse, cache, reason about, and update safely.
-
-**Correction:** Separate durable behavior from per-request inputs and context. Preserve stable instructions on every request when the protocol requires them; evaluate cache reuse using the actual assembly order and recorded usage rather than treating repeated transmission as a defect
-
-## 12. Conflicting instructions without a decision rule
-
-**Signal:** Two reasonable requirements can pull in different directions, but the prompt does not define which consideration wins or how to trade them off.
-
-**Why it matters:** Behavior becomes dependent on incidental wording or position.
-
-**Correction:** State the relevant priority or decision criterion only for the conflict that actually exists.
-
-## 13. Example that adds no information
-
-**Signal:** An example merely restates an already-clear rule or schema.
-
-**Why it matters:** It spends context without reducing ambiguity and may accidentally overfit the model to incidental details.
-
-**Correction:** Remove it. Keep examples that demonstrate a subtle boundary, house style, or genuinely ambiguous pattern.
-
-## 14. Example contaminates the target distribution
-
-**Signal:** A negative example includes detailed unwanted phrasing or structure that the generation prompt otherwise would not need to mention.
-
-**Why it matters:** The example increases salience of the pattern being discouraged.
-
-**Correction:** Prefer a positive representative example or move negative diagnostics into a review-only context.
-
-## 15. Missing completion or stopping condition
-
-**Signal:** Iterative search, revision, retry, or external action has no meaningful condition for ending.
-
-**Why it matters:** The agent may stop too early, continue without benefit, or repeat costly actions.
-
-**Correction:** Define an observable completion condition proportional to the task's cost and risk.
-
-## 16. Overbroad Codex skill description
-
-**Signal:** The skill description uses catchall wording, exhaustive capability lists, or broad neighboring domains to maximize invocation.
-
-**Why it matters:** Discovery becomes noisy and the skill is injected into unrelated tasks.
-
-**Correction:** Describe the actual capability and the situations in which it applies; add an exclusion only when it prevents a likely misroute.
-
-## 17. `SKILL.md` carries all conditional detail
-
-**Signal:** Mode-specific procedures, schemas, large examples, and occasional edge guidance all live in the always-loaded entrypoint.
-
-**Why it matters:** Every invocation pays the context cost and important routing becomes harder to see.
-
-**Correction:** Keep shared purpose, essential constraints, and routing in `SKILL.md`; move substantial conditional material to focused references and deterministic repeated logic to scripts when warranted.
-
-## 18. Cross-skill or tool dependency assumed without a contract
-
-**Signal:** Instructions depend on another skill, tool, resource, or environment without establishing that it is available or explaining the responsibility split.
-
-**Why it matters:** The workflow becomes brittle and may silently fail in a different target environment.
-
-**Correction:** Refer to another skill or tool only when the workflow genuinely requires it and the target environment provides it. Define which component owns which concern.
-
-## 19. Review contaminates the generation prompt
-
-**Signal:** The final rewrite copies the review's catalog of failure patterns into the instructions used for generation.
-
-**Why it matters:** Diagnostics become generation context, increasing salience and instruction load.
-
-**Correction:** Keep the diagnosis in the review output; rewrite the production prompt as a compact specification of desired behavior and necessary boundaries.
-
-## 20. Rewrite expands scope or permission
-
-**Signal:** A cleanup introduces new external actions, broader authority, a different product choice, or extra responsibilities that were not part of the original task.
-
-**Why it matters:** Instruction improvement has silently changed the user's intent or authorization model.
-
-**Correction:** Preserve original scope and permissions. Treat any expansion as a separate user decision.
-
-## 21. Tool description differs from the implementation
-
-**Signal:** Parameters, side effects, failure modes, or claimed outputs differ from the callable tool, or the description omits a distinction needed to choose it safely
-
-**Why it matters:** The model can follow the description correctly and still perform the wrong action or overclaim what the result proves
-
-**Correction:** Align the contract with observed implementation behavior. Add the missing semantics; move substantial tutorials and unrelated conversational steering to their instruction owner
-
-## 22. Model-specific advice without current evidence
-
-**Signal:** A cleanup treats a model habit, API feature, or migration recommendation as universal across providers and runtimes
-
-**Why it matters:** Removing a working guard or fallback can regress the target environment even when the advice applies elsewhere
-
-**Correction:** Verify the actual target and supporting documentation or behavior. Preserve required version pins, business limits, and exact interfaces; flag uncertain behavioral claims for a before-and-after probe
-
-## 23. Deterministic work delegated to model judgment
-
-**Signal:** The model computes fixed arithmetic, validates a schema, or executes a fully determined transformation that existing code can perform
-
-**Why it matters:** Repeated inference adds variability and cost without providing a necessary decision
-
-**Correction:** Reuse deterministic code for that operation while preserving the model's actual interpretation task. Verify runtime support before replacing a prompt or fallback with an API feature
-
-## Review priority
-
-Prioritize findings in this order when applicable:
-
-1. scope, permission, or destructive-action errors;
-2. trigger and routing errors;
-3. conflicting or misleading decision rules;
-4. context contamination that changes generated behavior;
-5. missing invariants or stopping conditions in fragile workflows;
-6. unnecessary complexity and maintenance cost;
-7. cosmetic wording issues.
+- [InFoBench, Findings ACL 2024](https://aclanthology.org/2024.findings-acl.772/): decomposed requirements; evaluation does not prove a list-format advantage.
+- [What Prompts Don't Say, Findings ACL 2026](https://aclanthology.org/2026.findings-acl.441/): implicit requirements can be fragile, but adding every requirement does not consistently help.
+- [Order Matters, Findings ACL 2025](https://aclanthology.org/2025.findings-acl.646/): position effects under a scoped experimental setup.
+- [Prompt Repetition, 2025 preprint](https://arxiv.org/abs/2512.14982): a counterexample to blanket anti-repetition advice, not a universal agent recipe.
+- [Persona study, Findings EMNLP 2024](https://aclanthology.org/2024.findings-emnlp.888/): objective QA findings, not a ban on creative roles.
+- [IHEval, 2025 preprint](https://arxiv.org/abs/2502.08745): conflicts between sources and instruction priorities.
+- [OpenAI reasoning guidance](https://developers.openai.com/api/docs/guides/reasoning-best-practices): model-specific starting points, not cross-provider laws.

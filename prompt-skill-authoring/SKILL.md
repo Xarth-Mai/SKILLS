@@ -1,6 +1,6 @@
 ---
 name: prompt-skill-authoring
-description: Write, refactor, or optimize LLM prompts, agent instructions, and Skill instruction content for reliable instruction following. Use when the deliverable is new or revised instructions; use prompt-skill-review for diagnosis-first audits. For Skill packaging, pair with skill-creator when available.
+description: Write, refactor, or optimize LLM prompts, agent instructions, and Skill instruction content for reliable instruction following, including contract-preserving rewrites of legacy instructions. Use when the deliverable is new or revised instructions; use prompt-skill-review for diagnosis-first audits and collection triage. For Skill packaging, pair with skill-creator when available.
 ---
 
 # Prompt & Skill Instruction Authoring
@@ -18,6 +18,7 @@ Produce instructions that preserve the intended task and make correct execution 
 ## Load only the reference needed
 
 - For nontrivial prompt design, request assembly, tools, or refactoring, read [the authoring guide](references/prompt-authoring.md).
+- For legacy rewrites or a batch migration, also read [contract-preserving refactoring](references/legacy-refactoring.md). Existing prompts need not follow this Skill's style; preserve their valid contract rather than normalize their appearance.
 - For Skill deliverables, read [the skill-creator companion](references/skill-creator-companion.md). An unavailable companion is not a reason to invent its rules or abandon instruction editing.
 - For research-backed recommendations or disputed techniques, read [the evidence notes](references/evidence.md). Keep their literature discussion out of the generated production prompt.
 
@@ -35,11 +36,15 @@ Identify the objective, applicable mandatory requirements, preferences, input as
 
 Separate independently testable obligations; keep `if`, `unless`, `and`, `or`, quantifiers, and scope attached. Verify feasibility and resolve actual conflicts at their authoritative owner. Do not silently weaken a requirement or invent an arbitrary priority to make the contract satisfiable.
 
+An old prompt is evidence of intent, not the sole authority for it. Reconcile it with current requirements, callers, and known failures. Keep uncertain provisions visible until their purpose is resolved; neither all historical wording nor all historical outputs are automatically correct.
+
 ### 3. Write the smallest sufficient specification
 
 State the task and desired result. Group the relevant content, format, evidence, and action requirements so none depends on a vague modifier or emphatic wording alone. Define ambiguous terms only as far as the task needs; examples and definitions must preserve the original boundary.
 
 Use direct actions, observable criteria, and one authoritative definition per concept. Keep open-ended reasoning flexible; prescribe operation order only when it protects a dependency, approval, or other invariant. Select examples, delimiters, constraint ordering, and reminders for a specific need rather than as compulsory decorations.
+
+For an authorized structural rewrite, use the source material and recovered contract together. Reorganize substantially when useful; minimize unrelated semantic change, not changed lines. Trace every retained obligation into the candidate and every new obligation back to an authorized source. Keep experimental optimizations separate from confirmed defect fixes.
 
 ### 4. Assign enforcement to the right layer
 
@@ -50,5 +55,7 @@ For repeated or consequential work, specify evidence-bearing acceptance checks a
 ### 5. Verify and deliver
 
 Check requirement coverage, semantic preservation, contradictory examples, variable/schema consistency, resource availability, output-only requirements, and completion/failure behavior. For behavioral claims, compare baseline and candidate on representative held-out inputs with the same model/settings and budget. Evaluate actual outputs and tool traces, not the elegance of the prompt. Distinguish first-attempt success from success after repair.
+
+For migrations, retain a reproducible baseline, evaluate previously successful cases as well as failures, and check every affected caller of shared instructions. Keep candidate approval separate from deployment; use bounded batches and an explicit rollback point. Static semantic checks do not establish behavioral equivalence.
 
 Return the complete usable prompt or requested patch. Keep assumptions, rationale, research, and evaluation notes outside the production instructions. Respect requests for artifact-only output. State what was checked and what remains untested when reporting results; “statically checked” does not mean “empirically better.”

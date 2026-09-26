@@ -14,7 +14,7 @@
 
 核心目标是任务有效完成且所有适用的强制要求同时满足。正向表述、否定约束、示例、重复和约束排序都服务于这个目标，不作为脱离模型与任务的固定教条。
 
-研究依据见 [Evidence and limits](./prompt-skill-authoring/references/evidence.md)；比较方法见 [Evaluation protocol](./prompt-skill-review/references/evaluation.md)。附带的 [回归用例](./prompt-skill-review/assets/regression-cases.jsonl) 是开发探针，不是已运行的 benchmark。静态检查通过不代表下游模型遵循率已提升。
+研究依据见 [Evidence and limits](./prompt-skill-authoring/references/evidence.md)；比较方法见 [Evaluation protocol](./prompt-skill-review/references/evaluation.md)。附带的 [回归用例](./prompt-skill-review/references/regression-cases.jsonl) 是开发探针，不是已运行的 benchmark。静态检查通过不代表下游模型遵循率已提升
 
 ## 第三方 Skills
 

@@ -1,6 +1,6 @@
 ---
 name: prompt-skill-review
-description: Audit, diagnose, compare, or triage collections of existing LLM prompts, agent instructions, and Skill instruction content for instruction-following failures. Use for evidence-backed findings, legacy-migration decisions, semantic-preservation checks, minimal fixes, and evaluation plans; use prompt-skill-authoring to produce new instructions or structural rewrite candidates.
+description: Audit, diagnose, compare, or triage existing LLM prompts, agent instructions, and Skill instruction content, individually or in collections, for instruction-following failures. Use for evidence-backed findings, legacy-migration decisions, semantic-preservation checks, minimal fixes, and evaluation plans; use prompt-skill-authoring to produce new instructions or structural rewrite candidates.
 ---
 
 # Prompt & Skill Review
@@ -20,7 +20,7 @@ Assess whether the instructions preserve the intended task and reliably produce 
 - Read [diagnostic patterns](references/antipatterns.md) for a detailed audit or a disputed wording change.
 - Read [legacy and collection migration](references/legacy-migration.md) for a heterogeneous prompt collection, unclear historical rules, or a decision between patching and rewriting.
 - Read [the evaluation protocol](references/evaluation.md) when comparing candidates, assessing consequential changes, or claiming a reliability improvement.
-- Use [regression cases](assets/regression-cases.jsonl) and [migration cases](assets/legacy-migration-cases.jsonl) as development probes for these authoring/review Skills. They are not an executed benchmark or a substitute for held-out target tasks.
+- Use [regression cases](references/regression-cases.jsonl) and [migration cases](references/legacy-migration-cases.jsonl) as development probes for these authoring/review Skills. They are not an executed benchmark or a substitute for held-out target tasks.
 
 ## Workflow
 

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Design Engineering"
+  short_description: "Polish web UI, interactions, motion, and accessibility"
+  default_prompt: "Use $design-engineering to improve or review this interface, preserve its product identity and behavior, choose purposeful interactions, and verify the result. Keep review-only requests read-only."
+policy:
+  allow_implicit_invocation: true

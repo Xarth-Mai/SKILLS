@@ -8,6 +8,7 @@
 - [prompt-skill-authoring](./prompt-skill-authoring)：编写、重构提示词与 Skill 指令；以完整保留需求、明确执行契约和可验证的指令遵循为目标。
 - [prompt-skill-review](./prompt-skill-review)：审查需求覆盖、冲突、权限与运行时契约，提出有证据的修正，并区分静态检查与实测改进。
 - [design-engineering](./design-engineering)：为 Web UI 提供视觉层级、排版、交互反馈、克制动效和可访问性规则，覆盖实现与审查；保留项目品牌和现有技术栈。
+- [spec-lifecycle](./spec-lifecycle)：用 Markdown + Git 管理技术规格与设计决策，覆盖提案、实现、否决和归档，并以实际验证证据同步状态与代码
 
 ## 提示词 Skills 的配合方式
 

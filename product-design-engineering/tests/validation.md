@@ -59,3 +59,22 @@ For another comparison, copy the original fixture separately per variant, provid
 The old `design-engineering` directory was removed only after byte-comparing it to the preserved baseline and validating the new package. README now uses the new entrypoint and source links; no compatibility Skill or second automatic entry was added. Existing unrelated Skills, repository instructions, branch, and Git index were not changed
 
 To undo this uncommitted migration, preserve any subsequent edits first, recover the old package and README from the baseline revision, and remove only this new package and its matching user-level symlink. No commit, push, publication, or real project acceptance was performed
+
+## Second-pass overlay integration — 2026-10-14
+
+Baseline: `464bd84d8929dace8aae4a9889f3c3add29c06c0`; source: the user-supplied `product-design-engineering-update.zip`. This section records the subsequent overlay integration; the earlier migration and behavioral results above describe the previous revision
+
+Applied the replacement entrypoint, four new references and ten design-diagnosis probes. Retained existing references, tests, agent metadata, attribution and license files. The archive-root `UPGRADE.md` was read as application guidance and was not added to the repository
+
+Preserved C1–C8 through the revised entrypoint and retained references. Added cognitive/visual diagnosis, current-revision checks and platform-specific evidence guidance. Static review restored the original explicit product/content/API preservation and conflict-reporting rule; the supplied overlay otherwise remains intact
+
+| Layer | Result | Evidence and scope |
+| --- | --- | --- |
+| Package | PASS | `python /home/lzzz/.codex/skills/.system/skill-creator/scripts/quick_validate.py product-design-engineering`; frontmatter, naming and unfinished-placeholder checks |
+| Local integrity | PASS | Python assertions verified 38 package-local Markdown links and standalone containment, plus byte-identical preservation of 29 tracked files outside the four integration targets; `git diff --check` passed |
+| Static review | PASS, scoped | `prompt-skill-review` comparison against the baseline and supplied overlay found no remaining consequential static conflict after restoring the preservation rule; this does not establish behavioral equivalence or improvement |
+| Installed path | PASS, scoped | Existing `~/.agents/skills/product-design-engineering` symlink resolves to this checkout; host discovery reload and implicit routing were NOT RUN |
+| Behavioral comparison | NOT RUN | Existing E1–E8/legacy cases and new D1–D10 probes were not executed for this overlay; previous browser/model results do not validate the new entrypoint |
+| External provenance | NOT RUN | New research/source-check claims originate in the supplied archive; external pages and license claims were not independently reverified during integration |
+
+The committed baseline is the rollback source for the replaced entrypoint; preserve any later edits before restoring it or removing only the five resources introduced by this overlay

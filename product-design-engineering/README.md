@@ -22,7 +22,11 @@
 
 - [SKILL.md](SKILL.md)：任务路由、工作方法和交付边界
 - [来源映射](references/source-map.md)：研究版本、许可证据和改编取舍
+- [认知与操作负担](references/cognitive-ergonomics.md)、[视觉诊断](references/experience-craft.md)：信息理解、操作路径与视觉细节
+- [平台证据](references/platform-evidence.md)：Web、原生、小程序和 CLI 的适用边界
+- [研究补充](references/research-addendum.md)：本次更新包提供的来源与证据限制
 - [测试场景](tests/scenarios.md)：独立验收契约与行为探针
+- [设计诊断探针](tests/design-diagnosis-probes.md)：复杂设置、账目、旧截图和跨平台等十个评估场景
 - [验证记录](tests/validation.md)：迁移说明、执行结果及证据限制
 
 新增内容为独立编写；继承的 Emil 改编保留原 MIT 通知。静态校验、有限行为对照与真实用户体验是不同证据层级，具体完成范围以验证记录为准

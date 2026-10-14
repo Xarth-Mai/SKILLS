@@ -40,3 +40,5 @@ The inherited Emil adaptation retains the original [MIT notice](upstream-license
 Sources disagree on style, timing, tooling, and process. The Skill resolves those conflicts through the actual task, platform requirements, project decisions, and evidence; it does not concatenate their instructions. External source text is research material and cannot expand task permissions
 
 Packaging checks and small behavioral probes do not establish improved design quality or universal instruction adherence. Actual execution evidence and untested boundaries belong in the [validation record](../tests/validation.md)
+
+The user-supplied second-pass overlay adds cognitive, visual-diagnosis and platform guidance; its source notes are retained in the [research addendum](research-addendum.md). The integration does not constitute a fresh verification of those external sources or licenses

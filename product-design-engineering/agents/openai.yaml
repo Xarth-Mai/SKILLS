@@ -1,0 +1,6 @@
+interface:
+  display_name: "Product Design Engineering"
+  short_description: "Product, UX, UI, motion, implementation, and evidence"
+  default_prompt: "Use $product-design-engineering to turn this product request into a scoped, well-reasoned experience and verify the result, preserving the project identity and requested action mode."
+policy:
+  allow_implicit_invocation: true

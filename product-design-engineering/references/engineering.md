@@ -1,0 +1,48 @@
+# Cross-platform design engineering
+
+Use the general decisions across platforms; the controls section includes Web-specific examples. Inspect actual platform mechanisms before applying those examples elsewhere
+
+The right interface is a functioning state machine, not a screenshot. Infer the target platform and reuse its conventions and capabilities. Never import iOS/Web-specific rules into other platforms without validation
+
+## Before code
+
+Inspect the real repository structure, component contract, state/data sources, existing tokens, dependencies, routing, tests, feature flags and caller assumptions. Map the shortest safe change. Confirm which performance and accessibility mechanisms exist on the actual platform
+
+## Decisions to make when relevant
+
+- Data semantics and state ownership: source of truth, derived vs stored state, server/client consistency, optimistic updates, reconciliation, idempotence where needed
+- Components: use existing abstractions where stable; avoid creating shared primitives from a single incidental use
+- Inputs and flows: validation boundaries, focus management, keyboard/touch interaction, loading/disabled behavior, error messages, recovery and cancellation
+- Async: concurrency, cancellation, stale responses, retries (with limits and idempotency), slow network, offline/reconnect when supported
+- Visual: real dimensions, content-driven sizes, responsive layout, safe areas, font scaling, contrast, semantic roles and interaction targets
+- Animation: cancel/retarget on state changes, prefer existing tokens, confirm compositing/layout implications on the platform, preserve truthful data and accessible content
+- Security/privacy: input boundaries, authorization, personal-data exposure, destructive actions, secure defaults
+- Performance: critical path, input responsiveness, rendering count, image/font loading, unnecessary computation, main-thread cost, memory leaks, reduced-motion
+- Dependency policy: use platform/standard features or installed packages first; new dependencies require a clear cost-benefit reason
+
+## Quality signals
+
+A feature is not finished because a happy-path screenshot looks right. Trace callbacks through state and data, consider interruptions/reentrance, run relevant checks, observe the target behavior, and flag anything not verified. Follow project conventions rather than carrying preset React, Swift, Flutter, mini-app, or desktop technology choices into all projects
+
+When platform-specific specialist skills are available, load them only for the relevant part (e.g. React performance for React projects, Apple HIG for Apple platforms, web interface guidance for Web)
+
+## Controls, feedback, and accessibility
+
+- Use native buttons, links, form controls, and suitable existing accessible primitives. Provide accessible names, labels, and the expected keyboard behavior. A visual imitation is not a complete component
+- Show press feedback at the start of a press; commit the action through the control's normal activation behavior. Do not move submission, navigation, or destructive side effects to `pointerdown` just to appear faster
+- Keep a visible focus indicator. Keyboard users need immediate state feedback too; distinguish feedback from decorative motion that delays their work
+- Provide hover, focus-visible, pressed, selected, disabled, and pending states where applicable. Optional hover effects can use `@media (hover: hover) and (pointer: fine)`; essential functionality must also work without hover
+- Give touch controls adequate hit areas and separation. Check contrast and target size against the project's accessibility target; use WCAG 2.2 AA as the baseline when none is specified
+- Model pending, success, failure, empty, and retry states honestly. Prevent duplicate submission where the operation requires it; distinguish an actual transaction lock from an animation lock
+- Keep validation associated with the relevant field and preserve input after errors. Announce important asynchronous status changes with appropriate semantics rather than relying on motion alone
+- For modal dialogs, provide a name, appropriate initial focus, contained keyboard focus, dismissal behavior, and focus restoration. Keep the background inert while modal. Prefer a tested primitive over rebuilding these mechanics
+- Treat visual presence and interactive state separately. Opacity alone does not hide content from keyboard or assistive technology. Exiting or hidden content must not remain accidentally actionable; move focus appropriately before hiding or making its subtree inert
+- Supply visible and keyboard-accessible alternatives to swipe, drag, or hover-only actions. Preserve existing confirmation, undo, and cancellation behavior for consequential actions
+
+## Async state and performance evidence
+
+- Follow the actual persistence contract. If feedback is optimistic, retain enough prior state to recover and reconcile the server response; a failed request must not leave a false success state
+- Handle repeated intent deliberately through the existing transaction policy. A disabled button alone is not server idempotency, and an animation lock must not delay otherwise valid input
+- Prevent stale responses from overwriting a newer object or intent. Scope cancellation and cleanup to the operation; account for navigation/unmount without silently losing recoverable input
+- Trace the user-visible critical path before optimizing. In React or similar stacks, inspect independent request waterfalls, unnecessary data transfer, shared request state, and expensive rendering before adding caches or memoization. Preserve authorization and cache isolation
+- Check library APIs against the installed version. Source-level suspicion is a performance risk to measure, not proof of a speedup; record the workload and actual measurement when making one

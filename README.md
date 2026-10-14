@@ -7,7 +7,7 @@
 - [grill-me](./grill-me)：通过连续追问澄清目标、约束、隐含假设与替代方案，并在 Plan mode 自动启用。
 - [prompt-skill-authoring](./prompt-skill-authoring)：编写、重构提示词与 Skill 指令；以完整保留需求、明确执行契约和可验证的指令遵循为目标。
 - [prompt-skill-review](./prompt-skill-review)：审查需求覆盖、冲突、权限与运行时契约，提出有证据的修正，并区分静态检查与实测改进。
-- [design-engineering](./design-engineering)：为 Web UI 提供视觉层级、排版、交互反馈、克制动效和可访问性规则，覆盖实现与审查；保留项目品牌和现有技术栈。
+- [product-design-engineering](./product-design-engineering)：从产品需求、UX、视觉与动效到工程实现和验收，主动补齐重要遗漏并给出决策依据；跨平台核心、Web 专项深度，替代原 `design-engineering`
 - [spec-lifecycle](./spec-lifecycle)：用 Markdown + Git 管理技术规格与设计决策，覆盖提案、实现、否决和归档，并以实际验证证据同步状态与代码
 
 ## 提示词 Skills 的配合方式
@@ -22,4 +22,10 @@
 
 - [i-have-adhd](https://github.com/ayghri/i-have-adhd/tree/main/skills/i-have-adhd)：让输出更适合 ADHD 阅读与执行，突出下一步、编号步骤、明确时间并保持进度可见。
 - [Ponytail](https://github.com/DietrichGebert/ponytail)：优先采用 YAGNI、标准库和原生能力，推动最小且正确的实现。
-- [Emil Kowalski — Skills for Designers and Engineers](https://github.com/emilkowalski/skills)：`design-engineering` 的选摘整理来源；这里只维护适配版本和来源说明，不保存原套件。
+- [Emil Kowalski — Skills for Designers and Engineers](https://github.com/emilkowalski/skills)：`product-design-engineering` 中继承的 Web 设计工程规则来源；保留 MIT 署名和改编边界，不保存原套件
+
+## 产品设计工程资料
+
+`product-design-engineering` 同时参考 [Product Manager Skills](https://github.com/deanpeters/Product-Manager-Skills)、[Superpowers](https://github.com/obra/superpowers)、[Wondel Skills](https://github.com/wondelai/skills)、[Anthropic frontend-design](https://github.com/anthropics/skills/tree/main/skills/frontend-design)、[UI UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)、[VS Code design-philosophy](https://github.com/microsoft/vscode/tree/main/.github/skills/design-philosophy) 和 [Vercel Agent Skills](https://github.com/vercel-labs/agent-skills)，这些是资料来源，不是安装依赖
+
+具体版本、许可证据、吸收内容与未采用规则见 [来源映射](./product-design-engineering/references/source-map.md)；实际检查与未验证边界见 [验证记录](./product-design-engineering/tests/validation.md)

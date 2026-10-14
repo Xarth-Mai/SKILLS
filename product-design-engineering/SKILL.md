@@ -21,6 +21,8 @@ Discover consequential omissions the user may not know to mention, then resolve 
 
 Inspect the relevant project instructions, current interface or supplied artifact, shared components/tokens, data contracts, dependencies, and available tests. Limit the initial inspection to the requested surface and its consumers
 
+Review each material feature through four connected lenses: the user goal, wording the user can understand, the actual action path, and the technical constraints that determine truthful behavior. Resolve mismatches before polishing presentation.
+
 Identify the user, situation, desired outcome, present obstacle, platform/input methods, and constraints. Separate what the user said, what evidence establishes, and what you assume. User interviews, satisfaction, measured performance, and research results must come from actual evidence
 
 For missing details, first check the project. Decide minor reversible choices and state meaningful assumptions briefly. Ask only when the unresolved answer materially changes scope, correctness, authorization, or an expensive decision; offer a concrete recommendation

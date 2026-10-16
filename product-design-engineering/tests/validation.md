@@ -147,3 +147,32 @@ Raw snapshots, `tasks.md`, `rubric.md`, actual outputs, `results.md`, input hash
 Expected benefit: make necessity, composition and event decisions explicit before Build, reducing dependence on discovering them during Review. The paired design outputs do not measure that expected benefit. Existing historical results above apply only to their stated revisions
 
 No commit, push, deployment, installation/configuration change or unrelated Skill edit was performed
+
+## Tokens, interaction and Agent UI integration — 2026-10-16
+
+Baseline: `07db0cd2257310516b8daf0ef86f66d36744e928`; initial worktree clean. Scope: the approved plan to enhance this general-purpose Skill only, with no NianYu changes, component migration, model A/B or device acceptance
+
+Extended existing visual, motion and engineering owners; added a conditional Agent UI reference and G1–G9 probe specifications. Preserved discovery metadata, permissions, prior references/tests and inherited attribution. Updated the Skill README and source record without creating another Skill or a parallel token/interaction reference hierarchy
+
+| Contract | Owner and review evidence |
+| --- | --- |
+| A1: Requirements versus defaults | Entrypoint separates applicable correctness/accessibility/product constraints from optional presets and visual treatments; existing scope and adaptive workflow retained |
+| A2: Semantic visual system | Visual reference maps roles to existing tokens, preserves essential boundaries/contrast and limits theme work to supported themes |
+| A3: Motion choice and provenance | Motion reference retains no-motion/easing options and existing tokens, records four verified source definitions, and requires engine-specific tuning rather than universal mappings |
+| A4: Input and compression | Engineering reference covers composition before app shortcuts, single-action key routing, empty suggestions, draft recovery and container-based accessible compression |
+| A5: Conversation behavior | Agent reference distinguishes persistent reading intent from cooldown, handles reflow/resume and associates approval/results with actual call identity and authoritative state |
+| A6: Scope and evidence | Sources are version-pinned research, v2 analysis remains distinct, no code/assets imported, and G1–G9 separate raw task/fixture inputs from evaluator expectations |
+
+| Check | Result | Evidence and limit |
+| --- | --- | --- |
+| Package | PASS | `python /home/lzzz/.codex/skills/.system/skill-creator/scripts/quick_validate.py product-design-engineering` returned `Skill is valid!` |
+| Local integrity | PASS | Inline Python assertions checked 61 package-local links including heading anchors, package containment, permitted changed/new paths, final newlines/trailing whitespace, empty index and byte-identical preservation of 34 unrelated tracked files |
+| Source facts | PASS, scoped | Local checkout at `02d021fceaf2a907f9e63a8125621bdda1b85d60`; Python compared all four spring-table rows with exported definitions and verified pinned source paths. Inspected theme, AGENTS/v1 guide, selected interaction examples, v2 version/radius sections and MIT license; provenance details are in the source map |
+| Whitespace | PASS | `git diff --check`; new files also included in Python whitespace checks |
+| Semantic review | PASS, scoped | Same-agent `prompt-skill-review` pass over the full diff and new references/probes checked A1–A6, existing obligations, conditional routing, brand neutrality, version conflicts, platform boundaries and truthful validation claims; no outstanding high-impact static findings |
+| Behavioral comparison and discovery | NOT RUN | G1–G9 and historical probes were not executed; no model A/B or host discovery reload. Static consistency does not demonstrate improved adherence or design quality |
+| Runtime acceptance | NOT RUN | No upstream dependency installation/build, browser/device acceptance or NianYu edits; upstream production and proprietary-app reconstruction claims were not independently validated |
+
+Initial shell network lookup failed at DNS resolution; a read-only remote query and temporary checkout then succeeded with sandbox escalation. The temporary checkout at `/tmp/open-claude-ui-design-reference` is research evidence, not a Skill dependency
+
+No commit, push, installation/configuration change or publication was performed. Existing linked installations may read this checkout on subsequent loads; no claim of host rediscovery or product runtime validation is made

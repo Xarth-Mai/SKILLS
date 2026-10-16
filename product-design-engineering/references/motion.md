@@ -64,6 +64,21 @@ Apply these details when the task includes dragging, swiping, or a gesture-drive
 - When momentum is intended, choose the endpoint from the projected direction of travel and hand velocity to the settling animation. Test the actual library's behavior instead of assuming every spring preserves velocity
 - Use bounded resistance and an understandable return at limits when useful. Re-grabbing or reversing a moving surface should start where it is now. Also test cancellation and the non-gesture alternative
 
+## Optional spring reference and scroll edges
+
+Choose intent first: immediate state acknowledgement may need no movement; a timed reveal can use easing; a released drag or interruptible positional transition may benefit from a spring. Reuse existing motion tokens before considering these examples from the inspected Framer Motion source
+
+| Upstream identifier | Stiffness | Damping | Mass | Candidate use to evaluate, not a required mapping |
+| --- | --- | --- | --- | --- |
+| `SPRING_BOUNCY` | 600 | 30 | 1.0 | Small expressive feedback where overshoot is welcome |
+| `SPRING_SNAPPY` | 320 | 28 | 1.0 | Compact positional reveals where settling remains unobtrusive |
+| `SPRING_GENTLE` | 380 | 18 | 1.0 | Deliberately elastic feedback; the name does not mean low bounce |
+| `SPRING_HEAVY_SNAP` | 1200 | 80 | 0.1 | Damped settling after direct manipulation, subject to gesture testing |
+
+These numbers are source definitions, not measured guarantees of duration, overshoot or perceived quality. The source's AGENTS table disagrees with several definitions; use the [pinned source record](source-map.md#open-claude-ui-selective-integration--2026-10-16). Confirm the installed engine's units, initial velocity and rest thresholds, then observe actual travel, reversal, repeated activation and reduced motion. Do not translate these values mechanically to another engine or add Framer Motion just to use them
+
+A scroll-edge fade can indicate hidden overflow when the surface benefits from that cue. Show it only at edges with more content, update it after content/container resize, and avoid obscuring text, focus indicators or controls. A simple gradient or no mask can be sufficient; a seven-stop mask is an optional treatment, not a quality gate. Use the platform's supported rendering mechanism with a readable fallback; fading does not solve [conversation scroll ownership](agent-ui.md)
+
 ## Performance and preference fallbacks
 
 - Prefer animating `transform` and `opacity` for movement and fading, but verify the actual rendering path. Neither a CSS property nor an animation library guarantees compositor-only execution in every situation

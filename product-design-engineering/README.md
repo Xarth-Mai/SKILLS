@@ -26,6 +26,8 @@
 - [来源映射](references/source-map.md)：研究版本、许可证据和改编取舍
 - [认知与操作负担](references/cognitive-ergonomics.md)、[视觉诊断](references/experience-craft.md)：信息理解、操作路径与视觉细节
 - [平台证据](references/platform-evidence.md)：Web、原生、小程序和 CLI 的适用边界
+- [视觉与 Tokens](references/visual.md)、[动效](references/motion.md)、[工程交互](references/engineering.md)：语义选择、可选弹簧参数、IME 和容器自适应，保留项目自身约定
+- [Agent UI](references/agent-ui.md)：仅在对话或 Agent 产品中按需加载，覆盖滚动归属、流式消息、授权和执行状态
 - [研究补充](references/research-addendum.md)：本次更新包提供的来源与证据限制
 - [问题类型与成熟方案](references/problem-families-and-prior-art.md)：按需识别模式、检查反例与适用条件
 - [模式复用探针](tests/pattern-reuse-probes.md)：症状驱动任务、测试环境和独立验收条件，尚未执行
@@ -33,5 +35,6 @@
 - [设计诊断探针](tests/design-diagnosis-probes.md)：复杂设置、账目、旧截图和跨平台等十个评估场景
 - [可预防缺陷探针](tests/preventable-defects-probes.md)：实现前的信息取舍、光学布局与动效事件决策，执行状态见验证记录
 - [验证记录](tests/validation.md)：迁移说明、执行结果及证据限制
+- [Agent UI 与输入探针](tests/agent-ui-probes.md)：品牌保留、IME、流式滚动、状态与跨平台场景，尚未执行
 
 新增内容为独立编写；继承的 Emil 改编保留原 MIT 通知。静态校验、有限行为对照与真实用户体验是不同证据层级，具体完成范围以验证记录为准

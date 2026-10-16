@@ -39,6 +39,15 @@ When platform-specific specialist skills are available, load them only for the r
 - Treat visual presence and interactive state separately. Opacity alone does not hide content from keyboard or assistive technology. Exiting or hidden content must not remain accidentally actionable; move focus appropriately before hiding or making its subtree inert
 - Supply visible and keyboard-accessible alternatives to swipe, drag, or hover-only actions. Preserve existing confirmation, undo, and cancellation behavior for consequential actions
 
+## Input coordination and responsive controls
+
+- For submit-on-key inputs, let IME composition own candidate-selection keys before handling application shortcuts or suggestion menus. In Web implementations inspect composition lifecycle and the event's composition signal; legacy key-code fallbacks are compatibility measures to verify on target browsers, not a portable input API. Test the commit key and the next intentional submit separately, including mobile keyboard behavior
+- When suggestions are active, route selection, dismissal and submission through the existing control contract so one key cannot both choose a suggestion and send. Preserve the product's newline and Tab behavior; handle empty results and retain the draft and references after failed submission. Add mentions or slash commands only when requested by the product
+- Use roving focus only for composite widgets whose interaction pattern calls for it, with appropriate roles, arrow navigation and entry/exit behavior. Ordinary independent controls retain normal Tab navigation. Prefer the project's accessible primitive and check dynamic/disabled items and focus restoration
+- Compress toolbars by available container space and content needs: reduce optional labels or spacing, group secondary actions into an accessible overflow menu, or wrap where appropriate. Keep primary actions, status meaning, accessible names and touch targets usable. Choose breakpoints from actual overflow with long translations and enlarged text, not copied desktop widths; use platform equivalents where container queries are unavailable
+
+For conversation-specific scroll and execution states, load [Agent UI](agent-ui.md); these general input rules also apply outside chat
+
 ## Async state and performance evidence
 
 - Follow the actual persistence contract. If feedback is optimistic, retain enough prior state to recover and reconcile the server response; a failed request must not leave a false success state

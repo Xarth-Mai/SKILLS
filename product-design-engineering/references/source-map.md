@@ -42,3 +42,27 @@ Sources disagree on style, timing, tooling, and process. The Skill resolves thos
 Packaging checks and small behavioral probes do not establish improved design quality or universal instruction adherence. Actual execution evidence and untested boundaries belong in the [validation record](../tests/validation.md)
 
 The user-supplied second-pass overlay adds cognitive, visual-diagnosis and platform guidance; its source notes are retained in the [research addendum](research-addendum.md). The integration does not constitute a fresh verification of those external sources or licenses
+
+## Open Claude UI selective integration — 2026-10-16
+
+Inspected Caho1/open-claude-ui at commit `02d021fceaf2a907f9e63a8125621bdda1b85d60` through a temporary local checkout; no upstream install, build or runtime execution was performed. This is a third-party reconstruction, not an official Anthropic design specification or independent verification of its production/reverse-engineering claims
+
+| Pinned source | Evidence and adaptation |
+| --- | --- |
+| [Motion source](https://github.com/Caho1/open-claude-ui/blob/02d021fceaf2a907f9e63a8125621bdda1b85d60/code-examples/ClaudeMotionPresets.ts) | Read the four exported spring definitions; record their numbers as optional Framer Motion tuning inputs, not measured timing/overshoot guarantees |
+| [Theme source](https://github.com/Caho1/open-claude-ui/blob/02d021fceaf2a907f9e63a8125621bdda1b85d60/code-examples/cds-theme.css) | Read semantic aliases, theme surfaces and radius definitions; derive role-based selection without adopting the palette |
+| [AGENTS.md](https://github.com/Caho1/open-claude-ui/blob/02d021fceaf2a907f9e63a8125621bdda1b85d60/AGENTS.md) and [v1 AI Agent guide](https://github.com/Caho1/open-claude-ui/blob/02d021fceaf2a907f9e63a8125621bdda1b85d60/docs/v1/08-AI-Agent-%E5%89%8D%E7%AB%AF-UI-%E4%B8%8E%E5%8A%A8%E6%95%88%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97.md) | Inspected relevant token, motion and interaction sections as research material; omit fixed brand rules, blanket easing/border bans and upstream build gates |
+| [Scroll Hook](https://github.com/Caho1/open-claude-ui/blob/02d021fceaf2a907f9e63a8125621bdda1b85d60/code-examples/useClaudeScrollPinning.ts) and [Rich composer](https://github.com/Caho1/open-claude-ui/blob/02d021fceaf2a907f9e63a8125621bdda1b85d60/code-examples/RichComposerWithMentions.tsx) | Inspected follow-state/cooldown logic and IME-before-menu-before-submit ordering; specify observable outcomes without importing Hooks/components |
+| [Scroll fade](https://github.com/Caho1/open-claude-ui/blob/02d021fceaf2a907f9e63a8125621bdda1b85d60/code-examples/ScrollFadeContainer.tsx) and [Responsive bar](https://github.com/Caho1/open-claude-ui/blob/02d021fceaf2a907f9e63a8125621bdda1b85d60/code-examples/ContainerResponsiveBar.tsx) | Inspected edge masking and container-width compression; retain optional cues and essential-action access rather than copying stops or breakpoints |
+| [v2 boundary](https://github.com/Caho1/open-claude-ui/blob/02d021fceaf2a907f9e63a8125621bdda1b85d60/docs/v2/01-%E7%BB%BC%E8%BF%B0%E4%B8%8E%E7%89%88%E6%9C%AC%E8%BE%B9%E7%95%8C.md) and [v2 comparison](https://github.com/Caho1/open-claude-ui/blob/02d021fceaf2a907f9e63a8125621bdda1b85d60/docs/v2/03-%E6%9E%B6%E6%9E%84%E9%87%8D%E6%9E%84%E4%B8%8E%E5%AF%B9%E6%AF%94%E5%88%86%E6%9E%90.md) | Inspected version boundary and density/radius comparison; keep these analysis claims separate from code-examples definitions |
+| [License](https://github.com/Caho1/open-claude-ui/blob/02d021fceaf2a907f9e63a8125621bdda1b85d60/LICENSE) | MIT, copyright 2026 Caho1; independently authored guidance and a small factual parameter table only, no upstream implementation, prose blocks, fonts, audio or other assets bundled |
+
+### Resolved source differences
+
+- `SPRING_SNAPPY` is 320/28/1.0 in the exported source definition and 600/30/0.6 in AGENTS.md, ordered as stiffness/damping/mass. Bouncy and Gentle also differ; the runtime guide records the actual exported definitions. Names and prose descriptions are not behavioral measurements
+- The theme's light Surface 0–3 definitions are `#f5f5f3`, `#fcfcfb`, `#ffffff`, `#ffffff`; the AGENTS table uses different names and values. Neither palette is promoted into this Skill, and four surface roles need not mean four distinct colors
+- The theme defines a 20px composer radius; v2 analysis describes 12px compact and 14px comfortable variants. The analysis identifies its own desktop-version context; this Skill neither merges those values into one normative scale nor claims to have verified the proprietary application
+
+Preserve project requirements, applicable platform/accessibility behavior and existing mechanisms when adapting these ideas. Upstream source proves what that example defines, not what all products should do. Agent lifecycle and recovery rules are independent synthesis of this Skill's existing state/authorization boundaries, not claims that every upstream card implements them
+
+If a later task imports code, substantial prose or assets, inspect the particular artifact's provenance and retain applicable notices; the repository license is not a blanket verification of third-party asset rights. This integration adds no runtime dependency or required network read during ordinary Skill use

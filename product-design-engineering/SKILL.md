@@ -74,6 +74,8 @@ Include these decisions in the existing design contract when needed; Review veri
 
 Choose the relevant guidance before implementation:
 
+Treat correctness, applicable accessibility, responsive operability and explicit product/brand constraints as requirements. Semantic surface/radius scales and motion presets are recommended starting points subordinate to existing project conventions; glass, glow, elastic motion and multi-agent views are scenario choices. Reference examples do not impose a new theme, animation library or feature set
+
 | Concern | Reference |
 | --- | --- |
 | Scope, journeys, navigation, recovery, acceptance | [Product and UX](references/product-ux.md) |
@@ -82,6 +84,7 @@ Choose the relevant guidance before implementation:
 | Optical alignment, purposeful surfaces, visual diagnosis and design review | [Experience craft](references/experience-craft.md) |
 | Easing, springs, gestures, retargeting, chart animation | [Motion](references/motion.md) |
 | State, controls, accessibility, async behavior, performance | [Engineering](references/engineering.md) |
+| Chat, streaming, composer coordination, tool approval and agent activity | [Agent UI](references/agent-ui.md), only for relevant conversation or agent-product tasks |
 | Web/native/mini-app evidence and realistic validation boundaries | [Platform evidence](references/platform-evidence.md) |
 | Risk-based functional, adverse-content and interaction verification | [Verification](references/verification.md) |
 
@@ -127,4 +130,4 @@ When explicitly improving this Skill, convert real failures into reusable rules 
 
 Keep product-specific taste in its project; promote only generalizable principles. Do not automatically write global memory or rewrite other Skills during normal application work.
 
-For provenance and licensing, consult [Source map](references/source-map.md) and [Research addendum](references/research-addendum.md); for evaluation, use [Scenarios](tests/scenarios.md), [Design diagnosis probes](tests/design-diagnosis-probes.md), [Pattern reuse probes](tests/pattern-reuse-probes.md), [Preventable defects probes](tests/preventable-defects-probes.md), and the existing [validation record](tests/validation.md). These are maintenance resources, not required reads for every ordinary task
+For provenance and licensing, consult [Source map](references/source-map.md) and [Research addendum](references/research-addendum.md); for evaluation, use [Scenarios](tests/scenarios.md), [Design diagnosis probes](tests/design-diagnosis-probes.md), [Pattern reuse probes](tests/pattern-reuse-probes.md), [Preventable defects probes](tests/preventable-defects-probes.md), [Agent UI probes](tests/agent-ui-probes.md), and the existing [validation record](tests/validation.md). These are maintenance resources, not required reads for every ordinary task

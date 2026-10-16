@@ -1,6 +1,6 @@
 # Platform-aware design and acceptance evidence
 
-A product principle can transfer across platforms while a component API, event model, styling feature or screenshot cannot. Use this reference whenever applying Web-first guidance to a non-Web runtime or reviewing a UI without physical access to its target.
+Use when adapting guidance across runtimes or reviewing a UI with limited target access. Preserve the product goal while verifying the target's APIs, input, styling, and rendering behavior
 
 ## Three questions before choosing an implementation
 
@@ -20,7 +20,7 @@ Start with the runtime's own navigation patterns, typography/scaling, safe areas
 
 ## WeChat mini programs and similar hosted mini-apps
 
-Use platform rules as **conditional guidance only when that runtime is in scope**; this Skill remains cross-platform.
+Apply this section when the target is WeChat or a similar hosted mini-app
 
 - Confirm project root and effective source paths; distinguish source compilation from a mapped HTML approximation. Respect WXML/WXSS component/event capabilities rather than assuming direct DOM access.
 - Check what the WeChat **native navigation bar/tab bar** owns, and what color, border and layout controls are actually configurable. Avoid replacing native bars with custom ones solely for decorative styling.
@@ -32,7 +32,7 @@ Use platform rules as **conditional guidance only when that runtime is in scope*
 
 ## CLI and non-graphical tools
 
-User experience still includes clear state, recoverable errors, discoverable commands, consistent terminology, input safety, progress during slow operations, completion status and accessible output. Do not force cards, charts, pointers or visual motion into a CLI.
+Design CLI experiences around clear state, recoverable errors, discoverable commands, consistent terminology, input safety, useful progress, completion status, and accessible output
 
 ## Evidence ladder (state what you achieved)
 

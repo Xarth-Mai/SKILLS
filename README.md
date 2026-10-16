@@ -14,7 +14,7 @@
 
 写作或重构时使用 `$prompt-skill-authoring`；诊断、审查或比较现有指令时使用 `$prompt-skill-review`。两者可独立安装，Skill 格式相关工作可配合可用的 `skill-creator`。
 
-核心目标是任务有效完成且所有适用的强制要求同时满足。正向表述、否定约束、示例、重复和约束排序都服务于这个目标，不作为脱离模型与任务的固定教条。
+核心目标是任务有效完成且所有适用的强制要求同时满足。默认使用具体、高信息密度的正向行为定义；每段塑造行为、提供判断依据或规定必要边界。清理冗余否定、防御性免责声明和重复约束，保留必要排除及其条件。人格提示词连接感知、情绪、动机与行动
 
 研究依据见 [Evidence and limits](./prompt-skill-authoring/references/evidence.md)；比较方法见 [Evaluation protocol](./prompt-skill-review/references/evaluation.md)。附带的 [回归用例](./prompt-skill-review/references/regression-cases.jsonl) 是开发探针，不是已运行的 benchmark。静态检查通过不代表下游模型遵循率已提升。
 

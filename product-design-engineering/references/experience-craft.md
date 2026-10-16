@@ -1,6 +1,6 @@
 # Visual diagnosis and experience craft
 
-Use for screens described as generic, cluttered, empty, misaligned, flat, heavy, or "functionally correct but not good enough". Do not equate elegance with more white space, more animation, uniform cards, or imitation of a platform showcase.
+Use for visual hierarchy, density, alignment, and product-expression problems. Evaluate composition against the intended reading order, task, and product character
 
 ## Diagnose the visual reading order
 
@@ -8,7 +8,7 @@ At the **actual viewport and content**, identify the first three attention desti
 
 For each material correction, articulate the **relationship being clarified**: e.g. account total versus daily transactions; section title versus editable document; current selection versus optional details. A color, border, spacing or type adjustment is justified when it strengthens that relationship.
 
-Check the entire viewport, not individual cropped components. A beautifully spaced component can make the whole screen feel sparse, force critical actions below the fold, or amplify redundant headers.
+Check the full viewport as well as individual components: useful density, action visibility, and repeated chrome
 
 ## Five practical lenses
 
@@ -20,23 +20,23 @@ Check the entire viewport, not individual cropped components. A beautifully spac
 
 ### Surface choice by purpose
 
-- **Editorial or narrative content:** readable column, intentional whitespace, light dividers; avoid enclosing every paragraph in nested cards.
+- **Editorial or narrative content:** a readable column, intentional whitespace, and light dividers
 - **Document, form or selected object:** a coherent content surface can establish where the object begins and ends, especially for reading, editing and Markdown.
 - **State and operation:** make action boundaries and status legible; distinguish primary, secondary, destructive, disabled and pending states.
 
-These are roles, not required components. Sometimes a single surface is enough; sometimes no border is needed. Keep product character while changing information structure.
+Choose surfaces for these roles, reusing a surface where it serves several needs. Preserve product character while clarifying information structure
 
-## Design optical alignment rather than patching it later
+## Design optical alignment
 
-Plan alignment during component design, not only after visual review:
+Plan alignment during component design:
 
 - Identify the **perceived content center**: icon visible mass can differ from its SVG viewBox or container; letters, Chinese glyphs and numeral/unit pairs have distinct baselines and visual weight
-- Determine the appropriate shared alignment mechanism (flex/grid alignment, consistent line-height, baseline pairing, icon sizing, internal padding) before adding local transforms or magic offsets. A centered box does not prove centered content
-- Judge the full control or card in context, not only an isolated glyph. Check active and inactive states, loading label substitutions, accessibility text scaling, and touch target stability
+- Choose a shared alignment mechanism (flex/grid, line-height, baseline pairing, icon sizing, internal padding), then inspect perceived alignment at rendered size
+- Judge the full control or card in context. Check active/inactive states, loading labels, accessibility text scaling, and touch target stability
 - Check brand marks and functional icons **at their real smallest display sizes and crop shapes**. A richly detailed asset may require a separate simplified small-size variant rather than shrinking the full artwork
-- If the runtime rendering still looks off, allow a small optical correction supported by before/after evidence, preferably in the shared component. Never accumulate per-page offsets to compensate for an unresolved shared source
+- Make small, evidence-backed optical corrections at the source of the rendering issue, preferably in the shared component
 
-After content deletion, inspect whether grouping and density still support the user's main task. Rebalance layout rather than reintroducing explanatory text or decorative blocks solely to fill white space
+After content deletion, rebalance grouping and density around the remaining content and main task
 
 ## Design review from symptom to fix
 
@@ -49,16 +49,16 @@ After content deletion, inspect whether grouping and density still support the u
 | Feels hard to operate | Control looks like passive caption, or hit box too small? | Increase affordance and active region | Existing whole-row interaction is accessible and discoverable |
 | Feels generic | Brand/story disconnected from interaction and content? | Make hierarchy, imagery and motion purposeful | Prescribed neutral enterprise system is appropriate |
 
-Do not report the rightmost column as a failure without observations. Give exact target selectors/components, state and viewport when possible.
+Use disconfirming evidence to challenge the diagnosis. Locate supported findings by selector/component, state, and viewport
 
-## Craft is not a static screenshot
+## Craft across states
 
-Inspect loading skeletons, partial updates, error overlays, sticky/fixed bars, keyboard, long text, scroll position, links, disabled and selected states. A beautiful hero screen cannot compensate for poor form errors or a hidden submit control. On data screens, verify that aggregation, zero baseline, numerical precision and missing values remain truthful.
+Inspect loading, partial updates, errors, sticky/fixed bars, keyboard, long text, scroll position, links, disabled and selected states. Keep recovery and primary actions reachable. On data screens, verify aggregation, zero baseline, precision, and missing-value meaning
 
-Where motion is requested, visual composition and animation must agree: a chart entrance should not deform rounded caps, labels, hit targets or axis geometry; a dialog transition should preserve location and user control. Prefer restrained coherent motion; an inert static view can be the better design.
+Where motion is requested, preserve chart caps, labels, hit targets, and axis geometry through the transition, and preserve dialog location and user control. Choose restrained motion or a static view according to the task
 
 ## Implementation review and judgment
 
-Make the *smallest coherent set* of changes across related screens, not a set of isolated cosmetic patches. Reuse tokens, but allow purposeful variation between narrative pages, settings and records. If a design is subjective, present a comparison at matching content and ask for an actual preference only when consequential.
+Make the *smallest coherent set* of changes across related screens. Reuse tokens with purposeful variation for narrative pages, settings, and records. Ask about consequential preferences using comparisons at matching content
 
 Before declaring a visual improvement, inspect a rendered before/after at matching viewport, theme, content and state; for platform chrome and native controls, use that platform's preview/device. Code review can identify risk but cannot establish how the layout looks to a user.

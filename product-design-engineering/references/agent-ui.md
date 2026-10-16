@@ -1,6 +1,6 @@
 # Conversation and agent interfaces
 
-Use for a conversation or agent-product task, not as a template for ordinary pages. Reuse the project's brand, components, input model and actual event contract. These are independently written behavioral requirements informed by the [source record](source-map.md#open-claude-ui-selective-integration--2026-10-16); upstream React examples are references, not bundled or runtime-validated implementations
+Use for conversation and agent-product tasks. Reuse the project's brand, components, input model, and event contract; provenance is recorded in the [source record](source-map.md#open-claude-ui-selective-integration--2026-10-16)
 
 ## Reading and scroll ownership
 
@@ -8,7 +8,7 @@ Use for a conversation or agent-product task, not as a template for ordinary pag
 - Offer a discoverable, keyboard-accessible way to reach the latest content when following is suspended. A cooldown alone is not persistent reading intent; time passing must not force the viewport back to the bottom
 - Inspect real wheel, touch, keyboard and scrollbar behavior, and distinguish programmatic scrolling from user intent. Track content and viewport size changes, including late media, expanded tool results and the on-screen keyboard. Preserve the visible reading anchor when older history is prepended
 - Scope follow state to the conversation and its navigation contract. Cancelling a response, returning to a conversation or changing sessions should not accidentally inherit another view's scroll state
-- Tune bottom tolerance and any cooldown to the platform. The upstream Hook exposes caller-wired handlers and constants; copying it does not establish correct event wiring, resize handling or accessible behavior. Verify history browsing during sustained streaming, explicit resume and content reflow
+- Tune bottom tolerance and any cooldown to the platform. Verify event wiring, resize handling, accessibility, history browsing during sustained streaming, explicit resume, and content reflow
 
 ## Composer and message hierarchy
 
@@ -18,7 +18,7 @@ Distinguish user messages, assistant output and tool activity through readable r
 
 ## Truthful execution and permission states
 
-Map the actual event/data contract to the relevant states rather than inventing a universal backend schema
+Map the actual event/data contract to the relevant states
 
 | State | User-facing meaning and action |
 | --- | --- |

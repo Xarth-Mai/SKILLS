@@ -176,3 +176,13 @@ Extended existing visual, motion and engineering owners; added a conditional Age
 Initial shell network lookup failed at DNS resolution; a read-only remote query and temporary checkout then succeeded with sandbox escalation. The temporary checkout at `/tmp/open-claude-ui-design-reference` is research evidence, not a Skill dependency
 
 No commit, push, installation/configuration change or publication was performed. Existing linked installations may read this checkout on subsequent loads; no claim of host rediscovery or product runtime validation is made
+
+## Positive behavior wording pass — 2026-10-16
+
+Baseline: `f5eb1dc`; scope: entrypoint and ten runtime references, as part of the requested repository-wide wording review. Consolidated repeated cautions, replaced defensive catalogs with concrete behaviors and acceptance criteria, and retained task-specific conditions and boundaries
+
+Same-agent semantic review checked C1–C8, U1–U7, and A1–A6 against the original files: adaptive scope, product identity, permissions, state/data truth, accessibility, platform evidence, input/scroll behavior, and optional presets remain covered. Discovery metadata, agent YAML, source/license records, and all existing probe specifications are unchanged
+
+Static checks passed: `quick_validate.py` for all five repository Skills; Python assertions for 82 repository-local links and four heading anchors, unchanged metadata/probes/source records, Spec templates, and spring definitions; `git diff --check`
+
+Model comparison, implicit routing, browser/device acceptance, and external source revalidation: **NOT RUN** for this wording revision

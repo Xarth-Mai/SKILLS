@@ -1,8 +1,8 @@
 # Problem families and prior art
 
-Load this reference only when a user-facing product or design-engineering problem is cross-cutting, unfamiliar, or likely to recur. This is a *recognition aid*, not a mandatory pattern catalog and not a dependency on any specific framework
+Use this recognition aid for cross-cutting, unfamiliar, or recurring user-facing problems. Select relevant solution families and check their fit
 
-## Recognize the class, not just the symptom
+## Connect symptoms to problem families
 
 1. State the observed failure or friction and its evidence. Separate user-visible symptoms from causes and preferences
 2. Name the underlying problem family in plain terms; a formal pattern name is useful but optional. List one or two plausible alternatives when evidence is insufficient
@@ -11,7 +11,7 @@ Load this reference only when a user-facing product or design-engineering proble
 5. Compare *fit*: does the pattern protect the actual invariants? Does it apply on this platform, under this data consistency model, with this product tone, at the expected scale? Do the benefits exceed its dependencies and complexity?
 6. Choose the smallest coherent implementation and an observable acceptance check, including a counterexample. If a shared convention is warranted, identify the project's single authoritative home and keep code, specs, and tests aligned
 
-Do not invent source-backed endorsements or pretend to have verified an external page when only drawing on prior knowledge. A pattern is a candidate solution, not automatic proof of correctness. Avoid catalog searches for straightforward changes that already have an unambiguous local idiom
+Distinguish inspected sources from prior knowledge and validate candidate patterns against the task. Apply clear local conventions directly for straightforward changes
 
 ## Recognition prompts and established approaches
 
@@ -29,7 +29,7 @@ Do not invent source-backed endorsements or pretend to have verified an external
 | Recovery after crashes or network failures is unreliable | Retry policy, state persistence, idempotence, timeouts, circuit breakers when relevant | Retrying non-idempotent operations blindly or masking permanent failures |
 | Security or privacy assumptions spread across UI and APIs | Threat modeling, least privilege, authorization boundaries, OWASP-style verification | Using UI visibility as an authorization boundary |
 
-These examples can be relevant in product-led engineering. For backend-only tasks, the general engineering process or specialist Skill owns the work; this Skill should not broaden its implicit trigger merely because a code pattern exists
+Apply these examples within product-led engineering. Backend-only work belongs to the general engineering process or a relevant specialist Skill
 
 ## Source choice and local truth
 
@@ -39,11 +39,11 @@ Apple HIG is authoritative for Apple-platform conventions and often informative 
 
 ## Project-level consolidation
 
-When a defect reveals a recurring policy gap, capture **the decision**, not another long incident history:
+When a defect reveals a recurring policy gap, record the reusable decision:
 
 - One owner: the existing canonical design/architecture/interaction specification (or a new one only if none exists)
 - One contract: problem category, where it applies, exceptions, shared behavior, and source-of-truth boundaries
 - One implementation: the smallest appropriate reusable mechanism, without premature abstraction
 - One proof: a representative automated or runtime check and a counterexample for incorrect application
 
-Correct or deprecate conflicting older rules at their owners when in scope. Avoid creating parallel pattern catalogs, duplicate components or detached task notes that later agents cannot discover. For design-only work, identify the required changes; do not edit the repository without authorization
+Correct or deprecate conflicting rules at their authoritative owners within scope, keeping shared guidance discoverable. For design-only work, describe the required changes; repository edits require authorization

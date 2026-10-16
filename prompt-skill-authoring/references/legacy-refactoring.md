@@ -14,7 +14,7 @@ Classify recovered provisions as confirmed requirements, preferences, obsolete/i
 
 Use a local patch for a localized defect. Use a structural refactor when intertwined rules, duplicated ownership, mixed task modes, or accumulated patches prevent a coherent specification. A coherent old prompt may still receive an experimental candidate when optimization is requested; label the intervention and its unverified benefit.
 
-Preserve business semantics while freely improving organization where justified. Do not force a new template, split every phrase into a bullet, remove all repetition, or convert every exclusion into positive prose. Useful operational detail and tested reminders can survive a full rewrite.
+Preserve business semantics while organizing around the task. Remove wording with no distinct behavioral or decision value; express useful guidance as concrete target behavior. Retain necessary exclusions, operational detail, and demonstrated reminders with their original scope and conditions
 
 Keep changes to product behavior, model selection, fees, permissions, external side effects, data truth, and accepted output interfaces separate from wording cleanup. Implement such changes only when authorized and covered by appropriate tests. No amount of improved wording can repair an unavailable tool or an impossible task contract.
 

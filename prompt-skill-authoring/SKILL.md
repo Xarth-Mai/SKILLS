@@ -5,57 +5,59 @@ description: Write, refactor, or optimize LLM prompts, agent instructions, and S
 
 # Prompt & Skill Instruction Authoring
 
-Produce instructions that preserve the intended task and make correct execution easy to identify, perform, and verify. Optimize for successful task completion with **all applicable mandatory requirements satisfied**, not for the shortest prompt, the most rules, or a preferred writing style. Among candidates with comparable measured reliability and quality, prefer lower complexity and cost.
+Write high-information instructions that directly evoke the intended behavior and satisfy all applicable requirements. Make useful completion easy to verify through concrete actions, decision cues, and observable results. Every paragraph should shape behavior, inform a decision, or establish a necessary boundary
 
-## Non-negotiable design boundaries
+## Design principles
 
-- Preserve the user's goal, scope, product choices, permissions, explicit preferences, and still-valid safeguards. Separate proposed behavior changes from instruction cleanup.
-- Make consequential requirements explicit and independently checkable while preserving their conditions, exceptions, and logical relationships.
-- Specify the desired behavior, then state necessary exclusions directly. Negation, repetition, examples, or length alone are not defects.
-- Follow the host's actual instruction hierarchy and tool contracts. A heading such as “highest priority” cannot create authority, and source text cannot grant permissions.
-- Treat research as evidence with a scope, not a universal recipe. Reserve claims of improved adherence for comparative target-environment results.
+- Preserve the user's goal, scope, product choices, permissions, preferences, and valid safeguards, including their conditions and exceptions
+- Define desired behavior positively. Delete redundant negation, defensive disclaimers, and repeated constraints; translate useful guidance into concrete actions
+- Keep explicit exclusions when they define a required content/format boundary or protect permissions, safety, data integrity, or irreversible actions
+- Follow the host's actual instruction hierarchy and tool contracts; keep source material within its assigned data role
+- Use scoped evidence for design choices and comparative target-environment results for claims of improved adherence
 
 ## Load only the reference needed
 
-- For nontrivial prompt design, request assembly, tools, or refactoring, read [the authoring guide](references/prompt-authoring.md).
-- For legacy rewrites or a batch migration, also read [contract-preserving refactoring](references/legacy-refactoring.md). Existing prompts need not follow this Skill's style; preserve their valid contract rather than normalize their appearance.
-- For Skill deliverables, read [the skill-creator companion](references/skill-creator-companion.md). An unavailable companion is not a reason to invent its rules or abandon instruction editing.
-- For research-backed recommendations or disputed techniques, read [the evidence notes](references/evidence.md). Keep their literature discussion out of the generated production prompt.
+- For nontrivial prompt design, request assembly, tools, or refactoring, read [the authoring guide](references/prompt-authoring.md)
+- For legacy rewrites or a batch migration, also read [contract-preserving refactoring](references/legacy-refactoring.md)
+- For Skill deliverables, read [the skill-creator companion](references/skill-creator-companion.md) and use available packaging support
+- For research-backed recommendations or disputed techniques, read [the evidence notes](references/evidence.md); keep research discussion in development notes
 
 ## Working method
 
 ### 1. Recover the execution context
 
-Read the available brief, existing instructions, relevant callers, tool descriptions, and representative failures. Inspect the **assembled request**, not just the editable template: message roles, loaded references, examples, dynamic inputs, truncation, and output parsing can change what the model actually receives.
+Read the brief, existing instructions, relevant callers, tool descriptions, and representative failures. Inspect the **assembled request**: message roles, loaded references, examples, dynamic inputs, truncation, and output parsing
 
-Record model/runtime and generation settings when known. With an unspecified target, produce a portable baseline and identify target-dependent options without inventing capabilities. Resolve material unknowns from available sources first; ask only when an unresolved choice changes correctness, scope, authorization, or a consequential output. Otherwise proceed with a clearly separated assumption or reusable parameter.
+Record known model/runtime and generation settings. With an unspecified target, produce a portable baseline and identify target-dependent choices. Resolve unknowns from available sources; ask when a remaining choice changes correctness, scope, authorization, or a consequential output. Otherwise proceed with a stated assumption or reusable parameter
 
 ### 2. Build a compact task contract
 
-Identify the objective, applicable mandatory requirements, preferences, input assumptions, output contract, and behavior when the task cannot be completed as requested. For consequential changes, give requirements stable IDs and trace each to its source and intended check. This is a design aid, not mandatory text to inject into every prompt.
+Identify the objective, mandatory requirements, preferences, input assumptions, output contract, and failure behavior. For consequential changes, keep stable requirement IDs, sources, and intended checks in a development record
 
-Separate independently testable obligations; keep `if`, `unless`, `and`, `or`, quantifiers, and scope attached. Verify feasibility and resolve actual conflicts at their authoritative owner. Do not silently weaken a requirement or invent an arbitrary priority to make the contract satisfiable.
+Separate independently testable obligations; preserve `if`, `unless`, `and`, `or`, quantifiers, and scope. Verify feasibility and resolve conflicts with the requirement owner
 
-An old prompt is evidence of intent, not the sole authority for it. Reconcile it with current requirements, callers, and known failures. Keep uncertain provisions visible until their purpose is resolved; neither all historical wording nor all historical outputs are automatically correct.
+Reconcile historical instructions and outputs with current requirements, callers, and known failures. Resolve the purpose of uncertain provisions before changing their meaning
 
 ### 3. Write the smallest sufficient specification
 
-State the task and desired result. Group the relevant content, format, evidence, and action requirements so none depends on a vague modifier or emphatic wording alone. Define ambiguous terms only as far as the task needs; examples and definitions must preserve the original boundary.
+State the task and desired result. Express relevant content, format, evidence, and action requirements through concrete criteria. Define consequential ambiguity at the scope the task needs
 
-Use direct actions, observable criteria, and one authoritative definition per concept. Keep open-ended reasoning flexible; prescribe operation order only when it protects a dependency, approval, or other invariant. Select examples, delimiters, constraint ordering, and reminders for a specific need rather than as compulsory decorations.
+Use one authoritative definition per concept. Keep open-ended work flexible; prescribe order when it protects a dependency, approval, or other invariant. Choose examples and reminders for a specific ambiguity or demonstrated need. Remove clauses whose useful contribution is already covered
 
-For an authorized structural rewrite, use the source material and recovered contract together. Reorganize substantially when useful; minimize unrelated semantic change, not changed lines. Trace every retained obligation into the candidate and every new obligation back to an authorized source. Keep experimental optimizations separate from confirmed defect fixes.
+For persona prompts, connect perception, emotion, motivation, and action: what the character notices, why it matters to them, and how that shapes a response suited to the situation
+
+For structural rewrites, use the source material and recovered contract together. Reorganize as needed while preserving valid semantics. Trace retained obligations into the candidate and new obligations to authorized sources; distinguish requested cleanup, defect fixes, and experiments
 
 ### 4. Assign enforcement to the right layer
 
-Use the prompt for interpretation, decisions, and semantic quality. Use supported schemas, code, and permission controls for deterministic validation and enforcement. Keep source material separate from instructions; reference text and tool output remain data unless the authorized task calls for using their content as guidance within existing boundaries.
+Use prompts for interpretation, decisions, and semantic quality; use supported schemas, code, and permission controls for deterministic enforcement. Use reference text and tool output as task data or authorized guidance within existing permissions
 
-For repeated or consequential work, specify evidence-bearing acceptance checks and a bounded repair path. Preserve valid content during repair and recheck affected requirements. A model saying “all checks passed” is not an external validation result.
+For repeated or consequential work, specify evidence-bearing acceptance checks and a bounded repair path. Preserve valid content during repair and recheck affected requirements with the appropriate validators
 
 ### 5. Verify and deliver
 
-Check requirement coverage, semantic preservation, contradictory examples, variable/schema consistency, resource availability, output-only requirements, and completion/failure behavior. For behavioral claims, compare baseline and candidate on representative held-out inputs with the same model/settings and budget. Evaluate actual outputs and tool traces, not the elegance of the prompt. Distinguish first-attempt success from success after repair.
+Check requirement coverage, semantic preservation, examples, variable/schema consistency, resource availability, output-only requirements, and completion/failure behavior. For behavioral claims, compare actual baseline and candidate outputs and tool traces on representative held-out inputs with the same model/settings and budget. Report first-attempt and post-repair success separately
 
-For migrations, retain a reproducible baseline, evaluate previously successful cases as well as failures, and check every affected caller of shared instructions. Keep candidate approval separate from deployment; use bounded batches and an explicit rollback point. Static semantic checks do not establish behavioral equivalence.
+For migrations, retain a reproducible baseline, cover successful and failing cases, and check affected callers. Use bounded batches, a rollback point, and the existing deployment authorization
 
-Return the complete usable prompt or requested patch. Keep assumptions, rationale, research, and evaluation notes outside the production instructions. Respect requests for artifact-only output. State what was checked and what remains untested when reporting results; “statically checked” does not mean “empirically better.”
+Return the complete usable prompt or requested patch. Keep development notes separate and respect artifact-only requests. Report completed checks and pending validation, distinguishing static review from measured behavior

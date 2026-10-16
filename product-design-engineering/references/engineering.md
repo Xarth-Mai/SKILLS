@@ -1,8 +1,6 @@
 # Cross-platform design engineering
 
-Use the general decisions across platforms; the controls section includes Web-specific examples. Inspect actual platform mechanisms before applying those examples elsewhere
-
-The right interface is a functioning state machine, not a screenshot. Infer the target platform and reuse its conventions and capabilities. Never import iOS/Web-specific rules into other platforms without validation
+Build a functioning state model using the target platform's conventions and capabilities. The controls section includes Web examples; verify their applicability against platform mechanisms before adapting them
 
 ## Before code
 
@@ -11,7 +9,7 @@ Inspect the real repository structure, component contract, state/data sources, e
 ## Decisions to make when relevant
 
 - Data semantics and state ownership: source of truth, derived vs stored state, server/client consistency, optimistic updates, reconciliation, idempotence where needed
-- Components: use existing abstractions where stable; avoid creating shared primitives from a single incidental use
+- Components: reuse stable project abstractions; extract shared primitives for recurring responsibilities
 - Inputs and flows: validation boundaries, focus management, keyboard/touch interaction, loading/disabled behavior, error messages, recovery and cancellation
 - Async: concurrency, cancellation, stale responses, retries (with limits and idempotency), slow network, offline/reconnect when supported
 - Visual: real dimensions, content-driven sizes, responsive layout, safe areas, font scaling, contrast, semantic roles and interaction targets
@@ -22,19 +20,19 @@ Inspect the real repository structure, component contract, state/data sources, e
 
 ## Quality signals
 
-A feature is not finished because a happy-path screenshot looks right. Trace callbacks through state and data, consider interruptions/reentrance, run relevant checks, observe the target behavior, and flag anything not verified. Follow project conventions rather than carrying preset React, Swift, Flutter, mini-app, or desktop technology choices into all projects
+Trace callbacks through state and data, check interruptions/reentrance, and observe target behavior. Follow project technology choices and record verification gaps
 
 When platform-specific specialist skills are available, load them only for the relevant part (e.g. React performance for React projects, Apple HIG for Apple platforms, web interface guidance for Web)
 
 ## Controls, feedback, and accessibility
 
-- Use native buttons, links, form controls, and suitable existing accessible primitives. Provide accessible names, labels, and the expected keyboard behavior. A visual imitation is not a complete component
+- Use native buttons, links, form controls, and existing accessible primitives with appropriate names, labels, and keyboard behavior
 - Show press feedback at the start of a press; commit the action through the control's normal activation behavior. Do not move submission, navigation, or destructive side effects to `pointerdown` just to appear faster
 - Keep a visible focus indicator. Keyboard users need immediate state feedback too; distinguish feedback from decorative motion that delays their work
 - Provide hover, focus-visible, pressed, selected, disabled, and pending states where applicable. Optional hover effects can use `@media (hover: hover) and (pointer: fine)`; essential functionality must also work without hover
 - Give touch controls adequate hit areas and separation. Check contrast and target size against the project's accessibility target; use WCAG 2.2 AA as the baseline when none is specified
 - Model pending, success, failure, empty, and retry states honestly. Prevent duplicate submission where the operation requires it; distinguish an actual transaction lock from an animation lock
-- Keep validation associated with the relevant field and preserve input after errors. Announce important asynchronous status changes with appropriate semantics rather than relying on motion alone
+- Associate validation with its field and preserve input after errors. Announce important asynchronous status changes through accessible semantics
 - For modal dialogs, provide a name, appropriate initial focus, contained keyboard focus, dismissal behavior, and focus restoration. Keep the background inert while modal. Prefer a tested primitive over rebuilding these mechanics
 - Treat visual presence and interactive state separately. Opacity alone does not hide content from keyboard or assistive technology. Exiting or hidden content must not remain accidentally actionable; move focus appropriately before hiding or making its subtree inert
 - Supply visible and keyboard-accessible alternatives to swipe, drag, or hover-only actions. Preserve existing confirmation, undo, and cancellation behavior for consequential actions
@@ -44,7 +42,7 @@ When platform-specific specialist skills are available, load them only for the r
 - For submit-on-key inputs, let IME composition own candidate-selection keys before handling application shortcuts or suggestion menus. In Web implementations inspect composition lifecycle and the event's composition signal; legacy key-code fallbacks are compatibility measures to verify on target browsers, not a portable input API. Test the commit key and the next intentional submit separately, including mobile keyboard behavior
 - When suggestions are active, route selection, dismissal and submission through the existing control contract so one key cannot both choose a suggestion and send. Preserve the product's newline and Tab behavior; handle empty results and retain the draft and references after failed submission. Add mentions or slash commands only when requested by the product
 - Use roving focus only for composite widgets whose interaction pattern calls for it, with appropriate roles, arrow navigation and entry/exit behavior. Ordinary independent controls retain normal Tab navigation. Prefer the project's accessible primitive and check dynamic/disabled items and focus restoration
-- Compress toolbars by available container space and content needs: reduce optional labels or spacing, group secondary actions into an accessible overflow menu, or wrap where appropriate. Keep primary actions, status meaning, accessible names and touch targets usable. Choose breakpoints from actual overflow with long translations and enlarged text, not copied desktop widths; use platform equivalents where container queries are unavailable
+- Compress toolbars by available container space: reduce optional labels/spacing, group secondary actions into an accessible overflow menu, or wrap. Preserve primary actions, status meaning, accessible names, and touch targets. Derive breakpoints from actual overflow with long translations and enlarged text; use platform equivalents where container queries are unavailable
 
 For conversation-specific scroll and execution states, load [Agent UI](agent-ui.md); these general input rules also apply outside chat
 

@@ -1,6 +1,6 @@
 # Authoring for reliable instruction following
 
-Use the relevant sections; this is not a compulsory template. The workflow below is engineering synthesis. The local [evidence notes](evidence.md) distinguish research results from provider advice and design judgments.
+Use the sections relevant to the task. The local [evidence notes](evidence.md) distinguish research results, provider advice, and design judgments
 
 ## 1. Define success before changing wording
 
@@ -22,19 +22,21 @@ Check that the requirements can coexist and fit the available input/output budge
 
 ## 2. Write actionable, scoped instructions
 
-A useful requirement identifies the action or output property, its scope, and any trigger or exception. Add a boundary action only when the workflow needs one.
+A useful requirement identifies the desired action or output property, its scope, and any trigger or exception. Choose concrete words that evoke the intended behavior. Keep each paragraph focused on behavior, a decision cue, or a necessary boundary
 
-Weak: “Be rigorous and professional.”
+For evidence-based writing: “Distinguish source-supported findings from interpretation; attach each factual claim to the supplied evidence”
 
-Operational: “Distinguish source-supported findings from interpretation; attach each factual claim to the supplied evidence.”
+For a conversational character, connect perception, emotion, motivation, and action. Describe what the character notices, what it means to them, and how that shapes their participation. Let the situation determine the response and its intensity
 
-Positive target plus exclusion: “Write a qualitative summary of the supported findings. Omit quantitative results and implementation steps.”
+Example: “留意朋友话语里的情绪变化与期待，由此产生关心、好奇或分享的兴致，用贴合事情分量的语气表达自己的反应，再根据对方的需要自然接话、追问或一起想办法”
 
-Use a negative instruction when exclusion is the requirement. “Do not send the draft” is clearer than a euphemism that leaves sending ambiguous. Specify what remains useful: prepare a draft and report where it is saved. There is no general need to translate every prohibition into positive prose.
+During cleanup, delete redundant negation, defensive disclaimers, and repeated constraints. Translate useful guidance into concrete target behavior; retain the conditions and exceptions that give it meaning. Keep diagnostic catalogs in review material
 
-Keep mandatory requirements visibly distinct from preferences when a tradeoff matters. Importance, estimated difficulty, and message authority are different concepts. Importance informs acceptance; difficulty is an empirical property; authority comes from the runtime. Ordering text does not resolve a logical contradiction.
+Retain direct exclusions for required content/format, permissions, safety, data integrity, and irreversible actions. Pair them with useful completion where needed: “Prepare the reply draft and report where it is saved. Send only after the user approves this version”
 
-Choose natural prose for a simple task and headings or a short list for a multi-part task. An independent check does not require a separate heading, an ID in the runtime prompt, or repeated “must” wording.
+Keep mandatory requirements distinct from preferences when a tradeoff matters. Importance informs acceptance; difficulty is empirical; authority comes from the runtime
+
+Choose natural prose for a simple task and headings or a short list for a multi-part task. Keep requirement tracking in development records
 
 ## 3. Assemble the context deliberately
 
@@ -48,15 +50,15 @@ Cache-friendly prefixes may reduce costs when supported. Inspect provider semant
 
 ## 4. Select techniques by the ambiguity they solve
 
-**Examples.** Use representative input/output pairs when a boundary, house style, or format remains ambiguous. Ensure every example satisfies all applicable requirements; vary irrelevant surface details. Keep evaluation answers out of examples. Compare no-example and example variants when the benefit is uncertain. There is no universally optimal count, and lower prompt sensitivity does not by itself prove higher accuracy.
+**Examples.** Use representative input/output pairs to clarify a boundary, house style, or format. Ensure each example satisfies applicable requirements and vary irrelevant surface details. Keep evaluation answers held out; compare variants when the benefit is uncertain
 
-**Constraint ordering.** Keep dependent instructions together. For independent constraints, test a difficulty-informed order when failures justify it. “Hard-to-easy” research does not mean all prohibitions, high-risk rules, or difficult-looking words always go first.
+**Constraint ordering.** Keep dependent instructions together. For independent constraints, test a difficulty-informed order when failures justify it
 
-**Repetition.** Consolidate conflicting copies and stale definitions. Preserve useful recaps. Deliberate repetition is an empirical option, especially for some non-reasoning setups; measure input cost, context pressure, and end-to-end results. Neither “always repeat” nor “never repeat” is a default correctness rule.
+**Repetition.** Consolidate duplicate rules and stale definitions. Retain local recaps with a distinct task purpose or demonstrated benefit. Evaluate deliberate repetition against input cost, context pressure, and end-to-end results
 
-**Roles.** Define responsibility, audience, or perspective when these change the output. Keep user-requested characterization. Credentials and superlatives are not substitutes for criteria or evidence, and factual-QA persona studies do not establish that creative roles are useless.
+**Roles.** Define responsibility, audience, perspective, and user-requested characterization through the behavior they should produce. Use the perception-to-action guidance above for persona prompts
 
-**Reasoning.** Specify relevant evidence, decision criteria, and required explanations or calculations. Avoid demanding private chain-of-thought transcripts. Do not add a fixed thinking ritual to every model. A required operational sequence, such as validate → obtain authorization → mutate, remains valid even when internal reasoning is flexible.
+**Reasoning.** Specify relevant evidence, decision criteria, and required user-facing explanations or calculations. Keep internal reasoning flexible and preserve required operational dependencies, such as validating a change before an authorized mutation
 
 ## 5. Make the output contract complete
 

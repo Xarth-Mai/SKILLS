@@ -110,4 +110,4 @@ Recommends specific, varied, consistently formatted examples and experimentation
 
 Trace requirements to their owners; preserve conditions and exceptions; make consequential requirements inspectable; distinguish preferences from mandatory constraints; separate trusted instructions from source data; use code for deterministic checks; pair semantic review with evidence; bound repair; evaluate held-out outputs under comparable conditions.
 
-These are explicit design judgments informed by the sources above. No source here establishes a universally best prompt, a guaranteed advantage for lists over prose, or a general “pink elephant” mechanism that warrants deleting all negative instructions.
+Positive behavior definitions, concrete decision cues, and removal of redundant defensive wording are authoring defaults. Preserve necessary boundaries and evaluate behavioral effects in the target setting. These are design judgments; claims about attention mechanisms or improved adherence require evidence specific to the mechanism or outcome

@@ -29,6 +29,6 @@ For a feature, describe the normal task and the affected failure/recovery paths.
 
 For example, a save action may need to show the server-confirmed state, explain a failed request without losing edits, and prevent a repeated press from producing duplicate records. Whether it uses optimistic feedback, blocks a second action, or queues intent depends on the existing data contract and user task
 
-For a visual decision, connect the intended reading order or action to a concrete change and compare at the same content and viewport. For a major unresolved product assumption, propose the smallest test with actual users or available evidence; do not present the assumption as validated because the implementation works
+For visual decisions, connect reading order or action to a concrete change and compare at the same content and viewport. For unresolved consequential assumptions, propose the smallest useful user test or evidence check
 
 A useful feature handoff can fit in a few sentences: user task, recommended scope, journey and affected states, consequential tradeoff, acceptance evidence, and remaining uncertainty. Reuse existing project documentation when persistence is needed

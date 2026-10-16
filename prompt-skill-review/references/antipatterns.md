@@ -1,6 +1,6 @@
-# Diagnostic patterns, not deletion rules
+# Diagnostic patterns
 
-A pattern suggests a question. Support a finding with the intended contract, an actual conflict, a representative failure, or scoped target-model evidence. Preserve useful context and user choices. “This resembles an antipattern” is not a behavioral diagnosis.
+A pattern suggests a question. Support findings with the intended contract, an actual conflict, a representative failure, or scoped target-model evidence. Judge requested cleanup by its stated goal and each clause's contribution to behavior, decisions, or necessary boundaries
 
 ## High-impact checks
 
@@ -25,17 +25,17 @@ A pattern suggests a question. Support a finding with the intended contract, an 
 
 ## Checks that require nuance
 
-### Negation and “pink elephant” claims
+### Positive behavior and necessary boundaries
 
-A prohibition may be the clearest expression of a real constraint. The existence of an unwanted word in the prompt does not prove that the model will output it. Inspect ambiguity, contradiction, example consistency, and actual failures instead of asserting that “mentioning it primes it.”
+Check whether the prompt gives the model a concrete behavior to produce. For persona prompts, look for a relationship between perceived cues, emotion, motivation, and action, with a response suited to the situation. Turn useful guidance into positive behavior definitions
 
-Add the desired action when missing. Keep a necessary exclusion. Detailed negative examples can be useful for discriminating a boundary; keep them clearly labeled and verify their effect. Move a large diagnostic catalog out of a generation prompt when it is irrelevant or demonstrably harmful, not simply because it is negative.
+Delete redundant negation, defensive disclaimers, and clauses whose purpose is already covered. Keep required content/format exclusions and boundaries protecting permissions, safety, data integrity, or irreversible actions, with their conditions and exceptions. Keep diagnostic catalogs in review material; use a focused counterexample when it resolves a real ambiguity
+
+Requested cleanup can proceed on these semantic grounds. Attribute model failures or performance gains to wording only with relevant comparative evidence
 
 ### Repetition and prompt length
 
-Conflicting duplicates and obsolete definitions are defects. Harmless overlap, required local contracts, and deliberate reminders are not automatically defects. A controlled repetition study reports benefits in some non-reasoning settings; neither deleting every repeat nor duplicating every prompt is justified. Measure results and input cost before claiming an optimization.
-
-Likewise, shorter is not synonymous with clearer or more reliable. Remove text whose decision value is absent or superseded; preserve grounding, examples, and invariants that are doing work. Check runtime truncation and attention-sensitive placement on the target tasks.
+Consolidate conflicting duplicates and obsolete definitions. Retain grounding, required local contracts, and reminders with a distinct purpose or demonstrated benefit. Remove text whose decision value is absent or superseded. Measure results and input cost for performance claims; inspect truncation and placement on target tasks
 
 ### Order, emphasis, and authority
 
@@ -43,11 +43,11 @@ A hard-to-easy ordering result concerns estimated constraint difficulty in teste
 
 ### Roles, reasoning, and examples
 
-Decorative credentials are not evidence of expertise. Functional roles, tone, and user-requested characterization can still serve the task. Do not delete them based on factual-QA results from unrelated models.
+Assess functional roles, tone, and user-requested characterization by the behavior they guide. Apply persona research within the tasks and models it studied
 
-Reasoning-model guidance does not invalidate required operational steps or a requested user-facing explanation. Review what must be observable, not an imagined private reasoning transcript.
+Review observable decisions, required operational steps, and requested user-facing explanations; leave internal reasoning flexible
 
-Few-shot examples can reduce ambiguity, but may also introduce incorrect facts, copied wording, or conflicting output shapes. Review each against all applicable requirements. Do not demand a fixed number of examples or claim that examples always win.
+Review examples for factual grounding, boundary clarity, and output consistency. Choose their number and detail for the ambiguity they resolve
 
 ### Retired workflow rules
 

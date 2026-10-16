@@ -78,3 +78,24 @@ Preserved C1–C8 through the revised entrypoint and retained references. Added 
 | External provenance | NOT RUN | New research/source-check claims originate in the supplied archive; external pages and license claims were not independently reverified during integration |
 
 The committed baseline is the rollback source for the replaced entrypoint; preserve any later edits before restoring it or removing only the five resources introduced by this overlay
+
+
+## Pattern-first incremental revision — 2026-10-16
+
+Baseline: `464a5875999cb89a327b57326d8d0490d42360de`; candidate source: the user-supplied `product-design-engineering-proposal.zip`. Scope: local instruction changes and static validation only; behavioral A/B evaluation was explicitly excluded
+
+Integrated pattern recognition into the existing diagnosis stage, retained the original routing exclusions and metadata, added the conditional problem-family reference, and updated the Skill README. Added the two agreed general rules to `THEAGENTS.md`; no duplicate English guidance or archive-root delivery files were installed
+
+Reworked P1–P8 into separate symptom-only task inputs, fixture requirements and evaluator criteria. P3 distinguishes existing server protection, authorized server implementation and client-only mitigation. These remain specifications; no runnable fixtures or model results were produced
+
+| Layer | Result | Evidence and scope |
+| --- | --- | --- |
+| Package | PASS | `python /home/lzzz/.codex/skills/.system/skill-creator/scripts/quick_validate.py product-design-engineering` returned `Skill is valid!` |
+| Local integrity | PASS | Python path assertions checked all 42 package-local Markdown links for existence and package containment; byte comparison against HEAD confirmed 34 tracked files outside the four planned existing-file targets unchanged |
+| Whitespace | PASS | `git diff --check`; new reference and probe files also checked for trailing whitespace and final newline |
+| Static semantic review | PASS, scoped | Same-agent `prompt-skill-review` pass over the full diff and new resources checked proportionality, hypothesis versus evidence, shared-rule authorization, original routing exclusions and evaluation leakage boundaries; no outstanding high-impact static findings |
+| Review corrections | Applied | Preserved the original description exclusions instead of the archive's broader trigger; scoped the added review lens to nontrivial changes; removed the stale four-perspective count; aligned the reference's backend exclusion with the entrypoint; split P3 by existing mechanism and authorization |
+| Behavioral comparison and routing | NOT RUN | P1–P8, unchanged passing cases, independent holdouts, model A/B comparisons and host discovery were not executed for this revision; historical results above do not validate it |
+| External source validation | NOT RUN for the pattern catalog | Candidate guidance is adapted from the supplied archive; no new dated HIG claim, source quotation or claim of comprehensive external verification was added |
+
+No commit, push, installation change or real product acceptance was performed. Static consistency does not establish improved recognition, first-attempt correctness or behavioral equivalence

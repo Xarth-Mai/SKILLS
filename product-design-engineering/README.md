@@ -4,6 +4,8 @@
 
 主入口选择任务所需的 Frame、Audit、Design、Build、Review 阶段；专业参考按需加载，保留项目自身的品牌、技术栈与平台约定，跨平台核心之外提供较深入的 Web 指导
 
+非平凡体验问题先从症状和证据识别候选问题类型，检查项目已有机制与成熟方案的适用条件，再做最小实现和验证；简单局部修改直接沿用既有约定
+
 ## 使用
 
 - “用 `$product-design-engineering` 给现有产品加收藏功能，直接落地并验证失败与重复点击”
@@ -25,6 +27,8 @@
 - [认知与操作负担](references/cognitive-ergonomics.md)、[视觉诊断](references/experience-craft.md)：信息理解、操作路径与视觉细节
 - [平台证据](references/platform-evidence.md)：Web、原生、小程序和 CLI 的适用边界
 - [研究补充](references/research-addendum.md)：本次更新包提供的来源与证据限制
+- [问题类型与成熟方案](references/problem-families-and-prior-art.md)：按需识别模式、检查反例与适用条件
+- [模式复用探针](tests/pattern-reuse-probes.md)：症状驱动任务、测试环境和独立验收条件，尚未执行
 - [测试场景](tests/scenarios.md)：独立验收契约与行为探针
 - [设计诊断探针](tests/design-diagnosis-probes.md)：复杂设置、账目、旧截图和跨平台等十个评估场景
 - [验证记录](tests/validation.md)：迁移说明、执行结果及证据限制

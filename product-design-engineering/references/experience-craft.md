@@ -26,6 +26,18 @@ Check the entire viewport, not individual cropped components. A beautifully spac
 
 These are roles, not required components. Sometimes a single surface is enough; sometimes no border is needed. Keep product character while changing information structure.
 
+## Design optical alignment rather than patching it later
+
+Plan alignment during component design, not only after visual review:
+
+- Identify the **perceived content center**: icon visible mass can differ from its SVG viewBox or container; letters, Chinese glyphs and numeral/unit pairs have distinct baselines and visual weight
+- Determine the appropriate shared alignment mechanism (flex/grid alignment, consistent line-height, baseline pairing, icon sizing, internal padding) before adding local transforms or magic offsets. A centered box does not prove centered content
+- Judge the full control or card in context, not only an isolated glyph. Check active and inactive states, loading label substitutions, accessibility text scaling, and touch target stability
+- Check brand marks and functional icons **at their real smallest display sizes and crop shapes**. A richly detailed asset may require a separate simplified small-size variant rather than shrinking the full artwork
+- If the runtime rendering still looks off, allow a small optical correction supported by before/after evidence, preferably in the shared component. Never accumulate per-page offsets to compensate for an unresolved shared source
+
+After content deletion, inspect whether grouping and density still support the user's main task. Rebalance layout rather than reintroducing explanatory text or decorative blocks solely to fill white space
+
 ## Design review from symptom to fix
 
 | Symptom | Check before changing | Likely minimal remedy | Disconfirming evidence |

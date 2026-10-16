@@ -60,6 +60,18 @@ For diagnosis involving complexity or nontechnical audiences read [Cognitive erg
 
 Recommend a solution matched to this product and context. For significant alternatives, explain what changes and the tradeoff; otherwise choose one coherent direction. A rule or number must serve a concrete purpose, not appear because a framework recommends it.
 
+### Prevent avoidable experience defects before building
+
+For a meaningful screen or interaction change, settle the relevant decisions before writing UI code or finalizing a mockup; a narrow edit follows existing conventions without a design workshop
+
+- **Necessity before wording:** decide what to remove, show, simplify or move to contextual detail based on the user's decision, action and trust needs; preserve explicit content requirements and material consequences
+- **User meaning:** express the user's situation, outcome and next step while retaining the precision needed for expert tasks, pricing, permissions and truthful states; use [Cognitive ergonomics](references/cognitive-ergonomics.md)
+- **Optical composition:** plan grouping, density, type metrics, glyph mass, baselines and hit areas at intended display sizes through the shared component; use [Experience craft](references/experience-craft.md)
+- **Event semantics:** distinguish first appearance, return, explicit refresh, passive update, confirmed change and interruption; choose replay and persistent-surface continuity deliberately, including reduced motion; use [Motion](references/motion.md)
+- **Density after subtraction:** recompose the task area and spacing after removal; add neither filler nor accidental excessive whitespace
+
+Include these decisions in the existing design contract when needed; Review verifies that they survived implementation
+
 Choose the relevant guidance before implementation:
 
 | Concern | Reference |
@@ -97,6 +109,8 @@ After design or implementation, **switch from proposing to finding faults**. Cha
 - **System:** Did the change alter financial, privacy, accessibility, data or security semantics, or break other screens sharing a component?
 - **Prior art and coherence, for nontrivial changes:** Did we recognize the established problem family, inspect available proven solutions and their conditions, and avoid reinventing or misapplying one? If this is a recurring project rule, is the authoritative design/engineering specification consistent with the implementation and tests?
 
+For substantial UI changes, verify the earlier necessity, composition and event-semantics decisions; repair a failed decision or shared implementation at its owner rather than accumulating cosmetic overrides
+
 Do not rubber-stamp the original plan; propose the smallest correction for a reproduced defect. Do not invent issues to populate a report. For new or significant flows, use [Verification](references/verification.md) and targeted [design diagnosis probes](tests/design-diagnosis-probes.md).
 
 ## 6. Verify what you claim
@@ -113,4 +127,4 @@ When explicitly improving this Skill, convert real failures into reusable rules 
 
 Keep product-specific taste in its project; promote only generalizable principles. Do not automatically write global memory or rewrite other Skills during normal application work.
 
-For provenance and licensing, consult [Source map](references/source-map.md) and [Research addendum](references/research-addendum.md); for evaluation, use [Scenarios](tests/scenarios.md), [Design diagnosis probes](tests/design-diagnosis-probes.md), [Pattern reuse probes](tests/pattern-reuse-probes.md), and the existing [validation record](tests/validation.md). These are maintenance resources, not required reads for every ordinary task
+For provenance and licensing, consult [Source map](references/source-map.md) and [Research addendum](references/research-addendum.md); for evaluation, use [Scenarios](tests/scenarios.md), [Design diagnosis probes](tests/design-diagnosis-probes.md), [Pattern reuse probes](tests/pattern-reuse-probes.md), [Preventable defects probes](tests/preventable-defects-probes.md), and the existing [validation record](tests/validation.md). These are maintenance resources, not required reads for every ordinary task

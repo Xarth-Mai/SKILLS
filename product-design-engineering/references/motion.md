@@ -10,6 +10,21 @@ Then check frequency, task cost, and accessibility. Frequently repeated interact
 
 Reduce or remove an unnecessary effect before introducing a more elaborate one. Do not add motion merely because a component currently has none, or stagger content the user is already trying to read and operate
 
+### Define the trigger and replay contract before animation
+
+Use a small event/state map for motion that is likely to recur; do not design an effect solely from its ideal success screenshot:
+
+| Event | Default intent | Common failure to avoid |
+| --- | --- | --- |
+| First meaningful appearance | Optional entrance effect that improves recognition | Staggering content that users need immediately |
+| Returning to an existing page/tab | Preserve stable content and scroll state | Replaying counters or success effects on `onShow`/remount |
+| User-requested refresh | Clearly acknowledge refresh; optionally replay relevant *data-display* motion after meaningful completion | Treating passive refresh or failed request as a new success |
+| Passive data update | Update truthfully, generally without re-running entrance effects | Resetting a counter to zero on every value change |
+| Confirmed business/state change | Animate the actual transition if helpful | Destroying the shared background or flashing an empty intermediate frame |
+| Cancellation, reversal, interrupted transition | Continue from displayed state or show a valid stable state | Unmounting the previous visual before the replacement is ready |
+
+Keep persistent visual surfaces mounted or visually continuous when their identity persists. Separate data refresh from the signal to **replay** an animation; explicit user intent is safer than attaching replay to fetches or generic page lifecycle events. Honor reduced-motion preferences and verify real device/platform behavior where it affects overscroll, gesture physics or native chrome
+
 ### Timing and easing
 
 Reuse existing motion tokens first. With no established values, these are starting ranges to tune in context, not compliance thresholds:

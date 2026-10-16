@@ -15,6 +15,18 @@ For the main task, inspect:
 
 Do not optimize an arbitrary tap count at the expense of clarity, trust or safety. A meaningful confirmation for deletion or charges is desirable friction.
 
+## Content necessity before microcopy
+
+Within the user’s explicit content and interaction requirements, choose the least burdensome truthful presentation before polishing wording:
+
+- **Remove:** the detail has no meaningful effect on the intended user's next decision, trust or recovery, and remains available where legitimately needed (for example, in detailed accounting rather than beside a balance)
+- **Show directly:** the action is short, safe and usually wanted; an expandable wrapper adds an unnecessary step and creates empty surface area when closed
+- **Simplify:** the information is necessary but expressed in implementation language; replace it with the user's action, outcome and consequence
+- **Move to context:** diagnostics, model parameters, advanced configuration or accounting precision matter to a subset of users; make them discoverable without interrupting routine work
+- **Keep explicit:** material prices, real restrictions, permission changes, irreversible actions, confirmed versus pending states and recovery guidance. A clean screenshot is not permission to conceal them
+
+After removing copy or controls, revisit page hierarchy and density. Do not invent filler to occupy the gap; also do not over-collapse useful action areas merely to create blank space. Compare novice and expert tasks before deciding a disclosure is unnecessary
+
 ## Decision sequence
 
 1. State the user's immediate question in ordinary language: "Can I start?", "What will this cost?", "Did it save?", "What do I do now?"

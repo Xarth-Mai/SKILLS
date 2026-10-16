@@ -99,3 +99,51 @@ Reworked P1–P8 into separate symptom-only task inputs, fixture requirements an
 | External source validation | NOT RUN for the pattern catalog | Candidate guidance is adapted from the supplied archive; no new dated HIG claim, source quotation or claim of comprehensive external verification was added |
 
 No commit, push, installation change or real product acceptance was performed. Static consistency does not establish improved recognition, first-attempt correctness or behavioral equivalence
+
+## Preventable-defects incremental upgrade — 2026-10-16
+
+Baseline: `e56037ca1661d6c5e9ea1d741162de46ad09d45b`; source: user-supplied `product-design-engineering-upgrade.zip`, guided by its `CODEX_TASK.md`. The initial worktree was clean and matched the supplied baseline
+
+Inspected the current entrypoint, cognitive/visual/motion owners, existing validation and source decisions before integration. Ran the supplied `apply_upgrade.py --repo . --check` successfully, then `--apply`; manually reconciled the resulting additions rather than treating anchor compatibility as semantic validation. The installer remains outside the repository and its exact-content checks are not a validator for this reconciled candidate
+
+| Contract | Final owner and preservation check |
+| --- | --- |
+| U1: Necessity before wording | Design-stage reminder routes to `cognitive-ergonomics.md`; removal, direct display, simplification, contextual detail and material disclosures remain distinct decisions |
+| U2: User meaning with expert precision | Existing microcopy guidance retained; new reminder preserves expert identifiers, material costs, permissions and truthful states |
+| U3: Optical composition before implementation | `experience-craft.md` covers glyph mass, baseline, shared alignment, text scaling, hit areas and small-size/crop inspection; rendered evidence remains necessary for optical corrections |
+| U4: Event-based motion | `motion.md` distinguishes entry, return, refresh, passive update, confirmed change and interruption; persistent surfaces remain continuous and reduced motion retains meaningful feedback |
+| U5: Recompose after subtraction | Cognitive and visual owners require useful grouping/density without replacement filler or accidental empty space |
+| U6: Review verifies earlier decisions | Entrypoint places decisions before Build and verifies them in Review without a mandatory extra polish phase |
+| U7: Preserve scope and prior capabilities | Frame → Audit → Design → Build → Review remains adaptive; small edits, product identity, platform boundaries, pattern reuse, permissions, source map, attribution and all prior tests remain intact |
+
+Review corrections: shortened the supplied entrypoint expansion into decision cues, leaving examples and implementation detail with their existing reference owners; explicitly scoped content removal to user requirements; corrected F4's task to permit changing the accordion, because its original mandatory expand/collapse wording conflicted with the evaluator's removal expectation. Updated the existing Skill README maintenance index; no new framework, dependency or second Skill was added
+
+| Static check | Result | Evidence |
+| --- | --- | --- |
+| Package metadata | PASS | `python /home/lzzz/.codex/skills/.system/skill-creator/scripts/quick_validate.py product-design-engineering` returned `Skill is valid!` |
+| Local integrity | PASS | `/tmp/pde-upgrade-evaluation/check_package.py` checked 48 package-local links, containment, YAML/UI metadata, allowed changed paths and byte-identical preservation of 34 unrelated tracked files, including attribution and prior probes |
+| Formatting and index | PASS | `git diff --check`, final newline/trailing whitespace assertions for changed files, and empty staged diff |
+| Semantic review | PASS, scoped | Same-agent `prompt-skill-review` pass checked U1–U7, conditionality, reference ownership, explicit user constraints, counterexamples and evidence claims; no outstanding high-impact static findings |
+
+### Paired design-only probes
+
+Executed two independent workers against separate baseline/candidate snapshots with the same six user tasks and textual application fixtures. Each worker handled all six cases in one session, using the selected Skill and runtime references without evaluator expectations. The common rubric was recorded before inspecting either output; the parent reviewed the actual answers, with no repair or rerun
+
+| Case | Baseline | Candidate | Observed decision evidence |
+| --- | --- | --- | --- |
+| A: F1/F4 derivative, balance overview | PASS | PASS | Removed redundant technical subtitle and folding wrapper, recomposed oversized introduction, preserved exact ledger and shortage feedback |
+| B: F5/F6/F12 derivative, lifecycle and continuity | PASS | PASS | No zero-reset on return; refresh and confirmed success distinguished; persistent circle retained; interruption, stale responses and reduced-motion final states addressed |
+| C: F9, small edit | PASS | PASS | Exact single background-color patch; existing focus and other styles retained; no redesign |
+| D: F11, expert settings | PASS | PASS | Precise API fields and diagnostics, masked key, secret exclusion and separate save/test preserved |
+| E: F8, payment disclosure | PASS | PASS | Material price, immediate charge, renewal, active consent, cancellation and error/form behavior retained |
+| F: Existing-pattern regression | PASS | PASS | Reused supplied desired-state hook contract without inventing an API, another queue or server changes; retained focused existing checks |
+
+PASS here means the written design satisfies the common design-only contract, not that its implementation or proposed tests ran. Baseline B removes count-up while retaining lightweight change/connection feedback; candidate B permits value animation for an explicit refresh and uses direct passive updates. Both are valid scoped decisions. No observed regression in these cases; neither outcome proves general improvement or performance gains
+
+Workers inherited the same parent model/settings without overrides; exact model version, sampling and token/time budgets were not exposed or fixed. This is one development run per variant, six cases sharing each worker context, with textual fixtures rather than runnable applications and no untouched holdouts. Full implementation probes F1–F12, optical rendering F3, small artwork F7, native-refresh diagnosis F10, browser/device/accessibility runtime checks and implicit Skill routing remain NOT RUN
+
+Raw snapshots, `tasks.md`, `rubric.md`, actual outputs, `results.md`, input hashes and the package checker are retained under `/tmp/pde-upgrade-evaluation`; these are temporary local evidence, not runtime dependencies. Candidate execution used the final runtime rules with one extra blank line subsequently removed; subsequent changes only record validation/probe status
+
+Expected benefit: make necessity, composition and event decisions explicit before Build, reducing dependence on discovering them during Review. The paired design outputs do not measure that expected benefit. Existing historical results above apply only to their stated revisions
+
+No commit, push, deployment, installation/configuration change or unrelated Skill edit was performed

@@ -31,6 +31,7 @@
 - [模式复用探针](tests/pattern-reuse-probes.md)：症状驱动任务、测试环境和独立验收条件，尚未执行
 - [测试场景](tests/scenarios.md)：独立验收契约与行为探针
 - [设计诊断探针](tests/design-diagnosis-probes.md)：复杂设置、账目、旧截图和跨平台等十个评估场景
+- [可预防缺陷探针](tests/preventable-defects-probes.md)：实现前的信息取舍、光学布局与动效事件决策，执行状态见验证记录
 - [验证记录](tests/validation.md)：迁移说明、执行结果及证据限制
 
 新增内容为独立编写；继承的 Emil 改编保留原 MIT 通知。静态校验、有限行为对照与真实用户体验是不同证据层级，具体完成范围以验证记录为准

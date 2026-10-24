@@ -1,0 +1,4 @@
+interface:
+  display_name: "Prompt Engineering"
+  short_description: "Design, diagnose and evaluate prompts and agent behavior"
+  default_prompt: "Use $prompt-engineering to recover the behavioral goal, diagnose the controlling instruction/context/tool/runtime layer, design the appropriate change, and verify with actual evidence. Do not claim model-run gains without measured results."

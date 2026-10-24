@@ -111,3 +111,14 @@ Recommends specific, varied, consistently formatted examples and experimentation
 Trace requirements to their owners; preserve conditions and exceptions; make consequential requirements inspectable; distinguish preferences from mandatory constraints; separate trusted instructions from source data; use code for deterministic checks; pair semantic review with evidence; bound repair; evaluate held-out outputs under comparable conditions.
 
 Positive behavior definitions, concrete decision cues, and removal of redundant defensive wording are authoring defaults. Preserve necessary boundaries and evaluate behavioral effects in the target setting. These are design judgments; claims about attention mechanisms or improved adherence require evidence specific to the mechanism or outcome
+
+## Further Anthropic primary-source anchors (checked 2026-10-24)
+
+- [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents) (2024-12-19): prefer simple composable patterns until more flexibility is justified.
+- [How we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system) (2025-06-13): heuristics, observability, bounded orchestration, source quality and handoffs; published improvements describe that system, not this Skill.
+- [Writing effective tools for agents](https://www.anthropic.com/engineering/writing-tools-for-agents) (2025-09-11): distinct tool purposes, discoverable parameters, useful responses, token efficiency and tool-eval loops.
+- [Effective context engineering for AI agents](https://www.anthropic.com/research/effective-context-engineering-for-ai-agents) (2025-09-29): optimize what the model sees beyond the system prompt—evidence, memory, retrieved context and trajectories.
+- [Demystifying evals for AI agents](https://www.anthropic.com/research/demystifying-evals-for-ai-agents) (2026-01-09): full-trajectory and outcome checks with code, model and human graders; capability and regression suites are different.
+- [Prompting best practices](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices) (living): verify actual Claude model/version and current guidance instead of applying universal prompting recipes.
+
+Research and provider guidance motivate candidate interventions; only controlled evaluations of the target setting can establish improvement.

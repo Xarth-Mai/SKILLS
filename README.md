@@ -5,18 +5,15 @@
 ## 自建 Skills
 
 - [grill-me](./grill-me)：通过连续追问澄清目标、约束、隐含假设与替代方案，并在 Plan mode 自动启用。
-- [prompt-skill-authoring](./prompt-skill-authoring)：编写、重构提示词与 Skill 指令；以完整保留需求、明确执行契约和可验证的指令遵循为目标。
-- [prompt-skill-review](./prompt-skill-review)：审查需求覆盖、冲突、权限与运行时契约，提出有证据的修正，并区分静态检查与实测改进。
+- [prompt-engineering](./prompt-engineering)：专业的 Prompt、Context 和 Agent 行为工程；统一设计、审查、诊断、迁移和实证评估，优先改善实际任务完成效果。
 - [product-design-engineering](./product-design-engineering)：从产品需求、UX、视觉与动效到工程实现和验收，主动补齐重要遗漏并给出决策依据；跨平台核心、Web 专项深度，替代原 `design-engineering`
 - [spec-lifecycle](./spec-lifecycle)：用 Markdown + Git 管理技术规格与设计决策，覆盖提案、实现、否决和归档，并以实际验证证据同步状态与代码
 
-## 提示词 Skills 的配合方式
+## Prompt Engineering
 
-写作或重构时使用 `$prompt-skill-authoring`；诊断、审查或比较现有指令时使用 `$prompt-skill-review`。两者可独立安装，Skill 格式相关工作可配合可用的 `skill-creator`。
+使用 `$prompt-engineering` 创建、审查、改进、迁移和评估 Prompt、Agent 指令、Skill 与 Tool Description。先确认行为目标及实际模型输入，区分指令、上下文、工具、模型和运行时的失败根因；只要求审查时不编辑。简单任务直接完成，复杂问题按需加载专业资料；保留原有需求与权限，使用真实测试验证改善。打包时可选用 `skill-creator`。
 
-核心目标是任务有效完成且所有适用的强制要求同时满足。默认使用具体、高信息密度的正向行为定义；每段塑造行为、提供判断依据或规定必要边界。清理冗余否定、防御性免责声明和重复约束，保留必要排除及其条件。人格提示词连接感知、情绪、动机与行动
-
-研究依据见 [Evidence and limits](./prompt-skill-authoring/references/evidence.md)；比较方法见 [Evaluation protocol](./prompt-skill-review/references/evaluation.md)。附带的 [回归用例](./prompt-skill-review/references/regression-cases.jsonl) 是开发探针，不是已运行的 benchmark。静态检查通过不代表下游模型遵循率已提升。
+专业资料：[Prompt authoring](./prompt-engineering/references/prompt-authoring.md)、[Model behavior and context](./prompt-engineering/references/model-behavior-and-context.md)、[Agent systems](./prompt-engineering/references/agent-systems.md)、[Behavioral diagnosis](./prompt-engineering/references/behavioral-diagnosis.md)、[Evidence and limits](./prompt-engineering/references/evidence.md)、[Evaluation protocol](./prompt-engineering/references/evaluation.md)。原有 [回归用例](./prompt-engineering/references/regression-cases.jsonl) 和 [迁移用例](./prompt-engineering/references/legacy-migration-cases.jsonl) 保留，新增 [Agent 行为探针](./prompt-engineering/tests/behavior-probes.md)。这些用例不是已运行的 benchmark。
 
 ## 第三方 Skills
 

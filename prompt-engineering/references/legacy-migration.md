@@ -33,7 +33,7 @@ Prioritize by impact, frequency, known failures, shared reach, and reversibility
 
 ## 4. Hand off structural work without losing evidence
 
-When prompt-skill-authoring is available, provide:
+For structural refactoring in this Skill's authoring mode, recover:
 
 - original files and revision plus authoritative context;
 - assembled-request and caller/dependency map;
@@ -42,7 +42,7 @@ When prompt-skill-authoring is available, provide:
 - protected interfaces, permitted edit scope, and proposed hypothesis;
 - acceptance checks, execution authorization, rollout and rollback constraints.
 
-Provide source references as well as the summary. The authoring Skill should recover details from the originals. This is a logical handoff, not a requirement to spawn another agent or install a sibling Skill. If unavailable, return a self-contained work package or use available authoring guidance within authorization.
+Provide source references as well as the summary. The authoring workflow should recover details from the originals. This is a logical handoff, not a requirement to spawn another agent or install a sibling Skill. If unavailable, return a self-contained work package or use available authoring guidance within authorization.
 
 ## 5. Review both preservation and execution
 

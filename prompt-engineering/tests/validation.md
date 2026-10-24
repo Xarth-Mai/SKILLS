@@ -6,11 +6,12 @@
 - Branch: `feat/prompt-engineering-unification`
 - Consolidation: `prompt-skill-authoring` + `prompt-skill-review` → `prompt-engineering`
 - `product-design-engineering` and unrelated source files remain unchanged.
+- `THEAGENTS.md` routes authoring and review to the corresponding unified Skill modes, preserving governance review and the high-impact finding gate
 - Existing specialist references and both legacy JSONL suites are retained; only the internal migration handoff wording and evidence-source appendix were intentionally revised.
 
 ## Executed static checks — PASS
 
-- GitHub compare: branch is one commit ahead of its baseline; changed files match the intended consolidation.
+- GitHub compare against the recorded baseline: changed files match the intended consolidation and its shared caller update
 - Git tree: all **16** new Skill files exist under `prompt-engineering/`; no files remain under either retired Skill directory.
 - Entrypoint and metadata: `name: prompt-engineering`, model-behavior routing description, and matching `agents/openai.yaml` verified by branch read.
 - README: single new Skill registration, updated documentation links, no stale retired Skill names.

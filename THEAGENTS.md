@@ -25,7 +25,7 @@
 - 按实际任务选择技能，需核对更新或缺失细节时再重读；代码与技术设计应用 `$ponytail:ponytail`
 - 技能路径以当前 Skill roots 和 `file` 字段为准，展开核对后读取；用户明确指令优先于技能指南
 - 技能导致确认、暂停、未完成或偏离用户意图时，链接实际读取的 `SKILL.md`，引用条款并说明适用原因，区分明确要求与自己的解释
-- 修改提示词、`AGENTS.md`、技能、验证器指令或提示词契约测试前，先读相关治理与决策文档；编写用 `$prompt-skill-authoring`，完成后用 `$prompt-skill-review` 检查差异并处理高影响问题
+- 修改提示词、`AGENTS.md`、技能、验证器指令或提示词契约测试前，先读相关治理与决策文档；编写用 `$prompt-engineering` 的 Create、Improve 或 Migrate 模式，完成后用 Review 模式检查差异并处理高影响问题
 
 ## 工具
 

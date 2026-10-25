@@ -1,6 +1,6 @@
 # Product Design Engineering
 
-从产品需求、UX、UI 和动效，到工程实现、审查与验收的跨项目 Skill，替代本仓库原 `design-engineering`
+从用户价值和产品方向、UX、UI 和动效，到工程实现、审查与验收的跨项目 Skill，替代本仓库原 `design-engineering`
 
 主入口选择任务所需的 Frame、Audit、Design、Build、Review 阶段；专业参考按需加载，保留项目自身的品牌、技术栈与平台约定，跨平台核心之外提供较深入的 Web 指导
 
@@ -30,10 +30,12 @@
 - [Agent UI](references/agent-ui.md)：仅在对话或 Agent 产品中按需加载，覆盖滚动归属、流式消息、授权和执行状态
 - [研究补充](references/research-addendum.md)：本次更新包提供的来源与证据限制
 - [问题类型与成熟方案](references/problem-families-and-prior-art.md)：按需识别模式、检查反例与适用条件
+- [产品结果与商业判断](references/product-outcomes.md)：产品方向、增长、定价、结果证据与可预防问题，按任务需要加载
 - [模式复用探针](tests/pattern-reuse-probes.md)：症状驱动任务、测试环境和独立验收条件，尚未执行
 - [测试场景](tests/scenarios.md)：独立验收契约与行为探针
 - [设计诊断探针](tests/design-diagnosis-probes.md)：复杂设置、账目、旧截图和跨平台等十个评估场景
 - [可预防缺陷探针](tests/preventable-defects-probes.md)：实现前的信息取舍、光学布局与动效事件决策，执行状态见验证记录
+- [结果责任与前瞻性探针](tests/outcome-ownership-probes.md)：结果判断、现金与积分区分、历史缺陷盲测和任务比例控制，尚未执行
 - [验证记录](tests/validation.md)：迁移说明、执行结果及证据限制
 - [Agent UI 与输入探针](tests/agent-ui-probes.md)：品牌保留、IME、流式滚动、状态与跨平台场景，尚未执行
 

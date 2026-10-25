@@ -32,7 +32,7 @@ Exercise E2–E5 independently for attribution, or as a combined repair task whe
 
 ## Discovery probes
 
-Without explicit invocation, test a product scope request and an interface repair as positive cases, and backend indexing, publishing-only, image-only, and calculation-only requests as negative cases. Distinguish the host listing the Skill from the model actually choosing it
+Without explicit invocation, test a product scope request, an interface repair and a product activation/retention decision as positive cases, and backend indexing, publishing-only, standalone image generation, and calculation-only/data-cleaning requests without a product decision or experience design as negative cases. Distinguish the host listing the Skill from the model actually choosing it
 
 ## Comparison and stopping
 

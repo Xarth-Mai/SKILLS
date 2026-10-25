@@ -1,6 +1,6 @@
 ---
 name: product-design-engineering
-description: "Discover, design, implement, and improve products toward genuine user outcomes and sustainable business value. Use for product strategy, positioning, user journeys, onboarding, activation, retention, voluntary monetization, growth, UI/UX, motion, user-facing engineering, and evidence-based reviews. Reuse proven methods and validate results; keep effort proportional. Not for unrelated backend-only work or routine deployment."
+description: "Discover, design, implement, and improve products toward genuine user outcomes and sustainable business value. Use for product strategy, positioning, user journeys, onboarding, activation, retention, voluntary monetization, growth, UI/UX, motion, user-facing engineering, and evidence-based product/experience reviews. Reuse proven methods and validate results; keep effort proportional. Not for unrelated backend-only work, routine deployment, or standalone image/data tasks without a product decision or experience design."
 ---
 
 # Product Design Engineering
@@ -20,7 +20,7 @@ Turn product intent into real user value and, where relevant, sustainable commer
 
 Inspect relevant instructions, specifications, UI/artifacts, tokens, components, navigation, state/data contracts, runtime, dependencies, tests, and surrounding consumers. Scope the investigation to the affected flow
 
-For each material feature or change, connect four lenses:
+For each material feature or change, connect the relevant lenses:
 
 1. **User goal** — who is doing what, when, and why; what success feels like in this product.
 2. **User-facing meaning** — words, hierarchy, defaults, state, pricing/permission consequences the user can understand.

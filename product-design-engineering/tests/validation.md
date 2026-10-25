@@ -186,3 +186,24 @@ Same-agent semantic review checked C1–C8, U1–U7, and A1–A6 against the ori
 Static checks passed: `quick_validate.py` for all five repository Skills; Python assertions for 82 repository-local links and four heading anchors, unchanged metadata/probes/source records, Spec templates, and spring definitions; `git diff --check`
 
 Model comparison, implicit routing, browser/device acceptance, and external source revalidation: **NOT RUN** for this wording revision
+
+## Outcome ownership and foresight review — 2026-10-26
+
+Baseline: `de50a24c8a94ee8a69f1ff84a84f4ebd94c60671`; reviewed candidate: `c61ef57fa1dc10ffd579252af3af56b7879793b0` on `feat/product-outcome-ownership-20261025`
+
+Added outcome framing, primary behavioral and financial evidence, voluntary monetization, proportionate foresight and ten O1–O10 probe specifications while retaining the adaptive Frame → Audit → Design → Build → Review workflow
+
+Review corrections: removed the stale four-lens count after adding a fifth lens; qualified the review trigger and restored standalone image/data exclusions while retaining product-decision coverage; synchronized the package README and discovery probe specification; normalized final newlines in the two new Markdown files
+
+| Check | Result | Evidence and limit |
+| --- | --- | --- |
+| Package metadata | PASS | `quick_validate.py` passed for all four repository Skills; YAML names match directories and existing UI default prompts reference their entrypoints |
+| Local integrity | PASS | `/tmp/check-skills-product-outcome-review.py` checked 106 local Markdown links, including 68 contained within this standalone package; 40 baseline files outside the eight intended paths remain byte-identical |
+| Retained JSONL suites | PASS | 18 regression and 8 migration cases parse with unique IDs within each suite; this validates fixture integrity only |
+| Formatting | PASS | Changed/new files have final newlines and no trailing whitespace |
+| Source attribution | PASS, scoped | Opened the cited Felix Rieseberg article and confirmed its title, 2026-10-13 date and Speed / Altitude / Depth / Range framing; the product methods are independent adaptation, without article prose imports |
+| Semantic review | PASS, scoped | Same-agent `prompt-engineering` Review and `ponytail-review` checked adaptive scope, prior capabilities, product identity, review-only behavior, authorization, evidence limits, source ownership and evaluator leakage; no outstanding consequential static findings |
+| Behavioral and discovery comparison | NOT RUN | O1–O10, the expanded implicit-routing probes, historical snapshot tests and prior product/UX regressions were not executed against target agents; historical runs above do not validate this revision |
+| Product outcomes and runtime | NOT RUN | No analytics/payment-data analysis, deployment, browser/device acceptance or real-user study; static consistency does not establish improved design, retention, profit or instruction following |
+
+The checker and review snapshot are temporary local artifacts, not Skill runtime dependencies; Git commits retain the source revisions for rollback

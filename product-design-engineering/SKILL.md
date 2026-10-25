@@ -1,15 +1,16 @@
 ---
 name: product-design-engineering
-description: "Discover and refine product needs, diagnose unclear UI/UX problems, design coherent interactions and motion, implement user-facing features, and verify experiences across platforms. Use for product journeys, visual hierarchy, cognitive load, content clarity, interaction behavior, design engineering, and experience reviews. Recognize established problem patterns and reuse solutions that fit project constraints. Adapt effort to the task; not for backend-only work, deployment alone, or image/data tasks without experience design."
+description: "Discover, design, implement, and improve products toward genuine user outcomes and sustainable business value. Use for product strategy, positioning, user journeys, onboarding, activation, retention, voluntary monetization, growth, UI/UX, motion, user-facing engineering, and evidence-based reviews. Reuse proven methods and validate results; keep effort proportional. Not for unrelated backend-only work or routine deployment."
 ---
 
 # Product Design Engineering
 
-Turn product intent into a coherent, useful, expressive, technically sound experience. Identify consequential gaps, make deliberate decisions, implement within scope, and verify what users encounter. Ground design in product identity, project conventions, platform behavior, and evidence
+Turn product intent into real user value and, where relevant, sustainable commercial outcomes. Choose worthwhile problems, build coherent and technically sound experiences, and verify what people can actually achieve. Ground decisions in project truth, real behavior, independent evidence and applicable constraints; a completed feature is not automatically a successful product
 
 ## Scope and operating mode
 
-- Select the needed phases: **Frame** (problem, user, scope), **Audit** (diagnose), **Design** (decide and specify), **Build** (implement), **Review** (challenge and verify). Handle local edits directly; cover the relevant journey and states for an end-to-end feature
+- Select the needed phases: **Frame** (problem, user, outcome, scope), **Audit** (diagnose), **Design** (decide and specify), **Build** (implement), **Review** (challenge and verify). Handle local edits directly; cover the relevant journey and states for an end-to-end feature
+- For meaningful product decisions, identify the goal beyond the requested artifact and challenge whether the proposed feature is the best means. Work within explicit authorization; surface a superior but out-of-scope alternative rather than silently changing the deliverable
 - For authorized build/polish work, inspect, decide, implement, and verify. Review-only/plan-only work produces findings/a plan **without editing**. Commits, publication, deployment, contacting users, production data changes, and irreversible operations require applicable authorization
 - Preserve product choices, brand, content, business/privacy decisions, data semantics, APIs, interfaces, and unrelated work. Surface conflicts and demonstrated problems using current code, revision, rendered state, and the user's latest direction
 - Use relevant specialist Skills/tools when available and continue with available capabilities otherwise. Follow the project's established process for complex skill authoring or review
@@ -25,6 +26,7 @@ For each material feature or change, connect four lenses:
 2. **User-facing meaning** — words, hierarchy, defaults, state, pricing/permission consequences the user can understand.
 3. **Action path** — entry, prerequisites, main action, feedback, recovery, return; whether the user can discover and complete it.
 4. **Engineering truth** — which source of truth, permission, platform behavior and data lifecycle make the experience reliable.
+5. **Product outcome** — how users discover, reach, repeat and value the result; for commercial products, what creates voluntary payment and sustainable service economics.
 
 Match screenshots to **their captured version** and verify findings against current code. Distinguish supplied facts, verified implementation, observation, hypothesis, and preference; ground research, metrics, device and model claims in actual evidence
 
@@ -46,6 +48,8 @@ Select relevant diagnostic questions:
 
 Rank findings by user impact, scope, confidence, and reversibility. Label style preferences as preferences; report a clean audit when the evidence supports it
 
+For product-level work, test whether the requested solution addresses the real constraint on reaching first value, retaining value, trust or sustainable economics. Check primary behavioral/financial sources where available, challenge the assumed cause, and explicitly distinguish observed facts from hypotheses and missing data. Do not infer commercial success from shipping, interaction counts, points spent, or attractive screenshots. Use [Product outcomes](references/product-outcomes.md) for strategic, growth, launch or monetization decisions
+
 For nontrivial changes, connect symptoms and evidence to candidate **problem families**. Test each hypothesis against existing mechanisms, contracts, prerequisites, and counterexamples. Consider standard-library, platform, official framework guidance, or established solutions; choose the smallest fit for the task's data, security, and runtime constraints, with an observable check
 
 Research unfamiliar or consequential details as needed and distinguish inspected sources from remembered practice. Explain a concrete mismatch before choosing a local alternative to an established solution
@@ -57,6 +61,8 @@ For diagnosis involving complexity or nontechnical audiences read [Cognitive erg
 ## 3. Make a specific design decision
 
 Recommend a coherent solution matched to the product and context. Explain consequential alternatives and tradeoffs; choose rules and values for a concrete purpose
+
+For substantial product choices, select the intervention with the highest credible contribution to the user outcome under cost, time, safety and business constraints: improve an existing flow, remove friction, change the offer/channel, implement the feature, or first run a discriminating experiment. Define success and guardrails using real measures when accessible; otherwise choose a minimal evidence-gathering step instead of inventing conversion uplift or ROI. Aim higher in the *result*, deeper in methods and raw evidence, and wider across relevant disciplines—not larger in feature count
 
 ### Prevent avoidable experience defects before building
 
@@ -75,6 +81,7 @@ Treat correctness, applicable accessibility, responsive operability, and explici
 | Concern | Reference |
 | --- | --- |
 | Scope, journeys, navigation, recovery, acceptance | [Product and UX](references/product-ux.md) |
+| Product strategy, positioning, growth, activation, retention, pricing, monetization, foresight | [Product outcomes](references/product-outcomes.md) |
 | Cognitive load, progressive disclosure, decision/action costs, content | [Cognitive ergonomics](references/cognitive-ergonomics.md) |
 | Visual hierarchy, typography, content, data displays | [Visual](references/visual.md) |
 | Optical alignment, purposeful surfaces, visual diagnosis and design review | [Experience craft](references/experience-craft.md) |
@@ -91,6 +98,8 @@ For larger changes, record a compact decision contract: **user task; candidate p
 Reuse project components, tokens, accessibility primitives, and installed dependencies. Inspect shared consumers before changing shared styles or semantics. Label prototypes clearly; build requests connect actual actions and data
 
 For a recurring gap in a *shared* convention, update or propose the smallest consistent rule at its authoritative home, align shared implementation and regression checks, and reconcile conflicting instructions within authorization. Keep isolated fixes local
+
+For a substantial product build, prioritize the smallest complete path to observable user value over a catalogue of optional features. Preserve truthful cost, consent, safety, support and recovery paths; do not postpone predictable contract defects to production or implement speculative features only to avoid future redesign
 
 Preserve source-of-truth data, errors, revision/transaction semantics, and user edits. Implement affected loading, empty, populated, failed, stale, repeated-action, cancelled, interrupted, and return states. Tie user-facing success to the underlying operation's confirmed outcome
 
@@ -110,6 +119,8 @@ After design or implementation, challenge the solution with relevant counterexam
 
 For substantial UI changes, verify the earlier necessity, composition and event-semantics decisions; repair a failed decision or shared implementation at its owner rather than accumulating cosmetic overrides
 
+For meaningful product decisions, challenge the *outcome*, not just the interface: would users reach the intended value, keep trusting it, and choose to return or pay where applicable? Before major Build, imagine later **fix**, **polish**, and **feature** commits: prevent testable failures now, validate likely usability issues early, and defer genuinely emergent product needs. Do not mistake hindsight or extra features for foresight
+
 Propose the smallest correction for a reproduced defect. For new or significant flows, use [Verification](references/verification.md) and targeted [design diagnosis probes](tests/design-diagnosis-probes.md)
 
 ## 6. Verify what you claim
@@ -118,12 +129,16 @@ Run focused existing tests and inspect rendered output where tools permit. Use r
 
 Record each check as **PASS / FAIL / BLOCKED / NOT RUN**, identifying its evidence layer: static inspection, automated test, browser render, emulator, physical device, model/tool trace, or user task observation. Mark unavailable acceptance layers explicitly. Live-data changes and paid/external actions require applicable authorization
 
+For product-outcome claims, prefer outside judges: real user task completion, model/tool traces, target-device behavior, properly defined cohorts, payment records and actual supplier costs. Static code and synthetic tests support bounded engineering claims, not retention, user satisfaction, profitability or legal compliance. Unknown is not zero
+
 Deliver the artifact/patch/findings first, with key decisions, material checks, and unresolved risks. Stop when the authorized goal and relevant checks are satisfied
 
 ## Maintenance
 
 When improving this Skill from real failures, locate the cause: **knowledge, discovery/routing, reasoning, execution/platform, or verification**. Change the relevant layer, add a similar but different regression scenario, and preserve passing cases and untouched holdouts. Evaluate behavioral improvement through comparative runs
 
+For preventable-defect or product-outcome claims, test on historical snapshots with later commits/results withheld from the acting agent. Check whether it independently identifies the right problem, source, early counterexample and proportionate intervention. Compare actual actions and outcomes rather than the persuasiveness of the Skill text
+
 Keep product-specific taste in its project and promote generalizable principles during authorized maintenance. Global memory and other Skill edits require their own authorization
 
-For provenance and licensing, consult [Source map](references/source-map.md) and [Research addendum](references/research-addendum.md); for evaluation, use [Scenarios](tests/scenarios.md), [Design diagnosis probes](tests/design-diagnosis-probes.md), [Pattern reuse probes](tests/pattern-reuse-probes.md), [Preventable defects probes](tests/preventable-defects-probes.md), [Agent UI probes](tests/agent-ui-probes.md), and the existing [validation record](tests/validation.md). These are maintenance resources, not required reads for every ordinary task
+For provenance and licensing, consult [Source map](references/source-map.md) and [Research addendum](references/research-addendum.md); for evaluation, use [Scenarios](tests/scenarios.md), [Design diagnosis probes](tests/design-diagnosis-probes.md), [Pattern reuse probes](tests/pattern-reuse-probes.md), [Preventable defects probes](tests/preventable-defects-probes.md), [Outcome ownership probes](tests/outcome-ownership-probes.md), [Agent UI probes](tests/agent-ui-probes.md), and the existing [validation record](tests/validation.md). These are maintenance resources, not required reads for every ordinary task

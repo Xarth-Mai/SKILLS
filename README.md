@@ -6,7 +6,7 @@
 
 - [grill-me](./grill-me)：通过连续追问澄清目标、约束、隐含假设与替代方案，并在 Plan mode 自动启用。
 - [prompt-engineering](./prompt-engineering)：专业的 Prompt、Context 和 Agent 行为工程；统一设计、审查、诊断、迁移和实证评估，优先改善实际任务完成效果。
-- [product-design-engineering](./product-design-engineering)：从产品需求、UX、视觉与动效到工程实现和验收，主动补齐重要遗漏并给出决策依据；跨平台核心、Web 专项深度，替代原 `design-engineering`
+- [product-design-engineering](./product-design-engineering)：从用户价值和商业目标出发，主动判断产品机会，完成专业 UX/UI、交互和工程实现，并以真实行为及结果验证；保持小任务精简、重大决策深入，替代原 `design-engineering`
 - [spec-lifecycle](./spec-lifecycle)：用 Markdown + Git 管理技术规格与设计决策，覆盖提案、实现、否决和归档，并以实际验证证据同步状态与代码
 
 ## Prompt Engineering

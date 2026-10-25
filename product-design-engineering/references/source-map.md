@@ -4,6 +4,10 @@ Checked 2026-10-14 against the revisions below. The downloaded entrypoints and r
 
 The supplied ZIP is the starting draft. The former repository Skill contributes its existing attributed Web rules, tests, and [historical source record](legacy-sources.md). New sections are independently written synthesis; no external Skill suite, search database, or template collection is bundled
 
+## Outcome ownership / ambition addendum (2026-10-25)
+
+[Felix Rieseberg, *How to be more ambitious: A tutorial for humans with models* (2026-10-13)](https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/) supplied the conceptual Speed / Altitude / Depth / Range lens. This Skill independently operationalizes outcome focus, primary sources, professional methods, cross-disciplinary reasoning and outside validation for product work; the article is not a source of NianYu metrics, business outcomes or legal conclusions. No article text, assets or code are bundled. See [Product outcomes](product-outcomes.md) and [Outcome ownership probes](../tests/outcome-ownership-probes.md).
+
 ## Reviewed sources
 
 | Source and pinned entrypoints | License evidence | Useful capability | Adaptation boundary |

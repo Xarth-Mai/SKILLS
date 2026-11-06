@@ -70,3 +70,18 @@ Inspected Caho1/open-claude-ui at commit `02d021fceaf2a907f9e63a8125621bdda1b85d
 Preserve project requirements, applicable platform/accessibility behavior and existing mechanisms when adapting these ideas. Upstream source proves what that example defines, not what all products should do. Agent lifecycle and recovery rules are independent synthesis of this Skill's existing state/authorization boundaries, not claims that every upstream card implements them
 
 If a later task imports code, substantial prose or assets, inspect the particular artifact's provenance and retain applicable notices; the repository license is not a blanket verification of third-party asset rights. This integration adds no runtime dependency or required network read during ordinary Skill use
+
+## Aesthetic judgment and prompt-economy integration — 2026-11-06
+
+The optional [aesthetic direction reference](aesthetic-direction.md) adds situational visual judgment, subject-grounded art direction, perceptual composition, criticism with alternatives, and paired visual review. The main Skill now distinguishes Refine, Extend, and Explore as design freedom, not mandatory stages. Existing visual, cognitive, motion, product, engineering and verification references retain ownership of their specialized rules.
+
+| Research/source | What this integration takes | Scope and exclusion |
+| --- | --- | --- |
+| [Tuch et al. (2012), Google Research](https://research.google/pubs/the-role-of-visual-complexity-and-prototypicality-regarding-first-impression-of-websites-working-towards-understanding-aesthetic-judgments/) | Visual complexity and prototypicality inform first-impression hypotheses | Sampled website screenshots; not a universal style rule or performance measure |
+| [Lindgaard et al. (2006)](https://doi.org/10.1080/01449290500330448) | Brief-exposure impressions deserve attention in visual critique | Does not establish usability or universal aesthetic preferences |
+| [Nielsen Norman Group — aesthetic-usability effect](https://www.nngroup.com/articles/aesthetic-usability-effect/) | Separate perceived ease and aesthetic attraction from observed task success | Professional synthesis, not proof that an attractive result is usable |
+| [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/) and [WCAG 2.2](https://www.w3.org/TR/WCAG22/) | Ground platform conventions and accessible interaction constraints | Apply to relevant platform and conformance scope only |
+| [Impeccable](https://github.com/pbakaus/impeccable), [Taste Skill](https://github.com/Leonxlnx/taste-skill), [Anthropic Frontend Design](https://github.com/anthropics/skills/tree/main/skills/frontend-design), [Emil Kowalski](https://github.com/emilkowalski/skills) | Independently synthesized task-relative design freedom, art direction and real-render critique | No upstream prose blocks, binary tooling, browser automation, visual assets or aesthetic presets imported |
+| [OpenAI — Rethinking skills and prompts](https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra) | Concise Skill entrypoint, conditional references, outcome-based behavior checks | Guidance is an authoring principle, not evidence this candidate works better |
+
+The new [aesthetic judgment probes](../tests/aesthetic-judgment-probes.md) are specifications only, **NOT RUN**. No improved model behavior, objective beauty score, real-user preference or production acceptance is claimed. Original inherited license notices remain unchanged; this change adds no third-party scripts, fonts, images, bundled datasets or runtime dependencies.

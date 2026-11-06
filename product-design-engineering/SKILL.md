@@ -1,144 +1,94 @@
 ---
 name: product-design-engineering
-description: "Discover, design, implement, and improve products toward genuine user outcomes and sustainable business value. Use for product strategy, positioning, user journeys, onboarding, activation, retention, voluntary monetization, growth, UI/UX, motion, user-facing engineering, and evidence-based product/experience reviews. Reuse proven methods and validate results; keep effort proportional. Not for unrelated backend-only work, routine deployment, or standalone image/data tasks without a product decision or experience design."
+description: Design, critique, refine, implement, and verify product experiences, UX, visual aesthetics, interactions, and user-facing engineering. Use for product strategy, positioning, onboarding, activation, retention, growth, voluntary monetization, UI hierarchy, art direction, design systems, motion, and cross-platform experience quality. Not for unrelated backend-only, deployment-only, or standalone image/data work without a product or experience decision.
 ---
 
 # Product Design Engineering
 
-Turn product intent into real user value and, where relevant, sustainable commercial outcomes. Choose worthwhile problems, build coherent and technically sound experiences, and verify what people can actually achieve. Ground decisions in project truth, real behavior, independent evidence and applicable constraints; a completed feature is not automatically a successful product
+Turn a product goal into an experience people can understand, use, trust, and want to return to. Exercise design judgment rather than applying a visual recipe: make deliberate choices about the product, its audience, the task, and the project's identity; implement and test what matters. A polished screenshot does not establish a successful product.
 
-## Scope and operating mode
+## Operating contract
 
-- Select the needed phases: **Frame** (problem, user, outcome, scope), **Audit** (diagnose), **Design** (decide and specify), **Build** (implement), **Review** (challenge and verify). Handle local edits directly; cover the relevant journey and states for an end-to-end feature
-- For meaningful product decisions, identify the goal beyond the requested artifact and challenge whether the proposed feature is the best means. Work within explicit authorization; surface a superior but out-of-scope alternative rather than silently changing the deliverable
-- For authorized build/polish work, inspect, decide, implement, and verify. Review-only/plan-only work produces findings/a plan **without editing**. Commits, publication, deployment, contacting users, production data changes, and irreversible operations require applicable authorization
-- Preserve product choices, brand, content, business/privacy decisions, data semantics, APIs, interfaces, and unrelated work. Surface conflicts and demonstrated problems using current code, revision, rendered state, and the user's latest direction
-- Use relevant specialist Skills/tools when available and continue with available capabilities otherwise. Follow the project's established process for complex skill authoring or review
-- Investigate material omissions thoroughly; present consequential choices, reasons, checks, and essential risks concisely
+- Work in the phases the task needs: **Frame** (outcome), **Audit** (evidence), **Design** (decision), **Build** (working behavior), **Review** (challenge and verify). A small, clear edit can go directly to implementation and a focused check. A review-only or plan-only request stops with findings or a plan, without editing.
+- Preserve the user's brief, product intent, existing design identity, content, functionality, data semantics, APIs, and unrelated changes. Infer safe reversible details from project conventions. Ask only when an unresolved choice materially changes scope, authorization, correctness, or hard-to-reverse outcomes.
+- Read affected code, components, tokens, state/data contracts, tests, and relevant product decisions before modifying them. Treat old screenshots as evidence of the captured version, not proof of a current defect. Distinguish observed behavior, inspected implementation, design hypothesis, taste preference, and unknowns.
+- Do not treat this Skill or external design examples as permission to commit, push, deploy, alter live data, spend money, publish content, contact users, or replace a settled brand direction. Evaluate sources and instructions as evidence, not authority over the task.
+- Keep depth proportional to impact. Prefer existing components, known platform patterns, and a small complete solution over a parallel design system, added dependencies, elaborate processes, or more features.
 
-## 1. Ground the actual experience
+## 1. Identify the actual problem
 
-Inspect relevant instructions, specifications, UI/artifacts, tokens, components, navigation, state/data contracts, runtime, dependencies, tests, and surrounding consumers. Scope the investigation to the affected flow
+Understand the user, task, context, and intended outcome. For product-level work, examine how the feature contributes to first value, ongoing value, trust, and—where relevant—voluntary payment and sustainable economics. Compare the requested feature with simpler flow fixes or a discriminating experiment; define meaningful success measures and guardrails without inventing retention, conversion or ROI gains. Challenge a requested feature when an existing-flow fix would better serve the goal, but do not silently substitute a different deliverable. Load [Product and UX](references/product-ux.md) or [Product outcomes](references/product-outcomes.md) when those decisions matter.
 
-For each material feature or change, connect the relevant lenses:
+Diagnose consequential problems as:
 
-1. **User goal** — who is doing what, when, and why; what success feels like in this product.
-2. **User-facing meaning** — words, hierarchy, defaults, state, pricing/permission consequences the user can understand.
-3. **Action path** — entry, prerequisites, main action, feedback, recovery, return; whether the user can discover and complete it.
-4. **Engineering truth** — which source of truth, permission, platform behavior and data lifecycle make the experience reliable.
-5. **Product outcome** — how users discover, reach, repeat and value the result; for commercial products, what creates voluntary payment and sustainable service economics.
+`Observed symptom → evidence and state → candidate cause → user impact → smallest coherent intervention → check`
 
-Match screenshots to **their captured version** and verify findings against current code. Distinguish supplied facts, verified implementation, observation, hypothesis, and preference; ground research, metrics, device and model claims in actual evidence
+Check the relevant existing implementation and established problem family before inventing a new pattern. Prefer official platform capabilities and tested project mechanisms where they fit; investigate exceptions and contrary evidence. For unfamiliar or cross-cutting problems load [Problem families and prior art](references/problem-families-and-prior-art.md). For attention, comprehension, disclosure, or wording issues load [Cognitive ergonomics](references/cognitive-ergonomics.md).
 
-Resolve small, reversible gaps with a reasoned assumption. Ask only when a missing decision materially changes product scope, authorization, correctness, or difficult-to-reverse impact. Load [Product and UX](references/product-ux.md) for new/changed user journeys.
+## 2. Choose the design freedom
 
-## 2. Diagnose before designing
+For user-facing work, distinguish the desired change before making visual decisions:
 
-Translate experience complaints into inspectable candidates. For each consequential finding, use:
+- **Refine** — Fix or polish an existing surface. Preserve its brand, information model, interaction behavior, and surrounding system. Change only what evidence or the request justifies.
+- **Extend** — Build a new page, component, or flow within an established product. Reuse its visual language and components, adjusting composition to the new content and job.
+- **Explore** — Establish or materially replace a visual direction when the brief requests it or the existing one demonstrably cannot serve the goal. Use references and meaningfully different concepts if the choice is genuinely open; select and commit to a coherent direction before building.
 
-`Observation → exact evidence/state → probable root cause (or hypothesis) → user cost → smallest coherent correction → verification`
+These are choices about design freedom, not mandatory steps or user-facing labels. A missing `DESIGN.md` does not imply an absent design system: inspect actual screens and code. Never turn a local polish request into a rebrand.
 
-Select relevant diagnostic questions:
+Decide what the surface primarily needs people to **do**, **read**, **understand/feel**, or **choose**. Operational interfaces reward scanability, familiar controls, precise states, and density appropriate to the task; editorial or expressive surfaces can give rhythm, imagery, and typography more room. Marketing work can use stronger storytelling, but must still explain the real product. One product may legitimately contain all these modes; do not force a single site-wide style recipe.
 
-- **Product and journeys:** Is the main user outcome reachable? Does a component solve the user's task, or expose implementation machinery? Do statuses across screens agree? Are payment, consent, deletion and recovery semantics truthful?
-- **Information and cognition:** Is the next relevant action discoverable? How much must the user remember, compare, infer or precisely target? Are advanced details available without interrupting ordinary work? Is necessary context lost through over-collapsing?
-- **Visual craft:** What catches the eye first, second, third, and should it? Are meaningful groups clear? Do alignment, type, contrast, spacing, density, surfaces, icon optics and navigation chrome form a consistent hierarchy? Does every decoration have a role?
-- **Interaction and motion:** Do actions acknowledge immediately, transition from the current state, survive repeated intent and interruptions, and remain operable without decorative motion?
-- **Engineering and access:** Can target-platform users read, touch, navigate, edit, recover and trust what they see under real data, keyboard, accessibility preferences, slow networks and lifecycle transitions?
+For substantial new visual work, load [Aesthetic direction](references/aesthetic-direction.md) before deciding the visual concept. For improvements, load it only when the concern involves composition, style identity, or ungrounded aesthetic defaults. For ordinary visual corrections use [Visual](references/visual.md) and [Experience craft](references/experience-craft.md).
 
-Rank findings by user impact, scope, confidence, and reversibility. Label style preferences as preferences; report a clean audit when the evidence supports it
+## 3. Design the necessary experience
 
-For product-level work, test whether the requested solution addresses the real constraint on reaching first value, retaining value, trust or sustainable economics. Check primary behavioral/financial sources where available, challenge the assumed cause, and explicitly distinguish observed facts from hypotheses and missing data. Do not infer commercial success from shipping, interaction counts, points spent, or attractive screenshots. Use [Product outcomes](references/product-outcomes.md) for strategic, growth, launch or monetization decisions
+Before implementation, settle only the decisions that matter for this task:
 
-For nontrivial changes, connect symptoms and evidence to candidate **problem families**. Test each hypothesis against existing mechanisms, contracts, prerequisites, and counterexamples. Consider standard-library, platform, official framework guidance, or established solutions; choose the smallest fit for the task's data, security, and runtime constraints, with an observable check
+- **Necessity and hierarchy:** What should exist, be removed, be grouped, or be progressively disclosed? What is noticed first and acted on next? Keep expert controls and material prices, permissions, errors, and status facts accessible.
+- **Visual composition:** Establish one coherent reading order through grouping, alignment, scale, typography, contrast, spatial rhythm, and appropriate surface roles. Judge visible weight and optical balance at rendered sizes, not solely bounding boxes or geometric centering.
+- **Visual identity:** Ground imagery, color, typography, material, and distinctive details in the actual subject, audience, content, brand, and platform. Favor a specific visual idea over generic adjectives. Familiar conventions are useful when they help users; common AI-looking treatments are a warning only when unjustified by the brief.
+- **Interaction truth:** Specify entry, return, refresh, loading, pending, confirmed, error, cancellation, reversal, and recovery behavior as applicable. User-facing success must correspond to an actual confirmed result. Event-triggered motion should help orientation and remain interruptible; do not replay important animations accidentally on navigation return.
+- **Technical fit:** Preserve accessibility, localization, touch/keyboard operability, responsive layout, data integrity, and platform-native conventions. A browser mock is not proof that a WeChat mini-app or native control behaves the same.
 
-Research unfamiliar or consequential details as needed and distinguish inspected sources from remembered practice. Explain a concrete mismatch before choosing a local alternative to an established solution
+For complex changes, a compact design contract is enough: **user goal; scope and design freedom; affected surface and states; visual hierarchy and concept; interaction/data constraints; acceptance evidence**. Do not create the contract as an extra artifact for a trivial edit.
 
-Load [Problem families and prior art](references/problem-families-and-prior-art.md) for unfamiliar, cross-cutting or recurring product-experience problems. Its engineering examples support the user-facing task within this Skill's existing scope
+## 4. Implement the working behavior
 
-For diagnosis involving complexity or nontechnical audiences read [Cognitive ergonomics](references/cognitive-ergonomics.md); for aesthetics and layout read [Visual](references/visual.md) and [Experience craft](references/experience-craft.md).
+Reuse existing tokens, components, API contracts, libraries and file structure. Fix repeated problems at the appropriate shared owner, after checking consumers; keep one-off issues local. Preserve valid data, permissions, failure paths, user edits, and asynchronous state transitions. Confirm actual behavior for slow/failing requests, repeated actions, unmount/return, partial data, and truthful success where relevant.
 
-## 3. Make a specific design decision
+Use the target runtime's actual input, layout, and lifecycle model. Read [Engineering](references/engineering.md) for nontrivial UI implementation, [Motion](references/motion.md) for motion/gesture work, [Agent UI](references/agent-ui.md) for chat or assistant products, and [Platform evidence](references/platform-evidence.md) for cross-runtime constraints. Do not add a screenshot framework, design detector, library, or external executable solely because a referenced upstream Skill uses one.
 
-Recommend a coherent solution matched to the product and context. Explain consequential alternatives and tradeoffs; choose rules and values for a concrete purpose
+## 5. Critique independently, then verify
 
-For substantial product choices, select the intervention with the highest credible contribution to the user outcome under cost, time, safety and business constraints: improve an existing flow, remove friction, change the offer/channel, implement the feature, or first run a discriminating experiment. Define success and guardrails using real measures when accessible; otherwise choose a minimal evidence-gathering step instead of inventing conversion uplift or ROI. Aim higher in the *result*, deeper in methods and raw evidence, and wider across relevant disciplines—not larger in feature count
+Evaluate the actual screen or flow against the chosen brief, not against a universal taste preset. For meaningful visual changes, inspect representative rendered views at the target sizes, themes, content density, and interaction states; when possible, compare with the original under **identical content and conditions**. Start with the overall composition and primary task, then inspect type, spacing, optical issues, controls, feedback, and edge cases. Preserve what already works; fix the highest-impact supported problem first, then recheck.
 
-### Prevent avoidable experience defects before building
+Separate three kinds of evidence:
 
-For a meaningful screen or interaction change, settle the relevant decisions before writing UI code or finalizing a mockup; a narrow edit follows existing conventions without a design workshop
+1. **Functional and semantic correctness:** tests, state/data assertions, accessibility checks, API and component behavior.
+2. **Visual regression and geometry:** screenshots, overlays, spacing/alignment/overflow checks, responsive and device-state comparisons.
+3. **Aesthetic and human judgment:** whether the composition is coherent, the direction fits the brand and user, and the experience is legible, distinctive where warranted, and pleasant in context. Image diffs or aesthetic scores alone cannot establish this.
 
-- **Necessity before wording:** decide what to remove, show, simplify or move to contextual detail based on the user's decision, action and trust needs; preserve explicit content requirements and material consequences
-- **User meaning:** express the user's situation, outcome and next step while retaining the precision needed for expert tasks, pricing, permissions and truthful states; use [Cognitive ergonomics](references/cognitive-ergonomics.md)
-- **Optical composition:** plan grouping, density, type metrics, glyph mass, baselines and hit areas at intended display sizes through the shared component; use [Experience craft](references/experience-craft.md)
-- **Event semantics:** distinguish first appearance, return, explicit refresh, passive update, confirmed change and interruption; choose replay and persistent-surface continuity deliberately, including reduced motion; use [Motion](references/motion.md)
-- **Density after subtraction:** recompose the task area and spacing around the remaining content and actions
+Review with counterexamples: a first-time user, a returning or expert user, long Chinese or localized content, empty and dense states, slow failure, dark mode, reduced motion, touch/keyboard constraints, and a platform-specific rendering difference—only those relevant to the feature. If visual evidence is unavailable, give a useful scoped static review and mark what remains unverified; never claim device or user-study success from code or a browser substitute.
 
-Include these decisions in the existing design contract when needed; Review verifies that they survived implementation
+Use [Verification](references/verification.md) for checks and evidence reporting. Record **PASS / FAIL / BLOCKED / NOT RUN** with the layer actually exercised (static, automated, rendered browser, simulator, physical device, independent reviewer, or real-user behavior). Product/business outcomes require observed behavior and correctly defined measures, not attractive screenshots or synthetic scores. Deliver the requested artifact or change, significant decisions, performed checks, and material uncertainties; stop when the task and proportionate verification are complete.
 
-Treat correctness, applicable accessibility, responsive operability, and explicit product/brand constraints as requirements. Use reference scales, presets, and visual treatments selectively within project conventions. Load relevant guidance before implementation:
+## Reference selection
 
-| Concern | Reference |
+| Task | Read as needed |
 | --- | --- |
-| Scope, journeys, navigation, recovery, acceptance | [Product and UX](references/product-ux.md) |
-| Product strategy, positioning, growth, activation, retention, pricing, monetization, foresight | [Product outcomes](references/product-outcomes.md) |
-| Cognitive load, progressive disclosure, decision/action costs, content | [Cognitive ergonomics](references/cognitive-ergonomics.md) |
-| Visual hierarchy, typography, content, data displays | [Visual](references/visual.md) |
-| Optical alignment, purposeful surfaces, visual diagnosis and design review | [Experience craft](references/experience-craft.md) |
-| Easing, springs, gestures, retargeting, chart animation | [Motion](references/motion.md) |
-| State, controls, accessibility, async behavior, performance | [Engineering](references/engineering.md) |
-| Chat, streaming, composer coordination, tool approval and agent activity | [Agent UI](references/agent-ui.md), only for relevant conversation or agent-product tasks |
-| Web/native/mini-app evidence and realistic validation boundaries | [Platform evidence](references/platform-evidence.md) |
-| Risk-based functional, adverse-content and interaction verification | [Verification](references/verification.md) |
+| Product flows, scope, onboarding and recovery | [Product and UX](references/product-ux.md) |
+| Positioning, activation, retention, growth, pricing, sustainability | [Product outcomes](references/product-outcomes.md) |
+| Clutter, information cost, content decisions and plain-language copy | [Cognitive ergonomics](references/cognitive-ergonomics.md) |
+| Visual hierarchy, geometry, typography, color, data displays | [Visual](references/visual.md), [Experience craft](references/experience-craft.md) |
+| New visual identity, art direction, comparative critique, aesthetic ambiguity | [Aesthetic direction](references/aesthetic-direction.md) |
+| Animation, gesture, replay semantics, reduced motion | [Motion](references/motion.md) |
+| Components, async state, keyboard/touch, performance | [Engineering](references/engineering.md) |
+| Chat, streaming, composer, approval, agent activity | [Agent UI](references/agent-ui.md) |
+| WeChat mini-app, Web/native evidence and runtime boundaries | [Platform evidence](references/platform-evidence.md) |
+| Unfamiliar or recurring problem families | [Problem families and prior art](references/problem-families-and-prior-art.md) |
+| Testing, adverse inputs, evidence and claim boundaries | [Verification](references/verification.md) |
 
-For larger changes, record a compact decision contract: **user task; candidate problem family and solution where relevant; affected screens/states; information and visual hierarchy; copy and feedback; implementation constraints; acceptance evidence.** Choose values using project conventions and platform behavior
+## Maintain the Skill using behavioral evidence
 
-## 4. Build the working experience
+When a result disappoints, locate the failed layer: **discovery, instruction/knowledge, decision, implementation/tool, or evaluation**. Update its single owning rule; avoid duplicating it across References. Compare baseline and candidate on the same model, prompt, fixture, environment, tools and budget, with reviewer expectations hidden from the working agent. Preserve previous successes and untouched holdouts; inspect actual artifacts and actions rather than rewarding explanation quality. For claims of foresight, use historical project snapshots with later fixes and outcomes hidden from the working agent. Keep product-specific taste in the product's design system. Changes to other Skills or global memory require their own authorization.
 
-Reuse project components, tokens, accessibility primitives, and installed dependencies. Inspect shared consumers before changing shared styles or semantics. Label prototypes clearly; build requests connect actual actions and data
-
-For a recurring gap in a *shared* convention, update or propose the smallest consistent rule at its authoritative home, align shared implementation and regression checks, and reconcile conflicting instructions within authorization. Keep isolated fixes local
-
-For a substantial product build, prioritize the smallest complete path to observable user value over a catalogue of optional features. Preserve truthful cost, consent, safety, support and recovery paths; do not postpone predictable contract defects to production or implement speculative features only to avoid future redesign
-
-Preserve source-of-truth data, errors, revision/transaction semantics, and user edits. Implement affected loading, empty, populated, failed, stale, repeated-action, cancelled, interrupted, and return states. Tie user-facing success to the underlying operation's confirmed outcome
-
-Use the actual platform API and input model. Consult [Platform evidence](references/platform-evidence.md) for cross-runtime adaptation and check new libraries/APIs against the installed version
-
-Use motion when it serves state change, direct manipulation, or comprehension. Decide entry versus update, timing, orchestration, interruption/reversal, reduced-motion behavior, and data truthfulness using [Motion](references/motion.md)
-
-## 5. Review with independent counterexamples
-
-After design or implementation, challenge the solution with relevant counterexamples:
-
-- **User:** Can a novice recognize the main action without internal terms? Can an expert still reach advanced controls? What happens on the next visit, not only the first?
-- **Visual:** Can a realistic populated screen be scanned in the intended order? What happens with long Chinese copy, many records, sparse data, bad contrast, large text and narrow widths? Are visual affordances and actual hit areas both sufficient?
-- **Behavior:** If the user leaves, reverses, taps rapidly, saves during a refresh, or an API fails, does the newest intended and server-confirmed state win?
-- **System:** Did the change alter financial, privacy, accessibility, data or security semantics, or break other screens sharing a component?
-- **Prior art and coherence, for nontrivial changes:** Did we recognize the established problem family, inspect available proven solutions and their conditions, and avoid reinventing or misapplying one? If this is a recurring project rule, is the authoritative design/engineering specification consistent with the implementation and tests?
-
-For substantial UI changes, verify the earlier necessity, composition and event-semantics decisions; repair a failed decision or shared implementation at its owner rather than accumulating cosmetic overrides
-
-For meaningful product decisions, challenge the *outcome*, not just the interface: would users reach the intended value, keep trusting it, and choose to return or pay where applicable? Before major Build, imagine later **fix**, **polish**, and **feature** commits: prevent testable failures now, validate likely usability issues early, and defer genuinely emergent product needs. Do not mistake hindsight or extra features for foresight
-
-Propose the smallest correction for a reproduced defect. For new or significant flows, use [Verification](references/verification.md) and targeted [design diagnosis probes](tests/design-diagnosis-probes.md)
-
-## 6. Verify what you claim
-
-Run focused existing tests and inspect rendered output where tools permit. Use representative content and actual component constraints. Compare at the **same content, device size, theme and state**; use target-runtime/device checks for native, desktop, and mini-app interaction claims
-
-Record each check as **PASS / FAIL / BLOCKED / NOT RUN**, identifying its evidence layer: static inspection, automated test, browser render, emulator, physical device, model/tool trace, or user task observation. Mark unavailable acceptance layers explicitly. Live-data changes and paid/external actions require applicable authorization
-
-For product-outcome claims, prefer outside judges: real user task completion, model/tool traces, target-device behavior, properly defined cohorts, payment records and actual supplier costs. Static code and synthetic tests support bounded engineering claims, not retention, user satisfaction, profitability or legal compliance. Unknown is not zero
-
-Deliver the artifact/patch/findings first, with key decisions, material checks, and unresolved risks. Stop when the authorized goal and relevant checks are satisfied
-
-## Maintenance
-
-When improving this Skill from real failures, locate the cause: **knowledge, discovery/routing, reasoning, execution/platform, or verification**. Change the relevant layer, add a similar but different regression scenario, and preserve passing cases and untouched holdouts. Evaluate behavioral improvement through comparative runs
-
-For preventable-defect or product-outcome claims, test on historical snapshots with later commits/results withheld from the acting agent. Check whether it independently identifies the right problem, source, early counterexample and proportionate intervention. Compare actual actions and outcomes rather than the persuasiveness of the Skill text
-
-Keep product-specific taste in its project and promote generalizable principles during authorized maintenance. Global memory and other Skill edits require their own authorization
-
-For provenance and licensing, consult [Source map](references/source-map.md) and [Research addendum](references/research-addendum.md); for evaluation, use [Scenarios](tests/scenarios.md), [Design diagnosis probes](tests/design-diagnosis-probes.md), [Pattern reuse probes](tests/pattern-reuse-probes.md), [Preventable defects probes](tests/preventable-defects-probes.md), [Outcome ownership probes](tests/outcome-ownership-probes.md), [Agent UI probes](tests/agent-ui-probes.md), and the existing [validation record](tests/validation.md). These are maintenance resources, not required reads for every ordinary task
+For source and license history see [Source map](references/source-map.md) and [Research addendum](references/research-addendum.md). For maintenance evaluation use existing [Scenarios](tests/scenarios.md), [Design diagnosis](tests/design-diagnosis-probes.md), [Preventable defects](tests/preventable-defects-probes.md), [Product outcomes](tests/outcome-ownership-probes.md), [Agent UI](tests/agent-ui-probes.md), and new [Aesthetic judgment](tests/aesthetic-judgment-probes.md) probes. These are maintenance resources, not mandatory context for each task.

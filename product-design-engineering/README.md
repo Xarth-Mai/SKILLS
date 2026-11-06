@@ -27,6 +27,7 @@
 - [认知与操作负担](references/cognitive-ergonomics.md)、[视觉诊断](references/experience-craft.md)：信息理解、操作路径与视觉细节
 - [平台证据](references/platform-evidence.md)：Web、原生、小程序和 CLI 的适用边界
 - [视觉与 Tokens](references/visual.md)、[动效](references/motion.md)、[工程交互](references/engineering.md)：语义选择、可选弹簧参数、IME 和容器自适应，保留项目自身约定
+- [设计美学与 Art Direction](references/aesthetic-direction.md)：按需进行视觉方向、构图、字体色彩、品牌表达与批评，不覆盖现有产品视觉规范
 - [Agent UI](references/agent-ui.md)：仅在对话或 Agent 产品中按需加载，覆盖滚动归属、流式消息、授权和执行状态
 - [研究补充](references/research-addendum.md)：本次更新包提供的来源与证据限制
 - [问题类型与成熟方案](references/problem-families-and-prior-art.md)：按需识别模式、检查反例与适用条件

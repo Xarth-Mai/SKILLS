@@ -207,3 +207,18 @@ Review corrections: removed the stale four-lens count after adding a fifth lens;
 | Product outcomes and runtime | NOT RUN | No analytics/payment-data analysis, deployment, browser/device acceptance or real-user study; static consistency does not establish improved design, retention, profit or instruction following |
 
 The checker and review snapshot are temporary local artifacts, not Skill runtime dependencies; Git commits retain the source revisions for rollback
+
+## Aesthetic judgment candidate — 2026-11-06
+
+Branch: `feat/product-aesthetic-judgment-20261106`. Baseline: `main` at `9e3908d3f7d6f1f51c833a4f490a0e2b3454d1f0`. The new main entrypoint preserves existing product/outcome, data truth, authorization, state, platform and accessibility constraints while introducing conditional aesthetic judgment; previous references and probe files remain in place.
+
+| Check | Status | Evidence and limitation |
+| --- | --- | --- |
+| Frontmatter and package structure | PASS, scoped | Local YAML parser accepts the candidate; `name` matches package and links resolve against existing repository directories plus the new files |
+| New file formatting and source scope | PASS, scoped | New Markdown UTF-8 and trailing-newline checks; no vendored third-party script, asset or executable dependency |
+| Repository branch comparison | PASS, scoped | New branch is based on `main`; unrelated files are intended to be byte-identical; see GitHub commit diff for exact result |
+| Baseline/candidate model probes A1–A12 | NOT RUN | Specifications are not executed model tests |
+| Browser, mini-app simulator, physical-device and user study | NOT RUN | No runtime visual quality, actual platform acceptance or user preference claims |
+| Token/latency and business outcome improvement | NOT RUN | No controlled model traces, retention, conversion or revenue measurements |
+
+Do not treat a static package review as evidence that the new design rules outperform the baseline. Run matched tasks and blind evidence review before promoting the candidate.

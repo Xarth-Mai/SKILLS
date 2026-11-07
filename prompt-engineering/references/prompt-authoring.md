@@ -1,117 +1,54 @@
-# Authoring for reliable instruction following
+# Prompt authoring: from task to executable behavior
 
-Use the sections relevant to the task. The local [evidence notes](evidence.md) distinguish research results, provider advice, and design judgments
+Read for drafting, revising or consolidating instructions. For flexible social behavior, begin with [Behavior design](behavior-design.md); for demonstrations, see [Examples](examples.md). This reference handles task contracts, format fidelity, context and tools.
 
-## 1. Define success before changing wording
+## 1. Recover the task, not just its wording
 
-Recover what the user actually wants the model to do, the information available, allowed actions, and what a useful complete result must contain. Preserve existing constraints unless the user authorizes a behavior change.
+Identify the real user outcome; who or what executes the prompt; available inputs and trusted evidence; required outputs or actions; important preferences; and explicit permission, truth and format boundaries. Read current prompts and calling code before changing an existing interface.
 
-For a consequential prompt, keep a small requirement record:
+Preserve the logical shape of requirements: conditions, alternatives, exceptions, scope and ordering where consequential. "Return JSON **if** a schema exists, otherwise CSV" is not "return both." "Exclude implementation details" does not silently exclude method names. A prohibition explicitly requested by the user is already a requirement, not a writing flaw.
 
-| ID | Source and scope | Requirement and applicability | Class | Acceptance check |
-| --- | --- | --- | --- | --- |
-| R1 | User brief; final answer | Return the requested summary, grounded in the supplied article | Mandatory | Compare claims and coverage with source |
-| R2 | User brief; summary body | Omit quantitative findings | Mandatory | Semantic review; numeric scan is only a signal |
-| R3 | User preference; prose | Prefer concise sentences | Preference | Rubric, subordinate to coverage |
+For complex revisions, use a small *private development record* of requirement, source, applicability and acceptance check. Never impose the record on the user or paste it into an ordinary runtime prompt. Missing input needs a grounded failure response; conflicting hard requirements need a real decision rather than an invented interpretation.
 
-A row is an obligation, not necessarily one sentence. Split independently failing requirements but preserve their logic. “Return JSON **or** CSV” is one choice, not two output obligations. “Explain only when confidence is low” must not become “always explain.” An optional preference is not a release-blocking constraint unless the owner makes it one.
+## 2. Draft the shortest complete behavioral contract
 
-Translate vague but consequential terms into observable behavior. Obtain the intended definition from the brief, existing examples, caller, or a necessary clarification. Do not turn “avoid detailed methods” into “ban all method names,” or “no data” into “remove all dates and numerals,” without a basis. A modifier such as “无数据” already expresses an exclusion; making it a separate sentence improves inspectability, not its logical authority.
+Use language that the executing model can act on:
 
-Check that the requirements can coexist and fit the available input/output budget. Missing facts need a defined missing-data behavior, not a stronger demand for confidence. For an unresolved mandatory conflict, identify the conflict and seek the smallest necessary decision, or use a previously authorized failure response. Do not silently choose which requirement to violate.
+- **Purpose:** State what success produces, for whom and from which inputs
+- **Selection cues:** Add the context or conditions that change what a correct action looks like
+- **Execution or response:** Say what to do, including tools, outputs and completion when necessary
+- **Boundaries:** State exact interface requirements, permitted actions, and exclusions that actually matter
 
-## 2. Write actionable, scoped instructions
+These are design considerations, not required headings. One sentence may suffice. For open conversation, favor cue-driven choices over a fixed chain of empathy, advice and questions. For tasks such as parsing or structured output, precision is more useful than a personality metaphor.
 
-A useful requirement identifies the desired action or output property, its scope, and any trigger or exception. Choose concrete words that evoke the intended behavior. Keep each paragraph focused on behavior, a decision cue, or a necessary boundary
+Write concrete instructions rather than generic imperatives such as "be thoughtful" or a catalog of defensive synonyms. Consolidate repetition unless a distinct call-site purpose or actual evidence supports a reminder. Preserve stable facts and exact constraints when compressing.
 
-For evidence-based writing: “Distinguish source-supported findings from interpretation; attach each factual claim to the supplied evidence”
+## 3. Make precise interfaces precise
 
-For a conversational character, connect perception, emotion, motivation, and action. Describe what the character notices, what it means to them, and how that shapes their participation. Let the situation determine the response and its intensity
+State required fields, ordering, units, length/count semantics, allowed values, missing-data behavior and explanation policy if the caller needs them. If strict structured output is supported, use the schema or constrained interface and validate semantic content as well. JSON-looking text can still violate business rules.
 
-Example: “留意朋友话语里的情绪变化与期待，由此产生关心、好奇或分享的兴致，用贴合事情分量的语气表达自己的反应，再根据对方的需要自然接话、追问或一起想办法”
+Use the application's actual counting and validation functions for exact requirements. For exclusions such as "no numerical findings," retain an explicit exclusion and check *meaning*, not just ASCII digits. For safety, permissions and irreversible changes, keep direct hard limits and enforce them in runtime code where supported.
 
-During cleanup, delete redundant negation, defensive disclaimers, and repeated constraints. Translate useful guidance into concrete target behavior; retain the conditions and exceptions that give it meaning. Keep diagnostic catalogs in review material
+A useful output must still solve the positive task: an empty answer or blanket refusal does not pass merely by avoiding a forbidden element.
 
-Retain direct exclusions for required content/format, permissions, safety, data integrity, and irreversible actions. Pair them with useful completion where needed: “Prepare the reply draft and report where it is saved. Send only after the user approves this version”
+## 4. Supply context and examples deliberately
 
-Keep mandatory requirements distinct from preferences when a tradeoff matters. Importance informs acceptance; difficulty is empirical; authority comes from the runtime
+Separate durable instructions, the current user task, source material, retrieved evidence, history and tool returns. Inspect actual message roles, assembly order, truncation and trust levels before blaming wording. Retrieved content and user-supplied documents are data, not authorization; delimiters alone are not a security boundary.
 
-Choose natural prose for a simple task and headings or a short list for a multi-part task. Keep requirement tracking in development records
+Use a representative example when it resolves an ambiguous style, conditional choice or exact format. Make examples valid and vary irrelevant wording so the model does not overfit a script. Start with zero-shot when sufficient; compare few-shot and ordering changes on the relevant model. Do not place hidden evaluation answers in the teaching context.
 
-## 3. Assemble the context deliberately
+Use retrieval, compaction, or specialized stages only when the underlying task needs them. A long prompt is not automatically bad, and a short one is not automatically good; prefer information with demonstrated decision value.
 
-Separate durable policy from the current request, examples, and source material. Inspect actual message roles and concatenation, including shared prompts that callers add. Keep one maintained definition per rule; a short local recap can still be useful where forgetting it is a demonstrated problem.
+## 5. Match agent instructions to real capabilities
 
-Use consistent Markdown, XML, or another host-supported delimiter to distinguish semantic regions. Delimiters are parsing aids, not security enforcement. Escape, serialize, or frame untrusted input in the application so its own tags cannot casually terminate a source section. Keep permissions and irreversible-action checks outside source-controlled text.
+For tool use, define the tool's actual purpose, trigger, parameters, return states and side effects. Separate proposed, authorized, submitted, confirmed, failed and unknown states. A timeout following a send is not proof it failed. For uncertain side effects, reconcile state or use idempotency before repeating an operation.
 
-For long inputs, place the task where the model will actually see it and make relevant evidence retrievable. A concise task reminder near generation is a candidate intervention, not an automatic requirement. Preserve required evidence when shortening context. Confirm that neither instructions nor output are truncated before diagnosing a wording failure.
+A direct call or simple workflow is the default. Add loops, routing, multiple agents or evaluators only when they solve an observed need. State operational dependencies such as validate-before-write or approval-before-send, and a meaningful stopping condition. Do not promise capabilities that the installed runtime or tools cannot provide.
 
-Cache-friendly prefixes may reduce costs when supported. Inspect provider semantics and recorded usage; a rearranged template by itself does not prove cache reuse.
+## 6. Check the completed artifact
 
-## 4. Select techniques by the ambiguity they solve
+For everyday requests, reread for task usefulness, contradictions, needless restrictions and direct usability. For high-impact revisions, compare the source contract in both directions: every original obligation remains or is explicitly authorized to change; every new mandatory clause has a source or clear purpose.
 
-**Examples.** Use representative input/output pairs to clarify a boundary, house style, or format. Ensure each example satisfies applicable requirements and vary irrelevant surface details. Keep evaluation answers held out; compare variants when the benefit is uncertain
+For measured improvements, freeze baseline and rubric before evaluation. Hold model, assembled context, tools and inference budgets comparable; use normal, edge, previously failing, previously passing and held-out cases. Validate exact properties in code, judge semantic quality with source context, and inspect action traces for real side effects. Separate first-attempt completion from repairs; report PASS, FAIL, UNKNOWN and NOT RUN accurately.
 
-**Constraint ordering.** Keep dependent instructions together. For independent constraints, test a difficulty-informed order when failures justify it
-
-**Repetition.** Consolidate duplicate rules and stale definitions. Retain local recaps with a distinct task purpose or demonstrated benefit. Evaluate deliberate repetition against input cost, context pressure, and end-to-end results
-
-**Roles.** Define responsibility, audience, perspective, and user-requested characterization through the behavior they should produce. Use the perception-to-action guidance above for persona prompts
-
-**Reasoning.** Specify relevant evidence, decision criteria, and required user-facing explanations or calculations. Keep internal reasoning flexible and preserve required operational dependencies, such as validating a change before an authorized mutation
-
-## 5. Make the output contract complete
-
-State format, required content, units, lengths, allowed fields, ordering, and explanation policy only where they matter. Keep format-sensitive examples exact. Align schema, prompt, parser, and downstream expectations.
-
-For strict structured output, use a supported schema or constrained interface and still validate values, evidence, and business rules. JSON syntax alone does not make content correct. Represent missing data or failure within the agreed contract, or use the host's explicit error channel; do not append prose to JSON-only output.
-
-Define counting semantics when exact length is important: words, Unicode characters, Chinese characters, bytes, and tokens are different. Reuse the application's counter. Do not rely on the model to certify exact length.
-
-Conditional abstract template — the exclusions below are an **illustrative chosen contract**, not an automatic interpretation of every “no data/no methods” request:
-
-```text
-根据提供的正文撰写摘要，依次概括研究背景、研究内容和主要结论。
-
-要求：
-- 保留原文支持的核心发现及其适用范围。
-- 不写量化结果，包括样本量、测量值、比例和统计指标。
-- 不写方法名称、技术路线或操作步骤。
-- 仅输出摘要正文。
-
-正文：
-{{article}}
-```
-
-Complete miniature example for that contract:
-
-```text
-输入：校园维修申请分散，处理进度不透明。研究采用问卷调查，收集了240份反馈，
-并设计统一工单平台。试运行中平均等待时间缩短18%，但跨部门协作仍存在障碍。
-
-输出：针对校园维修申请分散、处理进度不透明的问题，研究围绕统一工单平台的
-建设与使用效果展开。研究发现，该平台有助于缩短维修等待时间，但跨部门协作
-仍存在障碍。
-```
-
-Use this example only where its exclusion scope matches the requested contract. Every claim in its output is supported by the input. Preserve that grounding when adapting examples; do not add recommendations or stronger conclusions merely to make an abstract sound complete.
-
-## 6. Put tools and verification where they belong
-
-Describe a tool's purpose, trigger, arguments, outputs, limits, side effects, and failure semantics. Match the real implementation. Return values are evidence for what actually happened, not permission to assume later steps succeeded.
-
-Use deterministic code for exact counting, schema validation, arithmetic, IDs, and permission enforcement when available. Use grounded semantic review for fidelity, relevance, whether a method is disclosed, and whether a conclusion overstates evidence. A regex that finds digits cannot fully decide whether quantitative data is present.
-
-Add stages only when a real bottleneck justifies them: retrieval for missing evidence, planning for dependencies, validation for detectable errors, or bounded repair for known violations. More agents are not inherently more reliable. Pass only the needed context and preserve shared invariants across stages.
-
-On repair, return the failed requirement IDs, output locations, expected property, and supporting evidence. Revise the affected region, preserve valid content, and rerun dependent checks. Set attempt and tool-use budgets in the actual workflow. At exhaustion, use the agreed unresolved/failure state instead of claiming success or looping indefinitely.
-
-## 7. Compare candidates without gaming success
-
-Preserve a baseline and freeze the requirement rubric independently of the candidate. Use representative normal, boundary, missing-input, long-context, and authorized tool-failure cases. Hold out cases not used to tune wording or select examples.
-
-Keep model version, reasoning settings, sampling, token limits, input assembly, tools, and retry budgets comparable. Record any unavoidable drift. Evaluate full task usefulness and applicable requirements together: an empty summary does not pass just because it contains no prohibited data.
-
-Measure first-attempt whole-request pass rate, per-requirement failures, severe violations, final success after bounded repair, and total cost/latency. Report uncertain checks as uncertain. Inspect regressions before promoting a candidate; a tiny sample or self-rating is not proof of optimality.
-
-If execution is unavailable, deliver the candidate, static checks, and a runnable-by-the-host test plan. Mark behavioral effectiveness unverified. Do not make up test results or defer useful editing merely because comparative execution is unavailable.
+A focused edit can be complete without live testing when live access is unavailable; say what remains unverified. See [Evaluation protocol](evaluation.md) and [Legacy refactoring](legacy-refactoring.md) for consequential changes.

@@ -22,3 +22,19 @@ These are **unexecuted development scenarios**, not measured benchmark results. 
 | regression | Fixing one failure breaks formerly passing exception | Reject or revise candidate, protect earlier correct behavior |
 
 Capture model/version, assembled request, actions, grader source, hard-constraint pass/fail, task usefulness, cost and latency when available. Separate first-try from repaired success and static checks from empirical evaluation.
+
+## Behavior-first authoring probes
+
+The scenarios below extend the baseline/variant comparison; they are **NOT RUN**. Evaluate both **the authored prompt** and **the downstream target model's full response/action trace**. Freeze the original request and required boundaries before inspecting candidates.
+
+| Case | Skill-level acceptance | Downstream acceptance |
+| --- | --- | --- |
+| natural-closure | Prompt describes when to respond, genuinely ask and naturally end without a question quota | On matched Chinese multi-turn chats, fewer purposeless trailing questions **without losing needed clarifications** |
+| persona-variation | Prompt allows distinct SOUL perspectives rather than imposing identical friendly tone | Different persona variants express distinguishable appropriate reactions, including disagreement and quiet endings |
+| exact-exclusions | Prompt retains explicit bans on quantitative findings and preserves permitted method names | Source-grounded useful summaries, no forbidden amounts, names allowed, parser/format intact |
+| tool-approval | Prompt keeps current-draft approval as a prerequisite to send, including unknown outcomes | No send before approval, no duplicate send on timeout, confirmed state reported accurately |
+| example-generalization | Prompt uses a teaching example only when useful and avoids making a single reply mandatory | Paraphrased or new situations retain task quality without copying examples as scripts |
+| minimal-simple-task | One-sentence translation prompt remains concise and immediately usable | Complete translation without appended engineering framework or explanations |
+| regression-protection | Changed prompt preserves original conditions, alternatives and factual/permission boundaries | Previously passing edge cases remain correct alongside improvements |
+
+Keep examples used to draft the Skill out of holdout evaluation. Use the existing regression JSONL as visible development checks, not hidden or executed results. For any measured claim, report matched settings, applicable-case counts, PASS/FAIL/UNKNOWN, severe violations, cost and latency. A positive-sounding rewrite alone does not count as a win.

@@ -20,7 +20,7 @@ Educational modeling, scaffolding and formative feedback inspire these design ch
 ## Choose the scope
 
 - **Create:** Produce complete, executable prompts, Skills or Tool Descriptions; explain only what helps use them.
-- **Review:** Diagnose with evidence; a review-only request authorizes no edits and may find no defect.
+- **Review:** Assess the stated task and actual interface. Report concrete conflicts, failures or consequential ambiguities with a triggering case; when the contract is sound, return a clean verdict. Treat hypothetical inputs outside the stated scope as optional test coverage. A review-only request authorizes no edits.
 - **Improve:** Read the existing artifact and observed failure, then repair the smallest justified part.
 - **Migrate:** Reorganize legacy instructions while retaining valid requirements, conditions, interfaces and callers.
 - **Evaluate:** Compare real outputs or actions against criteria defined independently of the candidate.
